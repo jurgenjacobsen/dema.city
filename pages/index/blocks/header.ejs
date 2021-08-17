@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+
+  <title>
+    Dema City
+  </title>
+
+  <meta name="theme-color" content="#1c1c1c">
+  <meta property=”og:type” content=”website”/>
+  <meta property="og:title" content="Dema City">
+  <meta property="og:url" content="https://dema.city">
+  <meta property="og:description" content="Welcome to Dema City, a multiporpose plataform.">
+  <meta property="og:image" content="/images/DemaLogo.png">
+
+  <link rel="shortcut icon" href="/assets/images/favicon.ico"/>
+  <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <meta name="google" content="notranslate"/>
+
+  <link rel="stylesheet" href="/assets/styles/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+  <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <script defer src="/assets/scripts/neo.js"></script>
+</head>
+
+<div class="nav" id="navbar">
+  <nav class="nav__container">
+      <div>
+          <a href="#" class="nav__link nav__logo nav__link__disabled">
+              <i class='bx bxs-disc nav__icon' ></i>
+              <span class="nav__logo-name">Dema.city</span>
+          </a>
+
+          <div class="nav__list">
+              <div class="nav__items">
+                  <h3 class="nav__subtitle">Menu</h3>
+
+                  <a href="/" class="nav__link active">
+                    <i class='bx bx-home nav__icon' ></i>
+                    <span class="nav__name">Home</span>
+                  </a>
+                  
+                  <a href="/explore" class="nav__link">
+                      <i class='bx bx-compass nav__icon' ></i>
+                      <span class="nav__name">Explore</span>
+                  </a>
+
+                  <!-- <div class="nav__dropdown">
+                    <a href="#" class="nav__link">
+                        <i class='bx bx-joystick nav__icon' ></i>
+                        <span class="nav__name">Dropdown</span>
+                        <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                    </a>
+
+                    <div class="nav__dropdown-collapse">
+                        <div class="nav__dropdown-content">
+                            <a href="#" class="nav__dropdown-item">Link 1</a>
+                        </div>
+                    </div>
+
+                  </div>-->
+              </div>
+
+              <% if(true) { %>
+                <div class="nav__items">
+                  <h3 class="nav__subtitle">Controle</h3>
+                  
+                  <a href="/mod/frens" class="nav__link">
+                    <i class='bx bx-group nav__icon'></i>
+                    <span class="nav__name">Usuários</span>
+                  </a>
+                </div>
+              <% } %>
+          </div>
+      </div>
+
+      <% if(true) { %>
+        <a href="/logout" class="nav__link nav__logout">
+          <i class='bx bx-log-out nav__icon' ></i>
+          <span class="nav__name">Log Out</span>
+        </a>
+      <% } else { %>
+        <a href="/login" class="nav__link nav__log">
+          <i class='bx bx-log-in nav__icon' ></i>
+          <span class="nav__name">Log In</span>
+        </a>
+      <% } %>
+  </nav>
+</div>
+
+<div class="header__toggle">
+  <button id="header-toggle">
+    <i class='bx bx-menu'></i>
+  </button>
+</div>
