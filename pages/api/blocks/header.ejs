@@ -2,13 +2,13 @@
 <head>
 
   <title>
-    Dema City
+    Dema City Api
   </title>
 
   <meta name="theme-color" content="#1c1c1c">
   <meta property=”og:type” content=”website”/>
-  <meta property="og:title" content="Dema City">
-  <meta property="og:url" content="https://dema.city">
+  <meta property="og:title" content="Dema City Api">
+  <meta property="og:url" content="https://api.dema.city">
   <meta property="og:description" content="Welcome to Dema City, a multiporpose plataform.">
   <meta property="og:image" content="/images/DemaLogo.png">
 
@@ -33,53 +33,27 @@
       <div>
           <a href="#" class="nav__link nav__logo nav__link__disabled">
               <i class='bx bxs-disc nav__icon' ></i>
-              <span class="nav__logo-name">Dema.city</span>
+              <span id="nav-logo-name" class="nav__logo-name">Api</span>
           </a>
 
           <div class="nav__list">
               <div class="nav__items">
                   <h3 class="nav__subtitle">Menu</h3>
 
-                  <a href="/" class="nav__link active">
+                  <a href="/application" class="nav__link active">
                     <i class='bx bx-home nav__icon' ></i>
-                    <span class="nav__name">Home</span>
+                    <span class="nav__name">Application</span>
                   </a>
                   
-                  <a href="/explore" class="nav__link">
+                  <a href="/documention" class="nav__link">
                       <i class='bx bx-compass nav__icon' ></i>
-                      <span class="nav__name">Explore</span>
+                      <span class="nav__name">Documentation</span>
                   </a>
-
-                  <!-- <div class="nav__dropdown">
-                    <a href="#" class="nav__link">
-                        <i class='bx bx-joystick nav__icon' ></i>
-                        <span class="nav__name">Dropdown</span>
-                        <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                    </a>
-
-                    <div class="nav__dropdown-collapse">
-                        <div class="nav__dropdown-content">
-                            <a href="#" class="nav__dropdown-item">Link 1</a>
-                        </div>
-                    </div>
-
-                  </div>-->
               </div>
-
-              <% if(true) { %>
-                <div class="nav__items">
-                  <h3 class="nav__subtitle">Controle</h3>
-                  
-                  <a href="/mod/frens" class="nav__link">
-                    <i class='bx bx-group nav__icon'></i>
-                    <span class="nav__name">Usuários</span>
-                  </a>
-                </div>
-              <% } %>
           </div>
       </div>
 
-      <% if(true) { %>
+      <% if(auth) { %>
         <a href="/logout" class="nav__link nav__logout">
           <i class='bx bx-log-out nav__icon' ></i>
           <span class="nav__name">Log Out</span>

@@ -1,5 +1,4 @@
 import express from 'express';
-import dotenv from 'dotenv';
 import morgan from 'morgan';
 import greenlock from 'greenlock-express';
 import { Server } from 'socket.io';
@@ -7,13 +6,13 @@ import { join } from 'path';
 import { createServer } from 'http'
 import { vhost, print } from './utils';
 
-dotenv.config();
+import { api, dev, app } from './sub-servers/index';
 
 const server = express();
 const httpServer = createServer(server);
 let io;
 
-server.use(morgan('combined'));
+server.use(morgan('dev'));
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 server.use('/assets', express.static(join(__dirname, '../assets')));
@@ -28,13 +27,8 @@ server.use((req, res, next) => {
   next();
 });
 
-
-
-import { api, dev, app, clique } from './routes/index';
-
 if(process.env.IS_PROD) {
 
-  server.use(vhost('clique.dema.city', clique));
   server.use(vhost('api.dema.city', api));
   server.use(vhost('dev.dema.city', dev));
 
@@ -43,7 +37,6 @@ if(process.env.IS_PROD) {
 
 } else {
 
-  server.use(vhost('clique.localhost', clique));
   server.use(vhost('api.localhost', api));
   server.use(vhost('dev.localhost', dev));
   

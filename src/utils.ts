@@ -1,5 +1,14 @@
 import colors from 'colors';
 import { NextFunction, Request, Response } from 'express';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+export const mongoInfo = {
+  mongoURL: process.env.MONGO as string, 
+  mongoPass: process.env.MONGO_PASS as string, 
+  mongoUser: process.env.MONGO_USER as string, 
+}
 
 export function print(value: string | number) {
   let d = new Date();
@@ -18,3 +27,14 @@ export const vhost = (hostname: string, app: any) => (req: Request, res: Respons
     next();
   }
 };
+
+
+export function token(length: number) {
+  var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".split("");
+  var b = [];  
+  for (var i=0; i<length; i++) {
+      var j = (Math.random() * (a.length-1)).toFixed(0);
+      b[i] = a[j as any];
+  }
+  return b.join("");
+}
