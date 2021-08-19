@@ -6,7 +6,7 @@ const app = express();
 
 app.set('views', join(__dirname, '../../pages'));
 app.set('view engine', 'ejs');
-app.engine('html', renderFile)
+app.engine('html', renderFile);
 
 app.get('/', (req, res) => {
   res.render('index/home');

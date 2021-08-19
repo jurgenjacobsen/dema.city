@@ -4,7 +4,8 @@
   "description": "",
   "main": "lib/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "p": "prettier --config .prettierrc \"./src/**/*.ts\" --write"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +16,8 @@
     "@types/express-session": "^1.17.4",
     "@types/morgan": "^1.9.3",
     "@types/passport": "^1.0.7",
-    "@types/passport-discord": "^0.1.4"
+    "@types/passport-discord": "^0.1.4",
+    "prettier": "^2.3.2"
   },
   "dependencies": {
     "colors": "^1.4.0",
