@@ -1,17 +1,14 @@
 import express from 'express';
 import { renderFile } from 'ejs';
 import { join } from 'path';
-import { Database } from 'dsc.db';
-import { mongoInfo, token } from '../utils';
+import { token } from '../utils';
 import { Strategy } from 'passport-discord';
 import passport from 'passport';
 import session from 'express-session';
+import { users, access } from '../database';
 
 const api = express();
 const scopes = ['identify', 'guilds.join', 'email'];
-
-const access = new Database({ ...mongoInfo, collection: 'access' });
-const users = new Database({ ...mongoInfo, collection: 'users' });
 
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((obj: any, done) => done(null, obj));
