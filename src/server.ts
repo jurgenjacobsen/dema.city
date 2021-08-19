@@ -6,6 +6,7 @@ import { join } from 'path';
 import { createServer } from 'http'
 import { vhost, print } from './utils';
 
+import { bot } from './bot'; bot;
 import { api, dev, app } from './sub-servers/index';
 
 const server = express();
