@@ -1,7 +1,7 @@
 import express from 'express';
 import { renderFile } from 'ejs';
 import { join } from 'path';
-import { token } from '../utils';
+import { newUser, token } from '../utils';
 import { Strategy } from 'passport-discord';
 import passport from 'passport';
 import session from 'express-session';
@@ -72,6 +72,7 @@ api.get('/application', (req, res) => {
 //
 // Actual Api
 //
+
 api.use(async (req, res, next) => {
   let auth = req.headers.authorization?.split('Bearer')[1]?.trim();
   if (auth) {

@@ -1,5 +1,18 @@
 import colors from 'colors';
-import { ApplicationCommandData, Client, ClientOptions, GuildMember, Message, MessageActionRow, MessageButton, MessageEmbed, Role, User } from 'discord.js';
+import {
+  ApplicationCommandData,
+  Client,
+  ClientOptions,
+  GuildMember,
+  Message,
+  MessageActionRow,
+  MessageAttachment,
+  MessageButton,
+  MessageEmbed,
+  Role,
+  TextChannel,
+  User,
+} from 'discord.js';
 import { print } from './utils';
 class Bot extends Client {
   constructor(options: ClientOptions) {
@@ -36,7 +49,7 @@ const bot = new Bot({
   },
 });
 
-bot.on('ready', () => {
+bot.on('ready', async () => {
   print(`${colors.gray('[BOT]')} Ready`);
 });
 
@@ -80,39 +93,56 @@ bot.on('interactionCreate', async (interaction) => {
         break;
     }
   } else if (interaction.isButton()) {
-    switch (interaction.customId) {
-      case 'TODO_CLAIM':
-        {
-          let old_embed = interaction.message.embeds[0] as MessageEmbed;
-          let member = interaction.guild?.members.cache.get(interaction.user.id);
-          if (!(old_embed.footer?.text === interaction.user.id) && !member?.roles.cache.find((r) => r.id === old_embed.footer?.text)) return;
+    if (interaction.customId === 'TODO_CLAIM') {
+      let old_embed = interaction.message.embeds[0] as MessageEmbed;
+      let member = interaction.guild?.members.cache.get(interaction.user.id);
+      if (!(old_embed.footer?.text === interaction.user.id) && !member?.roles.cache.find((r) => r.id === old_embed.footer?.text)) return;
 
-          let embed = new MessageEmbed(old_embed).setColor('#FEE75C').setFooter(interaction.user.id);
+      let embed = new MessageEmbed(old_embed).setColor('#FEE75C').setFooter(interaction.user.id);
 
-          await interaction.deferUpdate();
+      await interaction.deferUpdate();
 
-          (interaction.message as Message).edit({
-            embeds: [embed],
-            components: [new MessageActionRow().addComponents([new MessageButton().setCustomId('TODO_END').setLabel('Finalizar').setStyle('PRIMARY')])],
-          });
-        }
-        break;
-      case 'TODO_END':
-        {
-          let old_embed = interaction.message.embeds[0] as MessageEmbed;
+      (interaction.message as Message).edit({
+        embeds: [embed],
+        components: [new MessageActionRow().addComponents([new MessageButton().setCustomId('TODO_END').setLabel('Finalizar').setStyle('PRIMARY')])],
+      });
+    } else if (interaction.customId === 'TODO_END') {
+      let old_embed = interaction.message.embeds[0] as MessageEmbed;
 
-          if (old_embed.footer?.text !== interaction.user.id) return;
+      if (old_embed.footer?.text !== interaction.user.id) return;
 
-          let embed = new MessageEmbed(old_embed).setColor('#57F287').setFooter(`Finalizado! ${interaction.user.tag} entregou este à fazer!`);
+      let embed = new MessageEmbed(old_embed).setColor('#57F287').setFooter(`Finalizado! ${interaction.user.tag} entregou este à fazer!`);
 
-          await interaction.deferUpdate();
+      await interaction.deferUpdate();
 
-          (interaction.message as Message).edit({
-            embeds: [embed],
-            components: [],
-          });
-        }
-        break;
+      (interaction.message as Message).edit({
+        embeds: [embed],
+        components: [],
+      });
+    } else if (interaction.customId.startsWith('COLLECT_ROLE_')) {
+      interaction.deferUpdate();
+
+      let member = interaction.guild?.members.cache.get(interaction.user.id);
+      let roles = interaction.guild?.roles.cache
+        .map((r) => {
+          let isCat = r.name.includes('───');
+          return { p: r.position, roleID: r.id, name: r.name, isCat };
+        })
+        .sort((a, b) => a.p - b.p);
+
+      let roleID = interaction.customId.replace('COLLECT_ROLE_', '').trim();
+      let role = roles?.find((r) => r.roleID === roleID);
+      let ntf = roles?.find((r) => r.roleID === '877658804144209971');
+
+      if (role && ntf && ntf.p > role.p) {
+        member?.roles.add(ntf.roleID);
+      }
+
+      if (member?.roles.cache.has(roleID)) {
+        member.roles.remove(roleID);
+      } else {
+        member?.roles.add(roleID);
+      }
     }
   }
 });

@@ -1,6 +1,8 @@
 import colors from 'colors';
 import { NextFunction, Request, Response } from 'express';
 import dotenv from 'dotenv';
+import { Snowflake, User } from './database';
+import { SnowflakeUtil } from 'discord.js';
 
 dotenv.config();
 
@@ -36,4 +38,39 @@ export function token(length: number) {
     b[i] = a[j as any];
   }
   return b.join('');
+}
+
+export function newUser(): User {
+  return {
+    id: SnowflakeUtil.generate() as Snowflake,
+    username: 'username',
+    banner: null,
+    icon: null,
+    birthday: null,
+    phoneNumber: null,
+    discordId: null,
+    instagram: null,
+    twitter: null,
+    website: null,
+    email: 'jurgenjacobsen@outlook.com',
+    staff: true,
+    verified: true,
+    partner: true,
+    developer: true,
+    authenticated: true,
+    badges: [],
+    likes: [],
+    posts: [],
+    followers: [],
+    follows: [],
+    notifications: {
+      red: [],
+      unreads: [],
+    },
+    options: {
+      devUpdates: true,
+      emailNotifications: true,
+      private: true,
+    },
+  };
 }
