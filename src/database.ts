@@ -25,7 +25,6 @@ export interface User {
   verified: boolean;
   partner: boolean;
   developer: boolean;
-  authenticated: boolean;
 
   badges: Snowflake[];
   likes: Snowflake[];
@@ -42,6 +41,26 @@ export interface User {
     emailNotifications: boolean;
     private: boolean;
   };
+}
+
+export interface Application {
+  id: Snowflake,
+  username: string,
+
+  name: string | null,
+  banner: string | null,
+  icon: string | null,
+  birthday: Date | null,
+  aboutme: string | null,
+  location: string | null,
+
+  verified: boolean,
+  system: boolean,
+
+  likes: Snowflake[],
+  posts: Snowflake[],
+  followers: Snowflake[],
+  follows: Snowflake[],
 }
 
 const access = new Database({ ...mongoInfo, collection: 'access' });

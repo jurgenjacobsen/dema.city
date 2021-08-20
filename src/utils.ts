@@ -63,7 +63,6 @@ export function newUser(): User {
     verified: true,
     partner: true,
     developer: true,
-    authenticated: true,
 
     badges: [],
     likes: [],
