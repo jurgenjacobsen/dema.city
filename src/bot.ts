@@ -1,18 +1,6 @@
 import colors from 'colors';
-import {
-  ApplicationCommandData,
-  Client,
-  ClientOptions,
-  GuildMember,
-  Message,
-  MessageActionRow,
-  MessageAttachment,
-  MessageButton,
-  MessageEmbed,
-  Role,
-  TextChannel,
-  User,
-} from 'discord.js';
+import { Client, ClientOptions, Message, MessageActionRow, MessageButton, MessageEmbed, TextChannel } from 'discord.js';
+
 import { print } from './utils';
 class Bot extends Client {
   constructor(options: ClientOptions) {
@@ -118,6 +106,19 @@ bot.on('interactionCreate', async (interaction) => {
       (interaction.message as Message).edit({
         embeds: [embed],
         components: [],
+      });
+    } else if (interaction.customId === 'BUGHUNTER_INTEREST') {
+      interaction.deferUpdate();
+      interaction.user
+        .send({
+          content: `Obrigado por se inscrever para o time de *bughunters*! Você receberá uma resposta em até 3 dias.`,
+        })
+        .catch(() => {});
+
+      let ch = bot.channels.cache.get('784969991635468288') as TextChannel;
+
+      ch.send({
+        content: `${interaction.user.toString()} se inscreveu para Bughunter!`,
       });
     } else if (interaction.customId.startsWith('COLLECT_ROLE_')) {
       interaction.deferUpdate();

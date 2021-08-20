@@ -43,21 +43,28 @@ export function token(length: number) {
 export function newUser(): User {
   return {
     id: SnowflakeUtil.generate() as Snowflake,
-    username: 'username',
+    username: 'string',
+
+    name: null,
     banner: null,
     icon: null,
     birthday: null,
+    aboutme: null,
+    location: null,
+
     phoneNumber: null,
     discordId: null,
     instagram: null,
     twitter: null,
     website: null,
-    email: 'jurgenjacobsen@outlook.com',
+    email: '@',
+
     staff: true,
     verified: true,
     partner: true,
     developer: true,
     authenticated: true,
+
     badges: [],
     likes: [],
     posts: [],
@@ -67,6 +74,7 @@ export function newUser(): User {
       red: [],
       unreads: [],
     },
+
     options: {
       devUpdates: true,
       emailNotifications: true,

@@ -7,9 +7,12 @@ export interface User {
   id: Snowflake;
   username: string;
 
+  name: string | null;
   banner: string | null;
   icon: string | null;
   birthday: Date | null;
+  aboutme: string | null;
+  location: string | null;
 
   phoneNumber: number | null;
   discordId: Snowflake | null;
