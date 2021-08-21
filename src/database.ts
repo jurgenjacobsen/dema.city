@@ -41,29 +41,30 @@ export interface User {
     emailNotifications: boolean;
     private: boolean;
   };
-}
+};
 
 export interface Application {
-  id: Snowflake,
-  username: string,
+  id: Snowflake;
+  username: string;
 
-  name: string | null,
-  banner: string | null,
-  icon: string | null,
-  birthday: Date | null,
-  aboutme: string | null,
-  location: string | null,
+  name: string | null;
+  banner: string | null;
+  icon: string | null;
+  birthday: Date | null;
+  aboutme: string | null;
+  location: string | null;
 
-  verified: boolean,
-  system: boolean,
+  verified: boolean;
+  system: boolean;
 
-  likes: Snowflake[],
-  posts: Snowflake[],
-  followers: Snowflake[],
-  follows: Snowflake[],
-}
+  likes: Snowflake[];
+  posts: Snowflake[];
+  followers: Snowflake[];
+  follows: Snowflake[];
+};
 
 const access = new Database({ ...mongoInfo, collection: 'access' });
 const users = new Database({ ...mongoInfo, collection: 'users' });
+const applications = new Database({ ...mongoInfo, collection: 'applications' });
 
-export { access, users };
+export { access, users, applications };
