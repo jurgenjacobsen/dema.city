@@ -20,6 +20,7 @@ export interface User {
   twitter: string | null;
   website: string | null;
   email: Email;
+  pw: string;
 
   staff: boolean;
   verified: boolean;
@@ -41,7 +42,7 @@ export interface User {
     emailNotifications: boolean;
     private: boolean;
   };
-};
+}
 
 export interface Application {
   id: Snowflake;
@@ -61,10 +62,13 @@ export interface Application {
   posts: Snowflake[];
   followers: Snowflake[];
   follows: Snowflake[];
-};
+}
 
 const access = new Database({ ...mongoInfo, collection: 'access' });
 const users = new Database({ ...mongoInfo, collection: 'users' });
 const applications = new Database({ ...mongoInfo, collection: 'applications' });
+const news = new Database({ ...mongoInfo, collection: 'news' });
+const badges = new Database({ ...mongoInfo, collection: 'badges' });
+const posts = new Database({ ...mongoInfo, collection: 'posts' });
 
-export { access, users, applications };
+export { access, users, applications, news, badges, posts };
