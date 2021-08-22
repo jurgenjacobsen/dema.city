@@ -1,3 +1,4 @@
+import { SnowflakeUtil } from 'discord.js';
 import { Database } from 'dsc.db';
 import { mongoInfo } from './utils';
 
@@ -16,6 +17,7 @@ export interface User {
 
   phoneNumber: number | null;
   discordId: Snowflake | null;
+  twitterId: Snowflake | null;
   instagram: string | null;
   twitter: string | null;
   website: string | null;

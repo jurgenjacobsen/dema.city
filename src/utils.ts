@@ -68,6 +68,14 @@ export function markdownTemplate(title: string, path: string, stringFile: string
             font-family: 'Poppins', sans-serif;
           }
 
+          h1:first-child {
+            text-align: center;
+          }
+
+          p:first-child {
+            text-align: center;
+          }
+
           .container {
             width: 100%;
             padding-right: 15px;
