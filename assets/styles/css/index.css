@@ -3,18 +3,18 @@
   --body-color: #1c1c1c;
   --container--color: #202020;
   --sec-color: #212121;
-  --shadow-color: rgba(0,0,0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
   --body-font: 'Poppins', sans-serif;
-  --normal-font-size: .938rem;
-  --small-font-size: .75rem;
-  --smaller-font-size: .75rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.75rem;
+  --smaller-font-size: 0.75rem;
   --font-thin: 200;
   --font-medium: 500;
   --font-semi-bold: 600;
   --font-bold: 800;
-  --text-color: #58555E;
-  --text-color-light: #A5A1AA;
-  --text-color-extra-light: #FFFFFF;
+  --text-color: #58555e;
+  --text-color-light: #a5a1aa;
+  --text-color-extra-light: #ffffff;
   --first-color-light: #292929;
   --nav-width: 213px;
 }
@@ -22,8 +22,8 @@
 @media screen and (min-width: 1024px) {
   :root {
     --normal-font-size: 1rem;
-    --small-font-size: .875rem;
-    --smaller-font-size: .813rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
   }
 }
 
@@ -32,7 +32,9 @@ html {
   overflow-x: hidden;
 }
 
-*, ::before, ::after {
+*,
+::before,
+::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -44,7 +46,7 @@ a {
 img.emoji {
   height: 1em;
   width: 1em;
-  margin: 0 .05em 0 .1em;
+  margin: 0 0.05em 0 0.1em;
   vertical-align: -0.1em;
   pointer-events: none;
 }
@@ -60,6 +62,7 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  overflow-x: hidden;
 }
 
 .nav {
@@ -70,8 +73,8 @@ body {
   padding: 1rem 1rem 0;
   background-color: var(--container--color);
   z-index: 999;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   /* Dropdown */
   /* Show dropdown collapse */
   /* Rotate icon arrow */
@@ -126,7 +129,7 @@ body {
 .nav .nav__subtitle {
   font-size: var(--normal-font-size);
   text-transform: uppercase;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   color: var(--text-color-light);
 }
 
@@ -151,7 +154,7 @@ body {
 
 .nav .nav__icon {
   font-size: 1.2rem;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .nav .nav__name {
@@ -167,21 +170,21 @@ body {
 .nav .nav__dropdown {
   overflow: hidden;
   max-height: 21px;
-  -webkit-transition: .4s ease-in-out;
-  transition: .4s ease-in-out;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
 .nav .nav__dropdown-collapse {
   background-color: var(--first-color-light);
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   margin-top: 1rem;
 }
 
 .nav .nav__dropdown-content {
   display: -ms-grid;
   display: grid;
-  row-gap: .5rem;
-  padding: .75rem 2.5rem .75rem 1.8rem;
+  row-gap: 0.5rem;
+  padding: 0.75rem 2.5rem 0.75rem 1.8rem;
 }
 
 .nav .nav__dropdown-item {
@@ -196,8 +199,8 @@ body {
 
 .nav .nav__dropdown-icon {
   margin-left: auto;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .nav .nav__dropdown:hover {
@@ -254,8 +257,8 @@ body {
   .nav__subtitle,
   .nav__dropdown-icon {
     opacity: 0;
-    -webkit-transition: .3s;
-    transition: .3s;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
   }
   /* Navbar expanded */
   .nav:hover {
@@ -274,6 +277,28 @@ body {
   .nav:hover .nav__dropdown-icon {
     opacity: 1;
   }
+}
+
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .login .container {
@@ -324,22 +349,26 @@ body {
 }
 
 @-webkit-keyframes show {
-  0%, 49.99% {
+  0%,
+  49.99% {
     opacity: 0;
     z-index: 1;
   }
-  50%, 100% {
+  50%,
+  100% {
     opacity: 1;
     z-index: 5;
   }
 }
 
 @keyframes show {
-  0%, 49.99% {
+  0%,
+  49.99% {
     opacity: 0;
     z-index: 1;
   }
-  50%, 100% {
+  50%,
+  100% {
     opacity: 1;
     z-index: 5;
   }
@@ -369,7 +398,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
-  color: #FFFFFF;
+  color: #ffffff;
   position: relative;
   left: -100%;
   height: 100%;
@@ -441,7 +470,7 @@ body {
 }
 
 .login .social-container a {
-  border: 1px solid #DDDDDD;
+  border: 1px solid var(--text-color-light);
   border-radius: 50%;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -491,7 +520,7 @@ body {
   border-radius: 20px;
   border: 1px solid var(--first-color-light);
   background-color: var(--first-color-light);
-  color: #FFFFFF;
+  color: var(--text-color-extra-light);
   font-size: 12px;
   font-weight: bold;
   padding: 12px 45px;
@@ -515,7 +544,7 @@ body {
 
 .login button.ghost {
   background-color: transparent;
-  border-color: #FFFFFF;
+  border-color: var(--text-color-extra-light);
 }
 
 .login form {
@@ -547,5 +576,69 @@ body {
 }
 
 .login box-icon {
-  color: #fff;
+  fill: var(--text-color-extra-light);
+}
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background: var(--first-color-light);
+  text-align: center;
+  border-radius: .5ch;
+  padding: 16px;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  top: 30px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: snack_fadein 0.5s, snack_fadeout 0.5s 2.5s;
+  animation: snack_fadein 0.5s, snack_fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes snack_fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes snack_fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes snack_fadeout {
+  from {
+    top: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes snack_fadeout {
+  from {
+    top: 30px;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
 }

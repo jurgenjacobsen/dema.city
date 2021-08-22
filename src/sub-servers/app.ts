@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request } from 'express';
 import marked from 'marked';
 import passport from 'passport';
 import twitterApi from 'passport-twitter';
@@ -10,24 +10,15 @@ import { renderFile } from 'ejs';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 import { markdownTemplate } from '../utils';
-import { User, users } from '../database';
+import { users } from '../database';
 
 const app = express();
 
 let discordScopes = ['identify', 'guilds.join', 'email'];
 let docsPath = join(__dirname, '../../docs');
 
-/* passport.use(new Strategy({
-  consumerKey: process.env.TWITTER_CONSUMER_KEY,
-  consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-  callbackURL: "http://www.example.com/auth/twitter/callback"
-}, (token: any, tokenSecret: any, profile: any, done: any) => {
-  done(null, profile);
-}
-))*/
-
 passport.serializeUser((user, done) => done(null, user));
-passport.deserializeUser((obj: any, done) => done(null, obj));
+passport.deserializeUser((obj, done) => done(null, obj as any));
 
 passport.use(
   new twitterApi.Strategy(
@@ -41,8 +32,8 @@ passport.use(
       if (!raw) {
         raw = await users.schema.findOne({ 'data.email': profile.emails?.[0]?.value });
       }
-
-      if (!raw) return done(new Error(), null);
+      
+      if (!raw) return done({ message: 'User not found' }, null);
 
       return done(null, raw.data);
     },
@@ -64,7 +55,7 @@ passport.use(
       }
 
       if (!raw) {
-        return done(new Error(), undefined);
+        return done({ name: '', message: 'User not found' }, undefined);
       }
 
       return done(null, raw.data);
@@ -84,14 +75,15 @@ app.engine('html', renderFile);
 
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/discord', passport.authenticate('discord'));
-app.get('/auth/facebook', passport.authenticate('facebook'));
 
 app.get(
   '/auth/twitter/cb',
   passport.authenticate('twitter', {
     successRedirect: '/',
     failureRedirect: '/login',
+    failureFlash: true,
   }),
+
 );
 
 app.use(
@@ -99,6 +91,7 @@ app.use(
   passport.authenticate('discord', {
     successRedirect: '/',
     failureRedirect: '/login',
+    failureFlash: true,
   }),
 );
 
@@ -139,7 +132,12 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  res.render('index/login');
+  if(req.isAuthenticated()) {
+    return res.redirect('/');
+  }
+  res.render('index/login', {
+    err: req.flash(),
+  });
 });
 
 
