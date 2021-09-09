@@ -1,4 +1,5 @@
 import colors from "colors";
+import { Request } from "express";
 import { promisify } from 'util';
 
 export function print(value: string | number): void {
@@ -11,3 +12,7 @@ export function print(value: string | number): void {
 }
 
 export const wait = promisify(setTimeout);
+
+export const cdn = (req: Request): string => {
+  return !req.hostname.includes('localhost') ? `${req.protocol}://cdn.dema.city` : `${req.protocol}://cdn.localhost`;
+}

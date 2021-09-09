@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request } from "express";
 import path from "path";
 import dotenv from "dotenv";
 import Greenlock from "greenlock-express";
@@ -18,7 +18,9 @@ const Server = express();
 const HttpServer = createServer(Server);
 
 let IO = new Socket.Server();
-let morgan = Morgan('common', {
+
+
+let morgan = Morgan('[:date[clf]] :method :referrer :remote-addr :status - ":user-agent"', {
   skip: (req, res) => res.statusCode < 400,
 });
 
@@ -39,6 +41,9 @@ for (const file of readdirSync(path.join(__dirname, "./servers"))) {
   server.app.use(express.urlencoded({ extended: true }));
   server.app.set('view engine', 'ejs');
   Server.use(HostName(server.hostname, server.app));
+  if(server.www) {
+    Server.use(HostName(`www.${server.hostname}`, server.app));
+  }
 }
 
 Server.get("*", (req, res) => res.sendStatus(400));

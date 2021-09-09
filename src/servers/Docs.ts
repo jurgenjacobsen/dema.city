@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import { readdirSync } from 'fs';
 import { SubServer } from '../structures/Hosts';
+import { cdn } from '../structures/Util';
 
 const app = express();
 
@@ -17,7 +18,8 @@ for(let folder of readdirSync(path.join(__dirname, '../../docs/'))) {
 app.get('/', (req, res) => {
   res.render(path.join(__dirname, '../../docs/index.ejs'), {
     documentations: documentations,
+    cdn: cdn(req),
   });
-})
+});
 
-export const server = new SubServer("docs.dema.city", app);
+export const server = new SubServer("docs.dema.city", app, true);

@@ -11,8 +11,10 @@ export const HostName = (hostname: string, app: Express) => (req: Request, res: 
 export class SubServer {
   public hostname: string;
   public app: Express;
-  constructor(hostname: string, app: Express) {
+  public www: boolean;
+  constructor(hostname: string, app: Express, www?: boolean) {
     this.hostname = process.env.IS_PROD ? hostname : hostname.replace('dema.city', 'localhost');
     this.app = app;
+    this.www = www ?? false;
   }
 }

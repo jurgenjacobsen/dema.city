@@ -2704,10 +2704,10 @@ img {
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class="current tsd-kind-class tsd-parent-kind-module">
+		<li class="current tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
 			<a href="main_Database.Database.html" class="tsd-kind-icon">Database</a>
 			<ul>
-				<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+				<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
 					<a href="main_Database.Database.html#constructor" class="tsd-kind-icon">constructor</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -2767,11 +2767,19 @@ img {
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
+		<section class="tsd-panel tsd-type-parameters">
+			<h3>Type parameters</h3>
+			<ul class="tsd-type-parameters">
+				<li>
+					<h4>T</h4>
+				</li>
+			</ul>
+		</section>
 		<section class="tsd-panel tsd-hierarchy">
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<a href="main_Base.Base.html" class="tsd-signature-type" data-tsd-kind="Class">Base</a>
+					<a href="main_Base.Base.html" class="tsd-signature-type" data-tsd-kind="Class">Base</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
 					<ul class="tsd-hierarchy">
 						<li>
 							<span class="target">Database</span>
@@ -2787,7 +2795,7 @@ img {
 					<section class="tsd-index-section ">
 						<h3>Constructors</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="main_Database.Database.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							<li class="tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite"><a href="main_Database.Database.html#constructor" class="tsd-kind-icon">constructor</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section tsd-is-inherited">
@@ -2822,27 +2830,33 @@ img {
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Constructors</h2>
-			<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+			<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3>constructor</h3>
-				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-					<li class="tsd-signature tsd-kind-icon">new <wbr>Database<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/interfaces.Options.html" class="tsd-signature-type" data-tsd-kind="Interface">Options</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="main_Database.Database.html" class="tsd-signature-type" data-tsd-kind="Class">Database</a></li>
+				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Database&lt;T&gt;<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/interfaces.Options.html" class="tsd-signature-type" data-tsd-kind="Interface">Options</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="main_Database.Database.html" class="tsd-signature-type" data-tsd-kind="Class">Database</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<p>Overrides <a href="main_Base.Base.html">Base</a>.<a href="main_Base.Base.html#constructor">constructor</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Database.ts#L7">src/main/Database.ts:7</a></li>
+								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Database.ts#L7">src/main/Database.ts:7</a></li>
 							</ul>
 						</aside>
+						<h4 class="tsd-type-parameters-title">Type parameters</h4>
+						<ul class="tsd-type-parameters">
+							<li>
+								<h4>T</h4>
+							</li>
+						</ul>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>options: <a href="../interfaces/interfaces.Options.html" class="tsd-signature-type" data-tsd-kind="Interface">Options</a></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="main_Database.Database.html" class="tsd-signature-type" data-tsd-kind="Class">Database</a></h4>
+						<h4 class="tsd-returns-title">Returns <a href="main_Database.Database.html" class="tsd-signature-type" data-tsd-kind="Class">Database</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -2856,7 +2870,7 @@ img {
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="main_Base.Base.html">Base</a>.<a href="main_Base.Base.html#connection">connection</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Base.ts#L7">src/main/Base.ts:7</a></li>
+						<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Base.ts#L7">src/main/Base.ts:7</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2867,7 +2881,7 @@ img {
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="main_Base.Base.html">Base</a>.<a href="main_Base.Base.html#options">options</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Base.ts#L6">src/main/Base.ts:6</a></li>
+						<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Base.ts#L6">src/main/Base.ts:6</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2878,18 +2892,18 @@ img {
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="main_Base.Base.html">Base</a>.<a href="main_Base.Base.html#readyAt">readyAt</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Base.ts#L9">src/main/Base.ts:9</a></li>
+						<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Base.ts#L9">src/main/Base.ts:9</a></li>
 					</ul>
 				</aside>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 				<a name="schema" class="tsd-anchor"></a>
 				<h3>schema</h3>
-				<div class="tsd-signature tsd-kind-icon">schema<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Model</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
+				<div class="tsd-signature tsd-kind-icon">schema<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Model</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="main_Base.Base.html">Base</a>.<a href="main_Base.Base.html#schema">schema</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Base.ts#L8">src/main/Base.ts:8</a></li>
+						<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Base.ts#L8">src/main/Base.ts:8</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2900,13 +2914,13 @@ img {
 				<a name="__math" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagPrivate">Private</span> __math</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<li class="tsd-signature tsd-kind-icon">__math<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, operator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;+&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;-&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;/&quot;</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">__math<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, operator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;+&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;-&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;/&quot;</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Database.ts#L230">src/main/Database.ts:230</a></li>
+								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Database.ts#L230">src/main/Database.ts:230</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2921,7 +2935,7 @@ img {
 								<h5>value: <span class="tsd-signature-type">number</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -2929,13 +2943,13 @@ img {
 				<a name="add" class="tsd-anchor"></a>
 				<h3>add</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Database.ts#L185">src/main/Database.ts:185</a></li>
+								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Database.ts#L185">src/main/Database.ts:185</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2952,7 +2966,7 @@ img {
 								<h5>amount: <span class="tsd-signature-type">number</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						<p>Promise&lt;Data | null&gt;</p>
 					</li>
 				</ul>
@@ -2961,13 +2975,13 @@ img {
 				<a name="delete" class="tsd-anchor"></a>
 				<h3>delete</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">FilterQuery</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">FilterQuery</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Database.ts#L168">src/main/Database.ts:168</a></li>
+								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Database.ts#L168">src/main/Database.ts:168</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2978,10 +2992,10 @@ img {
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>query: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">FilterQuery</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								<h5>query: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">FilterQuery</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						<p>Promise&lt;Data | null&gt;</p>
 					</li>
 				</ul>
@@ -2990,13 +3004,13 @@ img {
 				<a name="div" class="tsd-anchor"></a>
 				<h3>div</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">div<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">div<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Database.ts#L209">src/main/Database.ts:209</a></li>
+								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Database.ts#L209">src/main/Database.ts:209</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3013,7 +3027,7 @@ img {
 								<h5>amount: <span class="tsd-signature-type">number</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						<p>Promise&lt;Data | null&gt;</p>
 					</li>
 				</ul>
@@ -3022,13 +3036,13 @@ img {
 				<a name="ensure" class="tsd-anchor"></a>
 				<h3>ensure</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">ensure<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">ensure<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Database.ts#L150">src/main/Database.ts:150</a></li>
+								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Database.ts#L150">src/main/Database.ts:150</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3042,7 +3056,7 @@ img {
 								<h5>id: <span class="tsd-signature-type">string</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						<p>Promise<Data></p>
 					</li>
 				</ul>
@@ -3051,13 +3065,13 @@ img {
 				<a name="fetch" class="tsd-anchor"></a>
 				<h3>fetch</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">FilterQuery</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">FilterQuery</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Database.ts#L16">src/main/Database.ts:16</a></li>
+								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Database.ts#L16">src/main/Database.ts:16</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3068,10 +3082,10 @@ img {
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>query: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">FilterQuery</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								<h5>query: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">FilterQuery</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						<p>Promise&lt;Data | null&gt;</p>
 					</li>
 				</ul>
@@ -3086,7 +3100,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Database.ts#L215">src/main/Database.ts:215</a></li>
+								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Database.ts#L215">src/main/Database.ts:215</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3109,7 +3123,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Database.ts#L93">src/main/Database.ts:93</a></li>
+								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Database.ts#L93">src/main/Database.ts:93</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3132,13 +3146,13 @@ img {
 				<a name="list" class="tsd-anchor"></a>
 				<h3>list</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">list<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">list<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Database.ts#L135">src/main/Database.ts:135</a></li>
+								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Database.ts#L135">src/main/Database.ts:135</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3146,7 +3160,7 @@ img {
 								<p>Fetches the entire database</p>
 							</div>
 						</div>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						<p>Promise&lt;Data[] | null&gt;</p>
 					</li>
 				</ul>
@@ -3155,13 +3169,13 @@ img {
 				<a name="pull" class="tsd-anchor"></a>
 				<h3>pull</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">pull<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, multiple<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">pull<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, multiple<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Database.ts#L107">src/main/Database.ts:107</a></li>
+								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Database.ts#L107">src/main/Database.ts:107</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3181,7 +3195,7 @@ img {
 								<h5>multiple: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						<p>Promise&lt;Data | null&gt;</p>
 					</li>
 				</ul>
@@ -3190,13 +3204,13 @@ img {
 				<a name="push" class="tsd-anchor"></a>
 				<h3>push</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">push<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">push<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Database.ts#L76">src/main/Database.ts:76</a></li>
+								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Database.ts#L76">src/main/Database.ts:76</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3213,7 +3227,7 @@ img {
 								<h5>value: <span class="tsd-signature-type">any</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						<p>Promise&lt;Data | null&gt;</p>
 					</li>
 				</ul>
@@ -3222,13 +3236,13 @@ img {
 				<a name="set" class="tsd-anchor"></a>
 				<h3>set</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Database.ts#L31">src/main/Database.ts:31</a></li>
+								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Database.ts#L31">src/main/Database.ts:31</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3245,7 +3259,7 @@ img {
 								<h5>value: <span class="tsd-signature-type">any</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						<p>Promise<Data></p>
 					</li>
 				</ul>
@@ -3254,13 +3268,13 @@ img {
 				<a name="subtract" class="tsd-anchor"></a>
 				<h3>subtract</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">subtract<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">subtract<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/954ef12/src/main/Database.ts#L197">src/main/Database.ts:197</a></li>
+								<li>Defined in <a href="https://github.com/jurgenjacobsen/dsc.db/blob/7a6d74c/src/main/Database.ts#L197">src/main/Database.ts:197</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3277,7 +3291,7 @@ img {
 								<h5>amount: <span class="tsd-signature-type">number</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/interfaces.Data.html" class="tsd-signature-type" data-tsd-kind="Interface">Data</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						<p>Promise&lt;Data | null&gt;</p>
 					</li>
 				</ul>
@@ -3289,14 +3303,15 @@ img {
 				<div class="tsd-legend-group">
 					<ul class="tsd-legend">
 						<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-						<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+						<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 						<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 					</ul>
 					<ul class="tsd-legend">
-						<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+						<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+						<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 					</ul>
 					<ul class="tsd-legend">
-						<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+						<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 					</ul>
 					<ul class="tsd-legend">
 						<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>

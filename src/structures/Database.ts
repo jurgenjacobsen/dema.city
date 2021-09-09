@@ -1,4 +1,7 @@
 import { Database } from "dsc.db";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export const Mongo = {
   uri: process.env.MONGO_URI as string,
@@ -10,7 +13,7 @@ export const Mongo = {
 export const Users = new Database<UserData>({ ...Mongo, collection: "users" });
 export const News = new Database<NewsData>({ ...Mongo, collection: "news" });
 export const Applications = new Database<ApplicationData>({ ...Mongo, collection: 'applications' });
-export const ApiAccess = new Database<ApiAccessData>({ ...Mongo, collection: 'api_access' })
+export const ApiAccess = new Database<ApiAccessData>({ ...Mongo, collection: 'api_access' });
 
 export type Raindrop = `${bigint}`;
 
