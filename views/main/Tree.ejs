@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html translate="no">
+  <head>
+    <title>Dema City - <%= tree.name %></title>
+
+    <meta charset="UTF-8">
+    <meta translate="no">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="<%= cdn %>/images/favicon.ico">
+    <link rel="stylesheet" href="<%= cdn %>/styles/css/main.css">
+
+    <meta name="theme-color" content="#1c1c1c">
+    <meta property=”og:type” content=”website”/>
+    <meta property="og:title" content="Dema City - <%= tree.name %>">
+    <meta property="og:url" content="https://dema.city">
+    <meta property="og:description" content="Dema City is a multiporpose with news, documentations and social features!">
+    <meta property="og:image" content="<%= cdn %>/images/logo.png">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+    <script src="<%= cdn %>/scripts/main.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3N4GLN1Q2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H3N4GLN1Q2');
+    </script>
+  </head>
+  <body class="noselect link-tree">
+    <div class="loader"> <div class="bar"></div></div>
+
+    <img id="userPhoto" src="<%= tree.icon %>" alt="User Photo">
+    
+    <a href="https://dema.city/<%= tree.page %>" id="userName"><%= tree.name %></a>
+    <!--<div id="links">
+      <a class="link" href="https://draculatheme.com/" target="_blank">SITE</a>
+      <a class="link" href="https://github.com/dracula/dracula-theme" target="_blank">REPOSITORY</a>
+    </div> -->
+
+    <div id="links">
+      <% tree.links.forEach((l) => { %>
+        <a class="link" href="<%= l.link %>" target="_blank"><%= l.name %></a>
+      <% }); %>
+    </div>
+
+    <footer>
+        🌇 Powered by Dema City
+    </footer>
+
+    <!-- Javascript -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  </body>
+</html>

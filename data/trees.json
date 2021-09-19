@@ -1,0 +1,21 @@
+{
+  "/jurgen": {
+    "page": "/jurgen",
+    "name": "Jürgen",
+    "icon": "https://cdn.discordapp.com/avatars/292065674338107393/f04ccc6e751ab2732df0a7652de05e37.webp",
+    "links": [
+      {
+        "name": "Twitter",
+        "link": "https://twitter.com/jurgenjacobsen"
+      },
+      {
+        "name": "Instagram",
+        "link": "https://instagram.com/jurgen.jacobsen"
+      },
+      {
+        "name": "Github",
+        "link": "https://github.com/jurgenjacobsen"
+      }
+    ]
+  }
+}

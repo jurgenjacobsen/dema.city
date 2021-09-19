@@ -1,10 +1,18 @@
 import express from "express";
-import { SubServer } from "../structures/Hosts";
+import { SubServer } from "../Structures/Hosts";
 
 const app = express();
 
 app.get("/", (req, res) => {
-  res.redirect('https://youtube.com');
+  res.sendStatus(200);
 });
 
-export const server = new SubServer("news.dema.city", app);
+/*app.get("/article/:id", (req, res) => {
+
+});*/
+
+export const server = new SubServer({
+  hostname: "news.dema.city",
+  server: app,
+  status: "MAINTENANCE",
+});
