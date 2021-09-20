@@ -15,8 +15,8 @@
     <meta property=”og:type” content=”website”/>
     <meta property="og:title" content="Dema City - <%= tree.name %>">
     <meta property="og:url" content="https://dema.city">
-    <meta property="og:description" content="Dema City is a multiporpose with news, documentations and social features!">
-    <meta property="og:image" content="<%= cdn %>/images/logo.png">
+    <meta property="og:description" content="<%= tree.aboutme %>">
+    <meta property="og:image" content="<%= tree.icon %>">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
@@ -36,7 +36,7 @@
 
     <img id="userPhoto" src="<%= tree.icon %>" alt="User Photo">
     
-    <a href="https://dema.city/<%= tree.page %>" id="userName"><%= tree.name %></a>
+    <a href="<%= tree.page %>" id="userName"><%= tree.name %></a>
     <!--<div id="links">
       <a class="link" href="https://draculatheme.com/" target="_blank">SITE</a>
       <a class="link" href="https://github.com/dracula/dracula-theme" target="_blank">REPOSITORY</a>
