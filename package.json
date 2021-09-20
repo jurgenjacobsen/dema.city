@@ -29,6 +29,7 @@
     "@dicebear/avatars-male-sprites": "^4.9.1",
     "@dicebear/micah": "^4.9.1",
     "@discordjs/rest": "^0.1.0-canary.0",
+    "@top-gg/sdk": "^3.1.2",
     "axios": "^0.21.4",
     "colors": "^1.4.0",
     "connect-flash": "^0.1.1",

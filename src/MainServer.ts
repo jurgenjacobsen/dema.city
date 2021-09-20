@@ -25,9 +25,7 @@ Bot.application?.fetch();
 
 let IO = new Socket.Server();
 
-const morgan = Morgan('[:date[clf]] :method :referrer :remote-addr :status - ":user-agent"', {
-  skip: (req, res) => res.statusCode !== 404,
-});
+const morgan = Morgan('[:date[clf]] :method :referrer :remote-addr :status - ":user-agent"');
 
 const cors = Cors({
   origin: (origin, cb) => {
