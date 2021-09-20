@@ -25,7 +25,11 @@ Bot.application?.fetch();
 
 let IO = new Socket.Server();
 
-const morgan = Morgan('[:date[clf]] :method :referrer :remote-addr :status - ":user-agent"');
+const morgan = Morgan('[:date[clf]] :method :req["host"] :url :status :response-time ms - :res[content-length]', {
+  skip: (req, res) => {
+    return res.statusCode > 400 && req.headers.host !== 'assets';
+  }
+});
 
 const cors = Cors({
   origin: (origin, cb) => {

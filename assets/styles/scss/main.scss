@@ -134,9 +134,6 @@ img.emoji {
   }
 
   li {
-    background: var(--secondary-background);
-    border-radius: .5ch;
-
     a {
       display: block;
       color: var(--text-color);
@@ -168,8 +165,12 @@ img.emoji {
       cursor: default;
     }
   
+    a:not(.disabled) {
+      border: 1px solid var(--hightlight-color);
+    }
+    
     a:not(.disabled):hover {
-      opacity: .5;
+      background: var(--secondary-background);
     }
   }
 

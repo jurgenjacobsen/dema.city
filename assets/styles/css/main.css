@@ -157,11 +157,6 @@ img.emoji {
   border-radius: .5ch;
 }
 
-.navbar li {
-  background: var(--secondary-background);
-  border-radius: .5ch;
-}
-
 .navbar li a {
   display: block;
   color: var(--text-color);
@@ -193,8 +188,12 @@ img.emoji {
   cursor: default;
 }
 
+.navbar li a:not(.disabled) {
+  border: 1px solid var(--hightlight-color);
+}
+
 .navbar li a:not(.disabled):hover {
-  opacity: .5;
+  background: var(--secondary-background);
 }
 
 .navbar li:not(.right) {
@@ -584,7 +583,7 @@ img.emoji {
 
 .link-tree #userName {
   width: 100%;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 400;
   text-align: center;
   text-decoration: none;
