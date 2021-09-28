@@ -34,3 +34,10 @@ function ResizeNav() {
   let width = $(window).width();
   $('#navbar').width(width - 20);
 };
+
+setTimeout(() => {
+  console.clear()
+
+  console.log('%c Calma lá!', 'font-weight: bold; font-size: 50px;color: #5b58f2;');
+  console.log('%c Somente faça coisas aqui que caibam ao seu conhecimento!', 'font-size: 25px; text-shadow: 1px 2px 0 #292929;')
+}, 1000)
