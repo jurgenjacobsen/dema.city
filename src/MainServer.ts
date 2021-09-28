@@ -11,12 +11,13 @@ import { WS } from "./ws/Server";
 import { readdirSync } from "fs";
 import { createServer } from "http";
 import { HostName, SubServer } from "./Structures/Hosts";
-import { print } from "./Structures/Util";
+import { electron, print } from "./Structures/Util";
 import { renderFile } from "ejs";
 import Collection from "@discordjs/collection";
 
 dotenv.config();
 
+export const LiveUsersElectron = new Collection<string, boolean>();
 export const Servers = new Collection<string, SubServer>();
 const Server = express();
 const HttpServer = createServer(Server);
@@ -25,9 +26,9 @@ Bot.application?.fetch();
 
 let IO = new Socket.Server();
 
-const morgan = Morgan('[:date[clf]] :method :req["host"] :url :status :response-time ms - :res[content-length]', {
+const morgan = Morgan('[:date[clf]] :method :url :status :response-time ms - :res[content-length]', {
   skip: (req, res) => {
-    return res.statusCode > 400 && req.headers.host !== 'assets';
+    return res.statusCode >= 400 && !req.headers.host?.includes('cdn');
   }
 });
 
@@ -38,6 +39,7 @@ const cors = Cors({
 });
 
 Server.use(morgan);
+Server.use(electron)
 
 for (const file of readdirSync(path.join(__dirname, "./Servers"))) {
   const { server }: { server: SubServer } = require(path.join(__dirname, "./Servers/") + file);

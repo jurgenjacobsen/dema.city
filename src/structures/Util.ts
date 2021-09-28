@@ -3,6 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import { promisify } from "util";
 import ms from "ms";
 import { ApiAccess, ApplicationData, Applications, Raindrop } from "./Database";
+import { LiveUsersElectron } from "../MainServer";
 
 const EPOCH = 1_420_070_400_000;
 let INCREMENT = 0;
@@ -106,3 +107,13 @@ export const binaryToId = (num: any): string => {
 
   return dec;
 };
+
+export function electron(req: Request, res: Response, next: NextFunction) {
+  let ua = req.headers['user-agent'] ?? '';
+  if (ua.includes('Electron')) {
+    LiveUsersElectron.set(req.ip, true);
+  } else {
+    LiveUsersElectron.set(req.ip, false);
+  }
+  next();
+}

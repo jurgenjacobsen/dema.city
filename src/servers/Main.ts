@@ -8,6 +8,7 @@ import path from "path";
 import passport from "passport";
 import session from "express-session";
 import flash from "connect-flash";
+import { LiveUsersElectron } from "../MainServer";
 
 const app = express();
 
@@ -59,6 +60,7 @@ app.get("/login", (req, res) => {
     cdn: cdn(req),
     user: req.user,
     err: req.flash(),
+    electron: LiveUsersElectron.get(req.ip)
   });
 });
 
@@ -68,6 +70,7 @@ app.get("/signup", (req, res) => {
     cdn: cdn(req),
     user: req.user,
     err: req.flash(),
+    electron: LiveUsersElectron.get(req.ip)
   });
 });
 
@@ -75,6 +78,7 @@ app.get("/", (req, res) => {
   res.render("main/Home", {
     cdn: cdn(req),
     user: req.user,
+    electron: LiveUsersElectron.get(req.ip)
   });
 });
 
@@ -82,6 +86,7 @@ app.get("/me", isAuthenticated, async (req, res) => {
   res.render("main/Me", {
     cdn: cdn(req),
     user: req.user,
+    electron: LiveUsersElectron.get(req.ip)
   });
 });
 
