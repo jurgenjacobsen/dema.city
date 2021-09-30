@@ -1,7 +1,6 @@
 import { SubServer } from "../Structures/Hosts";
 import { readFileSync } from "fs";
 import { DiscordAuthentication, isAuthenticated, LastFmAuthentication, TwitterAuthenication } from "../Structures/Auth";
-import { cdn } from "../Structures/Util";
 
 import express from "express";
 import path from "path";
@@ -57,36 +56,32 @@ app.get("/logout", (req, res) => {
 app.get("/login", (req, res) => {
   if (req.isAuthenticated()) return res.redirect("/me");
   res.render("main/Sign", {
-    cdn: cdn(req),
     user: req.user,
     err: req.flash(),
-    electron: LiveUsersElectron.get(req.ip)
+    electron: LiveUsersElectron.get(req.ip),
   });
 });
 
 app.get("/signup", (req, res) => {
   if (req.isAuthenticated()) return res.redirect("/me");
   res.render("main/Sign", {
-    cdn: cdn(req),
     user: req.user,
     err: req.flash(),
-    electron: LiveUsersElectron.get(req.ip)
+    electron: LiveUsersElectron.get(req.ip),
   });
 });
 
 app.get("/", (req, res) => {
   res.render("main/Home", {
-    cdn: cdn(req),
     user: req.user,
-    electron: LiveUsersElectron.get(req.ip)
+    electron: LiveUsersElectron.get(req.ip),
   });
 });
 
 app.get("/me", isAuthenticated, async (req, res) => {
   res.render("main/Me", {
-    cdn: cdn(req),
     user: req.user,
-    electron: LiveUsersElectron.get(req.ip)
+    electron: LiveUsersElectron.get(req.ip),
   });
 });
 
@@ -101,11 +96,11 @@ app.get("*", (req, res) => {
   const trees = JSON.parse(raw_trees);
 
   const tree = trees[req.path];
-  if (tree) return res.render("main/Tree", { 
-    tree: tree, 
-    cdn: cdn(req), 
-    user: req.user 
-  });
+  if (tree)
+    return res.render("main/Tree", {
+      tree: tree,
+        user: req.user,
+    });
 
   return res.redirect("/404");
 });

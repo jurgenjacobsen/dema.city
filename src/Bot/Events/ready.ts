@@ -1,7 +1,7 @@
 import { EventOptions } from "dsc.events";
 import { BotClient } from "../Bot";
 import { ApplicationCommandData, ApplicationCommandPermissions, Collection, Guild } from "discord.js";
-import { print, wait } from "../../Structures/Util";
+import { print, wait } from "../../Structures/MainUtil";
 
 import fs from "fs";
 import path from "path";
@@ -16,7 +16,7 @@ export const event: EventOptions = {
 
     const guilds = bot.guilds.cache;
 
-    for (let file of fs.readdirSync(path.join(__dirname, "../Commands"))) {
+    for (const file of fs.readdirSync(path.join(__dirname, "../Commands"))) {
       const { data, permissions, exclusive } = require(`${path.join(__dirname, "../Commands")}/${file}`);
       commands.set(data.name, {
         cmd: data,
@@ -29,7 +29,7 @@ export const event: EventOptions = {
       commands.forEach(async (c) => {
         if (c.exclusive && guild.id !== "782722663549763585") return;
 
-        let cmd = (await guild.commands.set([c.cmd])).first();
+        const cmd = (await guild.commands.set([c.cmd])).first();
 
         if (c.permissions) {
           cmd?.permissions.set({ permissions: c.permissions });

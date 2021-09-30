@@ -36,7 +36,7 @@ export const TwitterAuthenication = new TwitterAuth(
     includeEmail: true,
   },
   async (token, tokenSecret, profile, done) => {
-    let email = profile.emails?.[0].value;
+    const email = profile.emails?.[0].value;
 
     let user = (await users.raw({ "data.twitterId": profile.id })) ?? (await users.raw({ "data.email": email }));
 

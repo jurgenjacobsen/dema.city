@@ -2,7 +2,6 @@ import express from "express";
 import path from "path";
 import { readdirSync } from "fs";
 import { SubServer } from "../Structures/Hosts";
-import { cdn } from "../Structures/Util";
 
 const app = express();
 
@@ -19,7 +18,6 @@ for (const folder of readdirSync(path.join(__dirname, "../../docs/"))) {
 app.get("/", (req, res) => {
   res.render(path.join(__dirname, "../../docs/index.ejs"), {
     documentations: documentations,
-    cdn: cdn(req),
   });
 });
 

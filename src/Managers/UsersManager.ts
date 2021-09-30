@@ -1,6 +1,6 @@
 import { Collection } from "discord.js";
 import { Raindrop, UserData, Users } from "../Structures/Database";
-import { Rain, wait } from "../Structures/Util";
+import { Rain, wait } from "../Structures/MainUtil";
 import { createAvatar } from "@dicebear/avatars";
 import { writeFileSync } from "fs";
 import * as style from "@dicebear/micah";
@@ -95,17 +95,17 @@ export class UsersManager {
 
   public async __init__() {
     await wait(5000);
-    let users = await Users.list().then((u) => u?.map((_u) => _u.data));
+    const users = await Users.list().then((u) => u?.map((_u) => _u.data));
     users?.forEach((raw) => {
       if (!raw) return;
-      let user = new User(this, raw);
+      const user = new User(this, raw);
       return this.cache.set(user.id, user);
     });
   }
 
   public fetch(query: Raindrop | any): Promise<User | undefined> {
     return new Promise(async (resolve) => {
-      let raw = await Users.fetch(query).then((r) => r?.data);
+      const raw = await Users.fetch(query).then((r) => r?.data);
       if (!raw) return resolve(undefined);
       return resolve(new User(this, raw));
     });
@@ -113,7 +113,7 @@ export class UsersManager {
 
   public raw(query: Raindrop | any): Promise<UserData | undefined> {
     return new Promise(async (resolve) => {
-      let raw = await Users.fetch(query).then((r) => r?.data);
+      const raw = await Users.fetch(query).then((r) => r?.data);
       if (!raw) return resolve(undefined);
       return resolve(raw);
     });
@@ -121,18 +121,18 @@ export class UsersManager {
 
   public create(data: { email: Email; twitterId?: Raindrop; discordId?: Raindrop }): Promise<User> {
     return new Promise(async (resolve) => {
-      let alreadyExists = this.cache.find((u) => u.email === data.email || u.twitterId === data.twitterId || u.discordId === data.discordId);
+      const alreadyExists = this.cache.find((u) => u.email === data.email || u.twitterId === data.twitterId || u.discordId === data.discordId);
       if (alreadyExists) return resolve(alreadyExists);
 
-      let id = Rain();
-      let icon = createAvatar(style, { seed: id });
-      let iconNameFile = md5(id);
+      const id = Rain();
+      const icon = createAvatar(style, { seed: id });
+      const iconNameFile = md5(id);
 
       writeFileSync(`${path.resolve(__dirname, "../../assets/icons")}/${iconNameFile}.svg`, icon);
 
-      let username = iconNameFile.slice(0, 8).trim().toLowerCase();
+      const username = iconNameFile.slice(0, 8).trim().toLowerCase();
 
-      let raw = await Users.set(id, {
+      const raw = await Users.set(id, {
         id: id,
         email: data.email,
         username: username,
