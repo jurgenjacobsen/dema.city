@@ -42,7 +42,7 @@ img.emoji {
   pointer-events: none;
 }
 
-*, ::after, ::before {
+* {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   color: var(--text-color);
@@ -136,7 +136,7 @@ img.emoji {
 }
 
 .loader {
-  height: 5px;
+  height: 2px;
   width: 100%;
 }
 
@@ -165,9 +165,15 @@ img.emoji {
   overflow: hidden;
   height: 40px;
   margin-top: 15px;
-  font-size: 14px;
+  font-size: 16px;
   margin-left: 20px;
   border-radius: .5ch;
+}
+
+.navbar li {
+  /*a:not(.disabled) {
+      border: 1px solid var(--hightlight-color);
+    }*/
 }
 
 .navbar li a {
@@ -203,11 +209,12 @@ img.emoji {
   cursor: default;
 }
 
-.navbar li a:not(.disabled) {
-  border: 1px solid var(--hightlight-color);
+.navbar li .logout {
+  font-size: 18px;
+  padding: 8px 8px;
 }
 
-.navbar li a:not(.disabled):hover {
+.navbar li a:not(.disabled):not(.logout):hover {
   background: var(--secondary-background);
 }
 

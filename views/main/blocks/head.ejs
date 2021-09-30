@@ -8,20 +8,22 @@
     <meta name="google" content="notranslate">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="<%= cdn %>/images/favicon.ico">
-    <link rel="stylesheet" href="<%= cdn %>/styles/css/main.css">
-
+    <link rel="shortcut icon" href="https://cdn.dema.city/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.dema.city/styles/css/main.css">
+    
     <meta name="theme-color" content="#1c1c1c">
     <meta property=”og:type” content=”website”/>
     <meta property="og:title" content="Dema City">
     <meta property="og:url" content="https://dema.city">
     <meta property="og:description" content="Dema City is a multiporpose with news, documentations and social features!">
-    <meta property="og:image" content="<%= cdn %>/images/logo.png">
+    <meta property="og:image" content="https://cdn.dema.city/images/logo.png">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
-    <script src="<%= cdn %>/scripts/main.js"></script>
+    <script src="https://cdn.dema.city/scripts/main.js"></script>
+
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3N4GLN1Q2"></script>
     <script>
@@ -38,8 +40,10 @@
         <li><a class="brand disabled">Dema City</a></li>
         <li><a href="/">Home</a></li>
         <li><a href="/news">News</a></li>
+        <li><a href="/docs">Docs</a></li>
         <li><a href="/merch">Merch</a></li>
         <% if(user) { %>
+          <li class="right"><a class="logout" href="/logout"><i class='bx bx-log-out bx-rotate-180' style='color:rgba(237,66,69,0.83);'></i></a></li>
           <li class="right"><a class="profile" href="/me"><% if(user?.icon) { %> <img src="<%= user.icon %>"/> <% } %> <%= user ? user.username : 'Profile'%></a></li>
         <% } else { %>
           <li class="right"><a href="/login">Login</a></li>
