@@ -1,0 +1,36 @@
+<%- include('../../Blocks/header') %>
+
+<div class="post-view">
+  <div class="container landing-header">
+    <div class="head">
+      <h1>
+        <%= post.title %>
+      </h1>
+  
+      <p>
+        <%= post.description %>
+      </p>
+    </div>
+  </div>
+
+  <div class="container post-content" id="content-text">
+    <%= post.text %>
+  </div>
+  
+  <div class="container">
+    <div class="details">
+      <div class="date">
+        <%= post.date.toLocaleString().replace(' ', ' at ').replace(/:[1-9][1-9]$/, ''); %>
+      </div>
+      <div class="author">
+        Wrote by <i><%= post.author %></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let old = document.getElementById('content-text').innerHTML;
+  let New = markdown.toHTML(old);
+  document.getElementById('content-text').innerHTML = New.replace(/\*/g, '').replace(/#/g, '');
+</script>

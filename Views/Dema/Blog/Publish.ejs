@@ -1,0 +1,64 @@
+<%- include('../../Blocks/header') %>
+
+<div class="container landing-header">
+  <div class="center">
+    <h1>
+      Publish a post
+    </h1>
+  </div>
+</div>
+
+<div class="container publish">
+  <form method="POST" action="/blog/publish?key=<%= data.req.query.key %>" autocomplete="off">
+
+
+    <h4>Category <span class="needed">*</span></h4>
+    <select name="category" required>
+      <option value="Post">Post</option>
+    </select>
+
+
+    <h4>Author <span class="needed">*</span></h4>
+    <select name="author" required>
+      <option value="Dema Council">Dema Council</option>
+      <option value="Jürgen">Jürgen</option>
+    </select>
+
+    <!--<h4>Name<span class="needed">*</span></h4>
+    <div class="title-block">
+      <select>
+        <option value="title" selected>Title</option>
+        <option value="ms">Ms</option>
+        <option value="miss">Miss</option>
+        <option value="mrs">Mrs</option>
+        <option value="mr">Mr</option>
+      </select>
+      <input class="name" type="text" name="name" placeholder="First" />
+      <input class="name" type="text" name="name" placeholder="Last" />
+    </div>-->
+
+    <h4>Title <span class="needed">*</span></h4>
+    <input type="text" name="title" required/>
+
+    <h4>Description</h4>
+    <p class="small">A short description about the post subject</small>
+    <input type="text" name="description"/>
+
+    <h4>Texto <span class="needed">*</span></h4>
+    <p class="small">Main post content</small>
+    <textarea name="text" rows="5" id="content-text" oninput="this.editor.update()" required></textarea>
+    
+    <div class="container preview" id="post-preview"></div>
+    
+    <h4>Banner </h4>
+    <input type="file" id="banner-file" name="banner">
+
+    <div class="btn-block">
+      <button type="submit">Publish</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  new Markdown(document.getElementById('content-text'), document.getElementById('post-preview'))
+</script>

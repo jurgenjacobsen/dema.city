@@ -1,0 +1,405 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --background: #1c1c1c;
+  --secondary-background: #292929;
+  --thirdnary-background: #e3e3e3;
+  --text-color: #ddd;
+  --hightlight-color: #5b58f2;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--thirdnary-background);
+  border-radius: 5px;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  margin: 0;
+}
+
+svg {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+img.emoji {
+  height: 1em;
+  width: 1em;
+  margin: 0 0.05em 0 0.1em;
+  vertical-align: -0.1em;
+  pointer-events: none;
+}
+
+*, ::after, ::before {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: var(--text-color);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.wave {
+  fill: var(--secondary-background);
+}
+
+.secondary-background {
+  background: var(--secondary-background);
+  width: 100%;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 5px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.electron-navbar {
+  margin-top: 30px;
+}
+
+.navbar {
+  z-index: 5;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  margin-top: 15px;
+  font-size: 16px;
+  margin-left: 20px;
+  border-radius: .5ch;
+}
+
+.navbar li a {
+  display: block;
+  color: var(--text-color);
+  text-align: center;
+  padding: 8px 22px;
+  text-decoration: none;
+  height: 100%;
+  border-radius: .5ch;
+  position: relative;
+  -webkit-transition: background-color .5s ease;
+  transition: background-color .5s ease;
+}
+
+.navbar li a img {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}
+
+.navbar li .profile {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 38px;
+  padding-right: 22px;
+}
+
+.navbar li .disabled {
+  cursor: default;
+}
+
+.navbar li a:not(.disabled) {
+  border: 1px solid var(--hightlight-color);
+}
+
+.navbar li a:not(.disabled):hover {
+  background: var(--secondary-background);
+}
+
+.navbar li:not(.right) {
+  float: left;
+}
+
+.navbar li.right {
+  float: right;
+}
+
+.navbar li:not(:last-child) {
+  margin-right: 1ch;
+}
+
+.landing-header .center {
+  margin-top: 15%;
+  text-align: center;
+  font-size: 22px;
+}
+
+.landing-header .center h1 {
+  display: inline;
+}
+
+.publish * {
+  outline: none;
+  border: none;
+  border-radius: .5ch;
+}
+
+.publish h1, .publish h4 {
+  margin: 15px 0 4px;
+  font-weight: 400;
+}
+
+.publish h4 {
+  margin: 20px 0 4px;
+  font-weight: 400;
+}
+
+.publish form {
+  width: 100%;
+  padding: 20px;
+}
+
+.publish input {
+  width: calc(100% - 10px);
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: .5ch;
+  vertical-align: middle;
+  background: transparent;
+}
+
+.publish input:hover, .publish textarea:hover, .publish select:hover {
+  outline: none;
+  border: 1px solid var(--hightlight-color);
+  background: var(--secondary-background);
+}
+
+.publish select:hover {
+  cursor: pointer;
+}
+
+.publish .title-block select, .publish .title-block input {
+  margin-bottom: 10px;
+}
+
+.publish .needed {
+  margin-left: 5px;
+  color: #ff3838;
+  opacity: .75;
+}
+
+.publish select {
+  padding: 10px 5px;
+  border: 1px solid #fff;
+  background: transparent;
+}
+
+.publish select, .publish table {
+  width: 100%;
+}
+
+.publish option {
+  background: var(--secondary-background);
+  padding: 10px;
+}
+
+.publish .small {
+  font-size: 10px;
+  line-height: 18px;
+}
+
+.publish .first-col {
+  width: 25%;
+  text-align: left;
+}
+
+.publish textarea {
+  width: calc(100% - 6px);
+  background: transparent;
+  border: 1px solid var(--text-color);
+  resize: vertical;
+}
+
+.publish .btn-block {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.publish button {
+  width: 150px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--hightlight-color);
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.publish button:hover {
+  opacity: .9;
+}
+
+@media (min-width: 568px) {
+  .publish .title-block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .publish .title-block select {
+    width: 30%;
+    margin-bottom: 0;
+  }
+  .publish .title-block input {
+    width: 31%;
+    margin-bottom: 0;
+  }
+}
+
+.post-view .head {
+  margin-top: 10%;
+  font-size: 22px;
+  padding: 0 20px;
+}
+
+.post-view .head h1 {
+  display: inline;
+}
+
+.post-view .head p {
+  font-size: 16px;
+}
+
+.post-view .details {
+  margin-top: 25%;
+  opacity: .75;
+  position: absolute;
+  bottom: 30px;
+}
+
+.post-content {
+  margin-top: 2%;
+  width: 100%;
+  border-radius: .5ch;
+  background: var(--secondary-background);
+  padding: 20px;
+}
+
+.link-tree footer {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.link-tree #userPhoto {
+  width: 96px;
+  height: 96px;
+  display: block;
+  margin: 35px auto 20px;
+  margin-top: 75px;
+  border-radius: 50%;
+  border: solid var(--purple) 2px;
+}
+
+.link-tree #userName {
+  width: 100%;
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.25;
+  display: block;
+}
+
+.link-tree #links {
+  max-width: 675px;
+  width: auto;
+  display: block;
+  margin: 27px auto;
+  padding-left: 1ch;
+  padding-right: 1ch;
+}
+
+.link-tree .link {
+  display: block;
+  margin-bottom: 20px;
+  padding: 17px;
+  color: var(--thirdnary-background);
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  border: solid var(--hightlight-color) 1px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99);
+  transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99);
+}
+
+.link-tree .link:hover {
+  background-color: var(--secondary-background);
+  color: var(--text-color);
+}
+
+strong {
+  font-weight: bold;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html translate="no">
+  <head>
+    <title>Dema City</title>
+
+    <meta charset="UTF-8">
+    <meta translate="no">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="<%= data.cdn %>/images/favicon.ico">
+    <link rel="stylesheet" href="<%= data.cdn %>/styles/css/dema.css">
+    
+    <meta name="theme-color" content="#1c1c1c">
+    <meta property=”og:type” content=”website”/>
+    <meta property="og:title" content="Dema City">
+    <meta property="og:url" content="https://dema.city">
+    <meta property="og:description" content="Dema City is a multiporpose with news, documentations and social features!">
+    <meta property="og:image" content="<%= data.cdn %>/images/DemaCity.png">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+    
+    <script rel="preload" src="<%= data.cdn %>/scripts/dema.js" as="script"></script>
+    <script rel="preload" src="<%= data.cdn %>/scripts/markdown.js" as="script"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3N4GLN1Q2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H3N4GLN1Q2');
+    </script>
+  </head>
+  <body class="noselect">
+    <div class="<% if(data.electron) { %> electron-navbar <% } %> navbar" id="navbar">
+      <ul>
+        <li><a class="brand disabled">Dema City</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts">News</a></li>
+        <li><a href="/merch">Merch</a></li>
+        <!-- <li class="right"><a href="/login">Login</a></li> -->
+      </ul>
+    </div>
