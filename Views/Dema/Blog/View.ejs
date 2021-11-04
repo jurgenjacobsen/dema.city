@@ -13,6 +13,12 @@
     </div>
   </div>
 
+  <div class="container post-options">
+    <% if(data.authenticated) { %>
+      <button onclick="location.href='/blog/edit/<%= post.id %>?key=<%= data.req.query.key %>'">Editar</button>
+    <% } %>
+  </div>
+
   <div class="container post-content" id="content-text">
     <%= post.text %>
   </div>

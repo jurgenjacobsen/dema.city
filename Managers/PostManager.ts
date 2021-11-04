@@ -6,13 +6,19 @@ import { Rain, Raindrop } from '../Utils/Blog/RaindropGen';
 import { MongoData } from '../';
 
 export class PostManager extends EventEmitter {
-  public cache = new Collection<string, {updatedAt: Date, post: Post}>();
-  public database = new Database({
+  public cache = new Collection<string, Post>();
+  public database = new Database<Post>({
     ...MongoData,
     collection: 'posts'
   })
   constructor() {
     super();
+
+    this.database.list().then((list) => {
+      list?.forEach((post) => {
+        return this.cache.set(post.data.id, post.data);
+      });
+    });
   }
 
   public publish(data: {
@@ -35,17 +41,35 @@ export class PostManager extends EventEmitter {
         return reject(err);
       });
 
+      this.cache.set(post.id, post);
+
       return resolve(post);
     })
   }
 
-  public edit() {}
+  public edit(id: string, data: {
+    category: string,
+    author: string,
+    title: string,
+    description?: string,
+    text: string,
+  }): Promise<Post> {
+    return new Promise(async (resolve, reject) => {
+      let post: Post = {
+        id: id as Raindrop,
+        date: new Date(),
+        ...data,
+      };
 
-  public delete() {}
+      await this.database.set(post.id, post).then((r) => r.data).catch((err) => {
+        return reject(err);
+      });
 
-  public fetch() {}
+      this.cache.set(post.id, post);
 
-  public get() {}
+      return resolve(post);
+    })
+  }
 }
 
 export interface Post {

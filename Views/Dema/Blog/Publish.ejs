@@ -1,20 +1,20 @@
 <%- include('../../Blocks/header') %>
 
-<div class="container landing-header">
+<div class="container landing-header" style="margin-top: -5%;">
   <div class="center">
     <h1>
-      Publish a post
+      <%= data.req.path.includes('edit') ? 'Edit this post' : 'Publish a post' %>
     </h1>
   </div>
 </div>
 
 <div class="container publish">
-  <form method="POST" action="/blog/publish?key=<%= data.req.query.key %>" autocomplete="off">
+  <form method="POST" action="<%= data.req.path.includes('edit') ? `/blog/edit/${post.id}?key=${data.req.query.key}` : `/blog/publish?key=${data.req.query.key}`%>" autocomplete="off">
 
 
     <h4>Category <span class="needed">*</span></h4>
     <select name="category" required>
-      <option value="Post">Post</option>
+      <option value="Post" <%= 'Post' === post?.category ? 'selected' : '' %>>Post</option>
     </select>
 
 
@@ -38,20 +38,20 @@
     </div>-->
 
     <h4>Title <span class="needed">*</span></h4>
-    <input type="text" name="title" required/>
+    <input type="text" name="title" value="<%= post?.title %>" required/>
 
     <h4>Description</h4>
     <p class="small">A short description about the post subject</small>
-    <input type="text" name="description"/>
+    <input type="text" name="description" value="<%= post?.description %>"/>
 
-    <h4>Texto <span class="needed">*</span></h4>
+    <h4>Text <span class="needed">*</span></h4>
     <p class="small">Main post content</small>
-    <textarea name="text" rows="5" id="content-text" oninput="this.editor.update()" required></textarea>
+    <textarea name="text" rows="5" id="content-text" oninput="this.editor.update()" required><%= post?.text %></textarea>
     
     <div class="container preview" id="post-preview"></div>
     
-    <h4>Banner </h4>
-    <input type="file" id="banner-file" name="banner">
+    <!--<h4>Banner </h4>
+    <input type="file" id="banner-file" name="banner">-->
 
     <div class="btn-block">
       <button type="submit">Publish</button>

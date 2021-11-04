@@ -14,6 +14,7 @@ export const MongoData = {
 
 import { createServer } from "http";
 import { ServersManager } from "./Managers/ServersManager";
+import { UsersManager } from "./Managers/UsersManager";
 import { PostManager } from "./Managers/PostManager";
 
 export const Server = express();
@@ -21,6 +22,7 @@ export const Servers = new ServersManager(Server);
 export const HttpServer = createServer(Server);
 
 export const Blog = new PostManager();
+export const Users = new UsersManager();
 
 Server.get("*", (req, res) => {
   return res.sendStatus(400);

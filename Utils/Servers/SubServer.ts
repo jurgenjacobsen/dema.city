@@ -1,5 +1,4 @@
 import { Express } from "express";
-
 export class SubServer {
   public hostname: string;
   public www: boolean;

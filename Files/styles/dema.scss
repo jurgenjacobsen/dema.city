@@ -69,6 +69,16 @@ img.emoji {
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+.selectable {
+  -webkit-touch-callout: all; /* iOS Safari */
+    -webkit-user-select: all; /* Safari */
+     -khtml-user-select: all; /* Konqueror HTML */
+       -moz-user-select: all; /* Old versions of Firefox */
+        -ms-user-select: all; /* Internet Explorer/Edge */
+            user-select: all; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px
@@ -105,7 +115,7 @@ img.emoji {
 }
 
 .navbar {
-  z-index: 5;
+  z-index: 25;
 
   ul {
     list-style-type: none;
@@ -128,7 +138,7 @@ img.emoji {
       height: 100%;
       border-radius: .5ch;
       position: relative;
-      transition: background-color .5s ease;
+      transition: background-color .2s ease;
 
       img {
         width: 18px;
@@ -137,6 +147,18 @@ img.emoji {
         position: absolute;
         top: 30%;
         left: 10%;
+      }
+
+      /*&:not(.disabled) {
+       border: 1px solid var(--hightlight-color);
+      }*/
+      
+      &:not(.disabled) {
+        background: var(--secondary-background);
+      }
+
+      &:not(.disabled):hover {
+        background: transparent;
       }
     }
 
@@ -152,26 +174,18 @@ img.emoji {
     .disabled {
       cursor: default;
     }
+
+    &:not(.right) {
+      float: left;
+    }
   
-    a:not(.disabled) {
-      border: 1px solid var(--hightlight-color);
+    &.right {
+      float: right;
     }
-    
-    a:not(.disabled):hover {
-      background: var(--secondary-background);
+  
+    &:not(:last-child) {
+      margin-right: 1ch;
     }
-  }
-
-  li:not(.right) {
-    float: left;
-  }
-
-  li.right {
-    float: right;
-  }
-
-  li:not(:last-child) {
-    margin-right: 1ch;
   }
 }
 
@@ -233,6 +247,12 @@ img.emoji {
     margin-bottom: 10px;
   }
 
+  .preview {
+    background: var(--secondary-background);
+    border-radius: .5ch;
+    padding: 10px;
+  }
+
   .needed {
     margin-left: 5px;
     color: rgb(255, 56, 56);
@@ -269,6 +289,7 @@ img.emoji {
     background: transparent;
     border: 1px solid var(--text-color);
     resize: vertical;
+    padding: 15px;
   }
   
   .btn-block {
@@ -306,7 +327,7 @@ img.emoji {
       width: 31%;
       margin-bottom: 0;
     }
-  }
+  } 
 }
 
 .post-view {
@@ -329,6 +350,25 @@ img.emoji {
     opacity: .75;
     position: absolute;
     bottom: 30px;
+  }
+
+  .post-options {
+    button {
+      border-radius: .5ch;
+      padding: 8px 25px;
+      outline: none;
+      border: none;
+      background: var(--secondary-background);
+      color: var(--text-color);
+      cursor: pointer;
+      margin-left: -5px;
+      margin-top: 15px;
+
+      &:hover {
+        opacity: .85;
+      }
+    }
+    
   }
 }
 
@@ -413,4 +453,197 @@ img.emoji {
 
 strong {
   font-weight: bold;
+}
+
+.posts {
+  a {
+    text-decoration: none;
+  }
+
+  .post {
+    float: left;
+    width: 50%;
+    padding: 25px;
+
+    transition: 1s;
+
+    background: var(--background);
+    border-radius: 1.05ch;
+    border: 5px solid var(--secondary-background);
+    text-align: center;
+
+    .details {
+      opacity: .75;
+      path {
+        fill: var(--hightlight-color);
+        opacity: .75;
+      }
+    }
+  }
+
+  .post:hover {
+    transform: scale(1.01);
+  }
+
+  @media screen and (max-width: 600px) {
+    .post {
+      width: 100%;
+    }
+  }
+}
+
+.posts:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.user-profile {
+  color: var(--text-color);
+
+  .label {
+    opacity: .5;
+  }
+
+  .box {
+    border-radius: .5ch;
+    background: var(--secondary-background);
+    padding: 25px;
+
+    &:not(:first-child) {
+      margin-top: 1.5%;
+    }
+  }
+
+  .two-column {
+    .column-profile-header {
+      float: left;
+      width: 50%;
+      padding: 10px;
+    }
+  }
+
+  .two-column:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .header {
+    min-height: 325px;
+    margin-top: 5%;
+
+    .name {
+      opacity: .75;
+    }
+
+    .username {
+      margin-top: -4%;
+      font-weight: bold;
+
+      span {
+        padding: 2px 4px;
+        border-radius: .5ch;
+        background-color: var(--background);
+        opacity: .5;
+      }
+    }
+
+    .icon {
+      border-radius: 50%;
+      width: 128px;
+      height: 128px;
+    }
+
+    .social-bar {
+      a {
+        font-size: 22px;
+        opacity: .25;
+        transition: all .3s ease;
+      }
+
+      a:hover {
+        opacity: .75;
+      }
+
+      a:first-child {
+        padding-right: 8px;
+      }
+
+      a:not(:first-child) {
+        padding: 8px;
+      }
+    }
+
+    .pronoun {
+      margin-top: -5px;
+    }
+
+    .location {
+      .right {
+        margin-left: 10px;
+        font-weight: bold;
+      }
+    }
+
+    .about {
+      .mention {
+        color: #706ecf;
+        font-weight: 500;
+        transition: all .1s ease-in;
+        &:hover {
+          opacity: .75;
+        }
+      }
+
+      .hashtag {
+        color: rgb(79, 201, 118);
+        font-weight: 500;
+        transition: all .1s ease-in;
+        &:hover {
+          opacity: .75;
+        }
+      }
+    }
+  }
+
+  .portfolio {
+    .photos {
+      .photo {
+        object-fit: cover;
+        padding: 10px;
+        border-radius: .5ch;
+        float: left;
+        width: 32%;
+        background: var(--background);
+        margin-left: 1%;
+        height: 350px;
+        opacity: .85;
+        transition: all .5s ease;
+
+        &:hover {
+          opacity: 1;
+          box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+        }
+      }
+    }
+
+    .photos:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+}
+
+@media all and (max-width: 890px) {
+  .column-profile-header {
+    width: 100% !important; 
+  }
+
+  .photo {
+    width: 100% !important;
+    height: 350px !important;
+    margin-top: 2%;
+  }
 }

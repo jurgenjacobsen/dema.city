@@ -1,0 +1,112 @@
+<title>
+  Dema City - <%= user.name.length > 1 ? user.name : user.username %>
+</title>
+
+<meta name="theme-color" content="#1c1c1c">
+<meta property=”og:type” content=”website”/>
+<meta property="og:title" content="Dema City - <%= user.name.length > 1 ? user.name : user.username %>">
+<meta property="og:url" content="https://dema.city/user/<%= user.username %>">
+<meta property="og:description" content="<%= user.about %>">
+<meta property="og:image" content="<%= user.iconUrl ? user.iconUrl : `${data.cdn}/images/DemaCity.png` %>">
+
+<%- include('../../Blocks/header') %>
+
+<script rel="preload" src="<%= data.cdn %>/scripts/cal.js" as="script"></script>
+
+<div class="container user-profile">
+  <div class="header box two-column">
+    <div class="column-profile-header">
+      <img class="icon" src="<%= user.iconUrl %>"/>
+      <h1 class="name">
+        <%= user.name %>
+      </h1>
+      <h5 class="username">
+        <span class="id selectable"><%= user.id %></span>
+        <span class="user selectable">@<%= user.username %></span>
+      </h5>
+      <div class="social-bar">
+        <% if(user.socials?.instagram) { %>
+          <a target="_blank" rel="noopener noreferrer" href="https://instagram.com/<%= user.socials?.instagram %>"><i class="fab fa-instagram"></i></a>
+        <% } %>
+        <% if(user.socials?.twitter) { %>
+          <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/<%= user.socials?.twitter %>"><i class="fab fa-twitter"></i></a>
+        <% } %>
+        <% if(user.socials?.tiktok) { %>
+          <a target="_blank" rel="noopener noreferrer" href="https://tiktok.com/@<%= user.socials?.tiktok %>"><i class="fab fa-tiktok"></i></a>
+        <% } %>
+      </div>
+    </div>
+    <div class="column-profile-header">
+      <p class="pronoun">
+        <span class="label">Pronoun</span><br>
+        <%= user.pronoun %>
+      </p>
+      <p class="location">
+        <span class="label">Location</span><br>
+          <%= user.location %> <span class="right"><%= weather ? `${weatherIcon} ${weather.temperature}C°` : '' %></span>
+      </p>
+      <p class="about" id="about">
+        <span class="label">About</span><br>
+        <%= truncateString(user.about, 330) %>
+      </p>
+    </div>
+  </div>
+  <% if(!user.portfolio.private && user.portfolio.photos.length > 0) { %>
+    <div class="portfolio box" style="padding: 1px 25px; padding-bottom: 25px;">
+      <h2>
+        Portfolio <span class="label">/ Photos</span>
+      </h2>
+  
+      <div class="photos">
+        <% user.portfolio.photos.forEach((photo) => { %>
+          <%
+            let reg = /^(https?:)?\/\/(\w+\.)?imgur\.com\/(\S*)(\.[a-zA-Z]{3})$/;
+            let redirect_photo = photo.match(reg)?.[3];
+          %>
+          <a href="https://imgur.com/<%= redirect_photo %>" target="_blank" rel="noopener noreferrer">
+            <img class="photo" src="<%= photo %>"/>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+  <% } %>
+</div>
+
+<%- include('../../Blocks/footer'); %>
+
+<div id="data" data-avaliable_users="<%= users.map((data) => data.username) %>"></div>
+
+<script>
+  let users = document.getElementById('data').dataset.avaliable_users.split(/,/g);
+  let about = document.getElementById('about').innerHTML;
+  let reg = /@[A-Za-z]+/i;
+  let hReg = /#[A-Za-z]+/i;
+  let found_users = about.match(reg);
+  let found_hashtags = about.match(hReg);
+  
+  if(found_users) {
+    for(let u of found_users) {
+      if(users.includes(u.replace('@', ''))) {
+        about = about.replace(u, `<a class="mention" target="_blank" rel="noopener noreferrer" href="/user/${u.replace('@', '')}">${u}</a>`);
+      }
+    };
+  }
+
+  if(found_hashtags) {
+    for(let h of found_hashtags) {
+      about = about.replace(h, `<a class="hashtag" target="_blank" rel="noopener noreferrer" href="https://twitter.com/search?q=${encodeURIComponent(h.replace('#', ''))}&src=typed_query">${h}</a>`);
+    }
+  }
+
+  document.getElementById('about').innerHTML = about;
+</script>
+
+<% 
+function truncateString(str, num) {
+  if (str.length > num) {
+    return str.slice(0, num).trimRight() + "...";
+  } else {
+    return str;
+  }
+}
+%>

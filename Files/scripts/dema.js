@@ -9,3 +9,4 @@ function Markdown(input, preview) {
 window.onload = () => {
   twemoji.parse(document.body);
 };
+
