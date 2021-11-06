@@ -1,7 +1,9 @@
 import express, { NextFunction, Request, Response } from "express";
 
 import { SubServer } from "../../Utils/Servers/SubServer";
+import { encrypt } from "../../Utils/Servers/Encryption";
 import { Blog, Users } from "../../index";
+import { NowPlaying } from "../../Utils/Users/LastFMData";
 import bodyParser from "body-parser";
 import path from "path";
 import _ from "lodash";
@@ -99,6 +101,7 @@ app.get("/user/:query", async (req, res) => {
 
   let list = await Users.database.list();
   let user: any;
+  let auth = false;
 
   if(req.params.query !== 'random') {
     let raw = await Users.database.fetch({
@@ -110,6 +113,11 @@ app.get("/user/:query", async (req, res) => {
     if(!raw?.data) return res.redirect('/');
   
     user = raw.data;
+    if(req.query.pass) {
+      let encryptedPass = encrypt(req.query.pass as string);
+      auth = user.pass === encryptedPass;
+    }
+
   } else {
     let raw = _.sample(list);
 
@@ -152,6 +160,10 @@ app.get("/user/:query", async (req, res) => {
     weather: weather,
     weatherIcon: weatherIcon,
     users: list?.map((data) => data.data),
+    auth: auth,
+    lastfm: {
+      np: await NowPlaying(user.fmusername),
+    }
   });
 
 });

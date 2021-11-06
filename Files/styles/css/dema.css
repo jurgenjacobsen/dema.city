@@ -378,69 +378,6 @@ img.emoji {
   padding: 20px;
 }
 
-.link-tree footer {
-  text-align: center;
-  font-size: 0.75rem;
-  font-weight: 400;
-  position: absolute;
-  bottom: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-
-.link-tree #userPhoto {
-  width: 96px;
-  height: 96px;
-  display: block;
-  margin: 35px auto 20px;
-  margin-top: 75px;
-  border-radius: 50%;
-  border: solid var(--purple) 2px;
-}
-
-.link-tree #userName {
-  width: 100%;
-  font-size: 1.25rem;
-  font-weight: 400;
-  text-align: center;
-  text-decoration: none;
-  line-height: 1.25;
-  display: block;
-}
-
-.link-tree #links {
-  max-width: 675px;
-  width: auto;
-  display: block;
-  margin: 27px auto;
-  padding-left: 1ch;
-  padding-right: 1ch;
-}
-
-.link-tree .link {
-  display: block;
-  margin-bottom: 20px;
-  padding: 17px;
-  color: var(--thirdnary-background);
-  font-family: var(--font);
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 5px;
-  border: solid var(--hightlight-color) 1px;
-  text-align: center;
-  text-decoration: none;
-  -webkit-transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99);
-  transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99);
-}
-
-.link-tree .link:hover {
-  background-color: var(--secondary-background);
-  color: var(--text-color);
-}
-
 strong {
   font-weight: bold;
 }
@@ -532,16 +469,65 @@ strong {
 }
 
 .user-profile .header .username span {
-  padding: 2px 4px;
+  padding: 4px 4px;
   border-radius: .5ch;
   background-color: var(--background);
   opacity: .5;
 }
 
+.user-profile .header .username span:not(:first-child) {
+  margin-left: 3px;
+}
+
+.user-profile .header .username .edit {
+  padding: 4px 20px;
+  margin-left: 4px;
+  font-weight: bold;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.user-profile .header .username .edit:hover {
+  opacity: 1;
+}
+
 .user-profile .header .icon {
+  position: relative;
+  width: 128px;
+}
+
+.user-profile .header .icon * {
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+.user-profile .header .icon img {
+  display: block;
   border-radius: 50%;
   width: 128px;
   height: 128px;
+}
+
+.user-profile .header .icon .svg-inline--fa {
+  font-size: 56px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+}
+
+.user-profile .header .icon:hover img {
+  opacity: .25;
+}
+
+.user-profile .header .icon:hover .svg-inline--fa {
+  opacity: .75;
 }
 
 .user-profile .header .social-bar a {
@@ -564,7 +550,7 @@ strong {
 }
 
 .user-profile .header .pronoun {
-  margin-top: -5px;
+  margin-top: 25px;
 }
 
 .user-profile .header .location .right {
@@ -592,6 +578,45 @@ strong {
 
 .user-profile .header .about .hashtag:hover {
   opacity: .75;
+}
+
+.user-profile .header .nowplaying {
+  height: 64px;
+}
+
+.user-profile .header .nowplaying .song-icon {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.user-profile .header .nowplaying .song-icon img {
+  border-radius: .5ch;
+  width: 64px;
+  height: 64px;
+}
+
+.user-profile .header .nowplaying .info {
+  display: inline-block;
+  margin-top: -25px;
+  margin-left: 10px;
+}
+
+.user-profile .header .nowplaying .info .title {
+  padding: 0;
+}
+
+.user-profile .header .nowplaying .info .artist {
+  opacity: .5;
+  display: block;
+  margin-top: -20px;
+  font-size: 14px;
+}
+
+.user-profile .header .nowplaying .info .footer {
+  opacity: .25;
+  font-size: 12px;
+  display: block;
+  margin-top: -10px;
 }
 
 .user-profile .portfolio .photos .photo {

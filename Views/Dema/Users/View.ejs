@@ -16,13 +16,20 @@
 <div class="container user-profile">
   <div class="header box two-column">
     <div class="column-profile-header">
-      <img class="icon" src="<%= user.iconUrl %>"/>
+      <div class="icon" id="user-icon">
+        <i class="fas fa-retweet"></i>
+        <img src="<%= user.iconUrl %>" alt="<%= user.name %>">
+      </div>
+
       <h1 class="name">
         <%= user.name %>
       </h1>
       <h5 class="username">
         <span class="id selectable"><%= user.id %></span>
         <span class="user selectable">@<%= user.username %></span>
+        <% if(auth) { %>
+          <a href="/user/edit"><span class="edit">Edit</span></a>
+        <% } %>
       </h5>
       <div class="social-bar">
         <% if(user.socials?.instagram) { %>
@@ -37,13 +44,39 @@
       </div>
     </div>
     <div class="column-profile-header">
+      <% if(user.fmusername && lastfm.np) { %>
+        <div class="nowplaying">
+          <% let song = lastfm.np; %>
+          <% if(song) { %>
+            <div class="song">
+              <a href="<%= song.url %>" target="_blank" rel="noopener noreferrer">
+                <div class="song-icon">
+                  <img src="<%= song.imageURL %>" alt="<%= song.album %>" title="<%= song.album %>">
+                </div>
+                <div class="info">
+                  <h4 class="title">
+                    <%= truncateString(song.title, 40) %>
+                  </h4>
+                  <p class="artist">
+                    <%= song.artist %>
+                  </p>
+                  <p class="footer">
+                    Listening now on <i class="fab fa-spotify" style="margin-left: 2px;"></i>
+                  </p>
+                </div>
+              </a>
+            </div>
+          <% } %>
+        </div>
+      <% } %>
       <p class="pronoun">
         <span class="label">Pronoun</span><br>
         <%= user.pronoun %>
       </p>
       <p class="location">
         <span class="label">Location</span><br>
-          <%= user.location %> <span class="right"><%= weather ? `${weatherIcon} ${weather.temperature}C°` : '' %></span>
+          <% let weatherText = weather ? `${weatherIcon} ${weather.temperature}C°` : ''; %>
+          <%= user.location %> <span class="right" id="weather"><%= weatherText ? weatherText : '' %></span>
       </p>
       <p class="about" id="about">
         <span class="label">About</span><br>
@@ -51,9 +84,10 @@
       </p>
     </div>
   </div>
+
   <% if(!user.portfolio.private && user.portfolio.photos.length > 0) { %>
     <div class="portfolio box" style="padding: 1px 25px; padding-bottom: 25px;">
-      <h2>
+      <h2 style="margin-left: 1%;">
         Portfolio <span class="label">/ Photos</span>
       </h2>
   
@@ -99,6 +133,19 @@
   }
 
   document.getElementById('about').innerHTML = about;
+
+  let user_icon = document.getElementById('user-icon');
+  user_icon.addEventListener('click', async () => {
+    try {
+      await navigator.share({
+        title: 'Dema City - <%= user.name ? user.name : user.username %>',
+        text: "<%= user.about?.length > 1 ? user.about : `Visit ${user.name ? user.name : user.username}'s profile.` %>",
+        url: 'https://dema.city/user/<%= user.username %>',
+      });
+    } catch(err) {
+      console.log(err);
+    }
+  });
 </script>
 
 <% 
