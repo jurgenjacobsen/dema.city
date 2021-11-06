@@ -3,7 +3,7 @@ import express, { NextFunction, Request, Response } from "express";
 import { SubServer } from "../../Utils/Servers/SubServer";
 import { encrypt } from "../../Utils/Servers/Encryption";
 import { Blog, Users } from "../../index";
-import { NowPlaying } from "../../Utils/Users/LastFMData";
+import { NowPlaying, WeeklyChart } from "../../Utils/Users/LastFMData";
 import bodyParser from "body-parser";
 import path from "path";
 import _ from "lodash";
@@ -163,6 +163,7 @@ app.get("/user/:query", async (req, res) => {
     auth: auth,
     lastfm: {
       np: await NowPlaying(user.fmusername),
+      wac: await WeeklyChart(user.fmusername),
     }
   });
 

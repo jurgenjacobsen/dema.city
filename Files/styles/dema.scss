@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
   --background: #1c1c1c;
@@ -43,8 +43,10 @@ img.emoji {
   pointer-events: none;
 }
 
-*, ::after, ::before {
-  font-family: 'Poppins', sans-serif;
+*,
+::after,
+::before {
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   color: var(--text-color);
   box-sizing: border-box;
@@ -61,27 +63,21 @@ img.emoji {
 
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
-.selectable {
-  -webkit-touch-callout: all; /* iOS Safari */
-    -webkit-user-select: all; /* Safari */
-     -khtml-user-select: all; /* Konqueror HTML */
-       -moz-user-select: all; /* Old versions of Firefox */
-        -ms-user-select: all; /* Internet Explorer/Edge */
-            user-select: all; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+.copyable {
+  cursor: pointer;
 }
 
 @media (min-width: 576px) {
   .container {
-    max-width: 540px
+    max-width: 540px;
   }
 }
 
@@ -125,7 +121,7 @@ img.emoji {
     margin-top: 15px;
     font-size: 16px;
     margin-left: 20px;
-    border-radius: .5ch;
+    border-radius: 0.5ch;
   }
 
   li {
@@ -136,9 +132,9 @@ img.emoji {
       padding: 8px 22px;
       text-decoration: none;
       height: 100%;
-      border-radius: .5ch;
+      border-radius: 0.5ch;
       position: relative;
-      transition: background-color .2s ease;
+      transition: background-color 0.2s ease;
 
       img {
         width: 18px;
@@ -152,7 +148,7 @@ img.emoji {
       /*&:not(.disabled) {
        border: 1px solid var(--hightlight-color);
       }*/
-      
+
       &:not(.disabled) {
         background: var(--secondary-background);
       }
@@ -161,8 +157,6 @@ img.emoji {
         background: transparent;
       }
     }
-
-    
 
     .profile {
       padding-top: 8px;
@@ -178,11 +172,11 @@ img.emoji {
     &:not(.right) {
       float: left;
     }
-  
+
     &.right {
       float: right;
     }
-  
+
     &:not(:last-child) {
       margin-right: 1ch;
     }
@@ -202,14 +196,14 @@ img.emoji {
 }
 
 .publish {
-
   * {
     outline: none;
     border: none;
-    border-radius: .5ch;
+    border-radius: 0.5ch;
   }
 
-  h1, h4 {
+  h1,
+  h4 {
     margin: 15px 0 4px;
     font-weight: 400;
   }
@@ -228,12 +222,14 @@ img.emoji {
     width: calc(100% - 10px);
     padding: 10px 15px;
     border: 1px solid #ccc;
-    border-radius: .5ch;
+    border-radius: 0.5ch;
     vertical-align: middle;
     background: transparent;
   }
 
-  input:hover, textarea:hover, select:hover {
+  input:hover,
+  textarea:hover,
+  select:hover {
     outline: none;
     border: 1px solid var(--hightlight-color);
     background: var(--secondary-background);
@@ -243,20 +239,21 @@ img.emoji {
     cursor: pointer;
   }
 
-  .title-block select, .title-block input {
+  .title-block select,
+  .title-block input {
     margin-bottom: 10px;
   }
 
   .preview {
     background: var(--secondary-background);
-    border-radius: .5ch;
+    border-radius: 0.5ch;
     padding: 10px;
   }
 
   .needed {
     margin-left: 5px;
     color: rgb(255, 56, 56);
-    opacity: .75;
+    opacity: 0.75;
   }
 
   select {
@@ -265,7 +262,8 @@ img.emoji {
     background: transparent;
   }
 
-  select, table {
+  select,
+  table {
     width: 100%;
   }
 
@@ -291,7 +289,7 @@ img.emoji {
     resize: vertical;
     padding: 15px;
   }
-  
+
   .btn-block {
     margin-top: 20px;
     text-align: center;
@@ -301,9 +299,9 @@ img.emoji {
     width: 150px;
     padding: 10px;
     border: none;
-    -webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 5px; 
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     background-color: var(--hightlight-color);
     font-size: 16px;
     color: #fff;
@@ -311,7 +309,7 @@ img.emoji {
   }
 
   button:hover {
-    opacity: .9;
+    opacity: 0.9;
   }
 
   @media (min-width: 568px) {
@@ -327,7 +325,7 @@ img.emoji {
       width: 31%;
       margin-bottom: 0;
     }
-  } 
+  }
 }
 
 .post-view {
@@ -347,14 +345,14 @@ img.emoji {
 
   .details {
     margin-top: 25%;
-    opacity: .75;
+    opacity: 0.75;
     position: absolute;
     bottom: 30px;
   }
 
   .post-options {
     button {
-      border-radius: .5ch;
+      border-radius: 0.5ch;
       padding: 8px 25px;
       outline: none;
       border: none;
@@ -365,10 +363,9 @@ img.emoji {
       margin-top: 15px;
 
       &:hover {
-        opacity: .85;
+        opacity: 0.85;
       }
     }
-    
   }
 }
 
@@ -376,7 +373,7 @@ img.emoji {
   margin-top: 2%;
   width: 100%;
 
-  border-radius: .5ch;
+  border-radius: 0.5ch;
   background: var(--secondary-background);
   padding: 20px;
 }
@@ -403,10 +400,10 @@ strong {
     text-align: center;
 
     .details {
-      opacity: .75;
+      opacity: 0.75;
       path {
         fill: var(--hightlight-color);
-        opacity: .75;
+        opacity: 0.75;
       }
     }
   }
@@ -432,11 +429,11 @@ strong {
   color: var(--text-color);
 
   .label {
-    opacity: .5;
+    opacity: 0.5;
   }
 
   .box {
-    border-radius: .5ch;
+    border-radius: 0.5ch;
     background: var(--secondary-background);
     padding: 25px;
 
@@ -464,31 +461,21 @@ strong {
     margin-top: 5%;
 
     .name {
-      opacity: .75;
+      opacity: 0.75;
     }
 
     .username {
-      margin-top: -4%;
+      margin-top: -15px;
       font-weight: bold;
 
       span {
         padding: 4px 4px;
-        border-radius: .5ch;
+        border-radius: 0.5ch;
         background-color: var(--background);
-        opacity: .5;
-        
+        opacity: 0.5;
+
         &:not(:first-child) {
           margin-left: 3px;
-        }
-      }
-
-      .edit {
-        padding: 4px 20px;
-        margin-left: 4px;
-        font-weight: bold;
-        transition: all .3s ease-in-out;
-        &:hover {
-          opacity: 1;
         }
       }
     }
@@ -498,7 +485,7 @@ strong {
       width: 128px;
 
       * {
-        transition: all .2s ease-in-out;
+        transition: all 0.2s ease-in-out;
         cursor: pointer;
       }
 
@@ -509,7 +496,26 @@ strong {
         height: 128px;
       }
 
-      .svg-inline--fa {
+      .ic {
+        position: relative;
+        z-index: 2;
+      }
+
+      .fa-pen {
+        position: absolute;
+        left: 96px;
+        bottom: 8px;
+        border-radius: 50%;
+        background: var(--background);
+        padding: 6px;
+        z-index: 3;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+
+      .fa-retweet {
         font-size: 56px;
         color: white;
         position: absolute;
@@ -518,29 +524,23 @@ strong {
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         text-align: center;
-        opacity: 0;
+        z-index: 1;
       }
 
-      &:hover {
-        img {
-          opacity: .25;
-        }
-
-        .svg-inline--fa {
-          opacity: .75;
-        }
+      img:hover {
+        opacity: 0.25;
       }
     }
 
     .social-bar {
       a {
         font-size: 22px;
-        opacity: .25;
-        transition: all .3s ease;
+        opacity: 0.25;
+        transition: all 0.3s ease;
       }
 
       a:hover {
-        opacity: .75;
+        opacity: 0.75;
       }
 
       a:first-child {
@@ -567,30 +567,37 @@ strong {
       .mention {
         color: #706ecf;
         font-weight: 500;
-        transition: all .1s ease-in;
+        transition: all 0.1s ease-in;
         &:hover {
-          opacity: .75;
+          opacity: 0.75;
         }
       }
 
       .hashtag {
         color: rgb(79, 201, 118);
         font-weight: 500;
-        transition: all .1s ease-in;
+        transition: all 0.1s ease-in;
         &:hover {
-          opacity: .75;
+          opacity: 0.75;
         }
       }
     }
 
     .nowplaying {
-      height: 64px;
+      height: 78px;
+      padding: 6px;
+      width: 400px;
+      border-radius: 0.5ch;
+      outline: none;
+      box-shadow: rgba(29, 185, 84, 0.4) 0px 2px 0px, rgba(0, 0, 0, 0.3) 0px 5px 7px -3px, rgba(29, 185, 84, 0.1) 0px -3px 0px inset;
+      margin-top: 5px;
 
       .song-icon {
         display: inline-block;
         vertical-align: top;
+
         img {
-          border-radius: .5ch;
+          border-radius: 0.5ch;
           width: 64px;
           height: 64px;
         }
@@ -606,19 +613,83 @@ strong {
         }
 
         .artist {
-          opacity: .5;
+          opacity: 0.5;
           display: block;
           margin-top: -20px;
           font-size: 14px;
         }
 
         .footer {
-          opacity: .25;
+          opacity: 0.25;
           font-size: 12px;
           display: block;
           margin-top: -10px;
         }
       }
+    }
+
+    .albums-of-the-week {
+      width: 360px;
+      margin-top: 5px;
+      position: relative;
+
+      .album {
+        float: left;
+        width: 20%;
+        img {
+          border: 2px solid var(--secondary-background);
+          border-radius: .5ch;
+          width: 72px;
+          height: 72px;
+        }
+
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          opacity: .75;
+        }
+      }
+
+      &:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      .extra {
+        width: 72px;
+        height: 72px;
+        font-size: 48px;
+        background: var(--background);
+        border-radius: .2ch;
+        border: 2px solid var(--secondary-background);
+        
+        position: absolute;
+        top: 50%;
+        right: -30%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+
+        text-align: center;
+        opacity: .5;
+
+        * {
+          fill: rgba(79, 201, 118, 0.4);
+        }
+
+        .fa-plus {
+          margin-top: 10px;
+          opacity: .75;
+        }
+
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          opacity: .35;
+        }
+        
+      }
+
     }
   }
 
@@ -627,14 +698,14 @@ strong {
       .photo {
         object-fit: cover;
         padding: 10px;
-        border-radius: .5ch;
+        border-radius: 0.5ch;
         float: left;
         width: 32%;
         background: var(--background);
         margin-left: 1%;
         height: 350px;
-        opacity: .85;
-        transition: all .5s ease;
+        opacity: 0.85;
+        transition: all 0.5s ease;
 
         &:hover {
           opacity: 1;
@@ -651,9 +722,25 @@ strong {
   }
 }
 
-@media all and (max-width: 890px) {
+.copy-to-clipboard {
+  position: absolute;
+  top: 7.5%;
+  left: 50%;
+  transform: translate(-50%, -7.5%);
+  -ms-transform: translate(-50%, -7.5%);
+  background: var(--secondary-background);
+  padding: 8px 26px;
+  border-radius: .5ch;
+  opacity: .5;
+}
+
+@media all and (max-width: 1040px) {
   .column-profile-header {
-    width: 100% !important; 
+    width: 100% !important;
+  }
+
+  .username {
+    margin-top: 25px;
   }
 
   .photo {

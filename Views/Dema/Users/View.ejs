@@ -12,24 +12,34 @@
 <%- include('../../Blocks/header') %>
 
 <script rel="preload" src="<%= data.cdn %>/scripts/cal.js" as="script"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+
+<div class="alert" id="clipboard-alert">
+  <span class="copy-to-clipboard">
+    Copied to clipboard!
+  </span>
+</div>
 
 <div class="container user-profile">
   <div class="header box two-column">
     <div class="column-profile-header">
       <div class="icon" id="user-icon">
+        <div class="ic"><img src="<%= user.iconUrl %>" alt="<%= user.name %>"></div>
         <i class="fas fa-retweet"></i>
-        <img src="<%= user.iconUrl %>" alt="<%= user.name %>">
+        <% if(auth) { %>
+          <a href="/user/<%= user.username %>/edit?pass=<%= data.req.query?.pass %>">
+            <i class="fas fa-pen"></i>
+          </a>
+        <% } %>
       </div>
 
       <h1 class="name">
         <%= user.name %>
       </h1>
       <h5 class="username">
-        <span class="id selectable"><%= user.id %></span>
-        <span class="user selectable">@<%= user.username %></span>
-        <% if(auth) { %>
-          <a href="/user/edit"><span class="edit">Edit</span></a>
-        <% } %>
+        <span class="id copyable" id="user_id"><%= user.id %></span>
+        <span class="user copyable" id="user_username">@<%= user.username %></span>
       </h5>
       <div class="social-bar">
         <% if(user.socials?.instagram) { %>
@@ -45,6 +55,7 @@
     </div>
     <div class="column-profile-header">
       <% if(user.fmusername && lastfm.np) { %>
+        <span class="label">Now playing</span>
         <div class="nowplaying">
           <% let song = lastfm.np; %>
           <% if(song) { %>
@@ -55,7 +66,7 @@
                 </div>
                 <div class="info">
                   <h4 class="title">
-                    <%= truncateString(song.title, 40) %>
+                    <%= truncateString(song.title, 33) %>
                   </h4>
                   <p class="artist">
                     <%= song.artist %>
@@ -67,6 +78,23 @@
               </a>
             </div>
           <% } %>
+        </div>
+      <% } else if(lastfm.wac && lastfm.wac.length > 1) { %>
+        <span class="label">Albums of the week</span>
+        <div class="albums-of-the-week">
+          <% lastfm.wac.slice(0, 5).forEach((album) => { %>
+            <% let title = `#${album.rank} - ${album.name} - ${album.artist} | ${album.playcount} plays`; %>
+            <a href="<%= album.url %>" rel="noopener noreferrer">
+              <div class="album">
+                <img src="<%= album.imageURL %>" alt="<%= title %>" title="<%= title %>">
+              </div>
+            </a>
+          <% }); %>
+          <a href="https://www.last.fm/user/<%= user.fmusername %>/library/albums?date_preset=LAST_7_DAYS" target="_blank" rel="noopener noreferrer">
+            <div class="extra">
+              <i class="fas fa-plus"></i>
+            </div>
+          </a>
         </div>
       <% } %>
       <p class="pronoun">
@@ -111,6 +139,11 @@
 <div id="data" data-avaliable_users="<%= users.map((data) => data.username) %>"></div>
 
 <script>
+  // Copyable stuff
+  copyToClipboard('user_id');
+  copyToClipboard('user_username');
+
+  //
   let users = document.getElementById('data').dataset.avaliable_users.split(/,/g);
   let about = document.getElementById('about').innerHTML;
   let reg = /@[A-Za-z]+/i;
@@ -146,6 +179,21 @@
       console.log(err);
     }
   });
+
+  $('#clipboard-alert').hide();
+  function copyToClipboard(id) {
+    var copyText = document.getElementById(id);
+    copyText.addEventListener('click', async () => {
+      navigator.clipboard.writeText(copyText.innerText);
+      $('#clipboard-alert').toggle({
+        duration: 5000
+      });
+      setTimeout(() => {
+        $('#clipboard-alert').toggle();
+      }, 2500)
+    });
+    return copyText;
+  }
 </script>
 
 <% 

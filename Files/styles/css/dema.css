@@ -42,8 +42,10 @@ img.emoji {
   pointer-events: none;
 }
 
-*, ::after, ::before {
-  font-family: 'Poppins', sans-serif;
+*,
+::after,
+::before {
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   color: var(--text-color);
   -webkit-box-sizing: border-box;
@@ -74,19 +76,8 @@ img.emoji {
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
-.selectable {
-  -webkit-touch-callout: all;
-  /* iOS Safari */
-  -webkit-user-select: all;
-  /* Safari */
-  /* Konqueror HTML */
-  -moz-user-select: all;
-  /* Old versions of Firefox */
-  -ms-user-select: all;
-  /* Internet Explorer/Edge */
-  user-select: all;
-  /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+.copyable {
+  cursor: pointer;
 }
 
 @media (min-width: 576px) {
@@ -136,7 +127,7 @@ img.emoji {
   margin-top: 15px;
   font-size: 16px;
   margin-left: 20px;
-  border-radius: .5ch;
+  border-radius: 0.5ch;
 }
 
 .navbar li a {
@@ -146,10 +137,10 @@ img.emoji {
   padding: 8px 22px;
   text-decoration: none;
   height: 100%;
-  border-radius: .5ch;
+  border-radius: 0.5ch;
   position: relative;
-  -webkit-transition: background-color .2s ease;
-  transition: background-color .2s ease;
+  -webkit-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
   /*&:not(.disabled) {
        border: 1px solid var(--hightlight-color);
       }*/
@@ -208,10 +199,11 @@ img.emoji {
 .publish * {
   outline: none;
   border: none;
-  border-radius: .5ch;
+  border-radius: 0.5ch;
 }
 
-.publish h1, .publish h4 {
+.publish h1,
+.publish h4 {
   margin: 15px 0 4px;
   font-weight: 400;
 }
@@ -230,12 +222,14 @@ img.emoji {
   width: calc(100% - 10px);
   padding: 10px 15px;
   border: 1px solid #ccc;
-  border-radius: .5ch;
+  border-radius: 0.5ch;
   vertical-align: middle;
   background: transparent;
 }
 
-.publish input:hover, .publish textarea:hover, .publish select:hover {
+.publish input:hover,
+.publish textarea:hover,
+.publish select:hover {
   outline: none;
   border: 1px solid var(--hightlight-color);
   background: var(--secondary-background);
@@ -245,20 +239,21 @@ img.emoji {
   cursor: pointer;
 }
 
-.publish .title-block select, .publish .title-block input {
+.publish .title-block select,
+.publish .title-block input {
   margin-bottom: 10px;
 }
 
 .publish .preview {
   background: var(--secondary-background);
-  border-radius: .5ch;
+  border-radius: 0.5ch;
   padding: 10px;
 }
 
 .publish .needed {
   margin-left: 5px;
   color: #ff3838;
-  opacity: .75;
+  opacity: 0.75;
 }
 
 .publish select {
@@ -267,7 +262,8 @@ img.emoji {
   background: transparent;
 }
 
-.publish select, .publish table {
+.publish select,
+.publish table {
   width: 100%;
 }
 
@@ -311,7 +307,7 @@ img.emoji {
 }
 
 .publish button:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 @media (min-width: 568px) {
@@ -349,13 +345,13 @@ img.emoji {
 
 .post-view .details {
   margin-top: 25%;
-  opacity: .75;
+  opacity: 0.75;
   position: absolute;
   bottom: 30px;
 }
 
 .post-view .post-options button {
-  border-radius: .5ch;
+  border-radius: 0.5ch;
   padding: 8px 25px;
   outline: none;
   border: none;
@@ -367,13 +363,13 @@ img.emoji {
 }
 
 .post-view .post-options button:hover {
-  opacity: .85;
+  opacity: 0.85;
 }
 
 .post-content {
   margin-top: 2%;
   width: 100%;
-  border-radius: .5ch;
+  border-radius: 0.5ch;
   background: var(--secondary-background);
   padding: 20px;
 }
@@ -399,12 +395,12 @@ strong {
 }
 
 .posts .post .details {
-  opacity: .75;
+  opacity: 0.75;
 }
 
 .posts .post .details path {
   fill: var(--hightlight-color);
-  opacity: .75;
+  opacity: 0.75;
 }
 
 .posts .post:hover {
@@ -429,11 +425,11 @@ strong {
 }
 
 .user-profile .label {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .user-profile .box {
-  border-radius: .5ch;
+  border-radius: 0.5ch;
   background: var(--secondary-background);
   padding: 25px;
 }
@@ -460,35 +456,23 @@ strong {
 }
 
 .user-profile .header .name {
-  opacity: .75;
+  opacity: 0.75;
 }
 
 .user-profile .header .username {
-  margin-top: -4%;
+  margin-top: -15px;
   font-weight: bold;
 }
 
 .user-profile .header .username span {
   padding: 4px 4px;
-  border-radius: .5ch;
+  border-radius: 0.5ch;
   background-color: var(--background);
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .user-profile .header .username span:not(:first-child) {
   margin-left: 3px;
-}
-
-.user-profile .header .username .edit {
-  padding: 4px 20px;
-  margin-left: 4px;
-  font-weight: bold;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-
-.user-profile .header .username .edit:hover {
-  opacity: 1;
 }
 
 .user-profile .header .icon {
@@ -497,8 +481,8 @@ strong {
 }
 
 .user-profile .header .icon * {
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
 
@@ -509,7 +493,26 @@ strong {
   height: 128px;
 }
 
-.user-profile .header .icon .svg-inline--fa {
+.user-profile .header .icon .ic {
+  position: relative;
+  z-index: 2;
+}
+
+.user-profile .header .icon .fa-pen {
+  position: absolute;
+  left: 96px;
+  bottom: 8px;
+  border-radius: 50%;
+  background: var(--background);
+  padding: 6px;
+  z-index: 3;
+}
+
+.user-profile .header .icon .fa-pen:hover {
+  opacity: 0.9;
+}
+
+.user-profile .header .icon .fa-retweet {
   font-size: 56px;
   color: white;
   position: absolute;
@@ -519,26 +522,22 @@ strong {
           transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
-  opacity: 0;
+  z-index: 1;
 }
 
-.user-profile .header .icon:hover img {
-  opacity: .25;
-}
-
-.user-profile .header .icon:hover .svg-inline--fa {
-  opacity: .75;
+.user-profile .header .icon img:hover {
+  opacity: 0.25;
 }
 
 .user-profile .header .social-bar a {
   font-size: 22px;
-  opacity: .25;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
+  opacity: 0.25;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .user-profile .header .social-bar a:hover {
-  opacity: .75;
+  opacity: 0.75;
 }
 
 .user-profile .header .social-bar a:first-child {
@@ -561,27 +560,34 @@ strong {
 .user-profile .header .about .mention {
   color: #706ecf;
   font-weight: 500;
-  -webkit-transition: all .1s ease-in;
-  transition: all .1s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
 }
 
 .user-profile .header .about .mention:hover {
-  opacity: .75;
+  opacity: 0.75;
 }
 
 .user-profile .header .about .hashtag {
   color: #4fc976;
   font-weight: 500;
-  -webkit-transition: all .1s ease-in;
-  transition: all .1s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
 }
 
 .user-profile .header .about .hashtag:hover {
-  opacity: .75;
+  opacity: 0.75;
 }
 
 .user-profile .header .nowplaying {
-  height: 64px;
+  height: 78px;
+  padding: 6px;
+  width: 400px;
+  border-radius: 0.5ch;
+  outline: none;
+  -webkit-box-shadow: rgba(29, 185, 84, 0.4) 0px 2px 0px, rgba(0, 0, 0, 0.3) 0px 5px 7px -3px, rgba(29, 185, 84, 0.1) 0px -3px 0px inset;
+          box-shadow: rgba(29, 185, 84, 0.4) 0px 2px 0px, rgba(0, 0, 0, 0.3) 0px 5px 7px -3px, rgba(29, 185, 84, 0.1) 0px -3px 0px inset;
+  margin-top: 5px;
 }
 
 .user-profile .header .nowplaying .song-icon {
@@ -590,7 +596,7 @@ strong {
 }
 
 .user-profile .header .nowplaying .song-icon img {
-  border-radius: .5ch;
+  border-radius: 0.5ch;
   width: 64px;
   height: 64px;
 }
@@ -606,32 +612,94 @@ strong {
 }
 
 .user-profile .header .nowplaying .info .artist {
-  opacity: .5;
+  opacity: 0.5;
   display: block;
   margin-top: -20px;
   font-size: 14px;
 }
 
 .user-profile .header .nowplaying .info .footer {
-  opacity: .25;
+  opacity: 0.25;
   font-size: 12px;
   display: block;
   margin-top: -10px;
+}
+
+.user-profile .header .albums-of-the-week {
+  width: 360px;
+  margin-top: 5px;
+  position: relative;
+}
+
+.user-profile .header .albums-of-the-week .album {
+  float: left;
+  width: 20%;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.user-profile .header .albums-of-the-week .album img {
+  border: 2px solid var(--secondary-background);
+  border-radius: .5ch;
+  width: 72px;
+  height: 72px;
+}
+
+.user-profile .header .albums-of-the-week .album:hover {
+  opacity: .75;
+}
+
+.user-profile .header .albums-of-the-week:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.user-profile .header .albums-of-the-week .extra {
+  width: 72px;
+  height: 72px;
+  font-size: 48px;
+  background: var(--background);
+  border-radius: .2ch;
+  border: 2px solid var(--secondary-background);
+  position: absolute;
+  top: 50%;
+  right: -30%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: .5;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.user-profile .header .albums-of-the-week .extra * {
+  fill: rgba(79, 201, 118, 0.4);
+}
+
+.user-profile .header .albums-of-the-week .extra .fa-plus {
+  margin-top: 10px;
+  opacity: .75;
+}
+
+.user-profile .header .albums-of-the-week .extra:hover {
+  opacity: .35;
 }
 
 .user-profile .portfolio .photos .photo {
   -o-object-fit: cover;
      object-fit: cover;
   padding: 10px;
-  border-radius: .5ch;
+  border-radius: 0.5ch;
   float: left;
   width: 32%;
   background: var(--background);
   margin-left: 1%;
   height: 350px;
-  opacity: .85;
-  -webkit-transition: all .5s ease;
-  transition: all .5s ease;
+  opacity: 0.85;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .user-profile .portfolio .photos .photo:hover {
@@ -646,9 +714,25 @@ strong {
   clear: both;
 }
 
-@media all and (max-width: 890px) {
+.copy-to-clipboard {
+  position: absolute;
+  top: 7.5%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -7.5%);
+          transform: translate(-50%, -7.5%);
+  -ms-transform: translate(-50%, -7.5%);
+  background: var(--secondary-background);
+  padding: 8px 26px;
+  border-radius: .5ch;
+  opacity: .5;
+}
+
+@media all and (max-width: 1040px) {
   .column-profile-header {
     width: 100% !important;
+  }
+  .username {
+    margin-top: 25px;
   }
   .photo {
     width: 100% !important;
