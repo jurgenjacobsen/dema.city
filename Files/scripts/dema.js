@@ -8,6 +8,13 @@ function Markdown(input, preview) {
 
 window.onload = () => {
   twemoji.parse(document.body);
-  console.clear();
 };
 
+function hightlight(id) {
+  const element = document.getElementById(id);
+  if(!element) return;
+  element?.classList.add('hightlight');
+  setTimeout(() => {
+    element?.classList.remove('hightlight');
+  }, 2 * 1000);
+}

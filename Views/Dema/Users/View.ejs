@@ -13,7 +13,6 @@
 
 <script rel="preload" src="<%= data.cdn %>/scripts/cal.js" as="script"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 
 <div class="alert" id="clipboard-alert">
   <span class="copy-to-clipboard">
@@ -55,38 +54,38 @@
     </div>
     <div class="column-profile-header">
       <% if(user.fmusername && lastfm.np) { %>
-        <span class="label">Now playing</span>
-        <div class="nowplaying">
+        <span class="label" id="np_label" style="cursor: pointer;">Now playing</span>
+        <div class="nowplaying" id="np">
           <% let song = lastfm.np; %>
           <% if(song) { %>
             <div class="song">
-              <a href="<%= song.url %>" target="_blank" rel="noopener noreferrer">
-                <div class="song-icon">
-                  <img src="<%= song.imageURL %>" alt="<%= song.album %>" title="<%= song.album %>">
-                </div>
-                <div class="info">
+              <div class="song-icon">
+                <img src="<%= song.imageURL %>" alt="<%= song.album %>" title="<%= song.album %>">
+              </div>
+              <div class="info">
+                <a href="<%= song.url %>" target="_blank" rel="noopener noreferrer">
                   <h4 class="title">
-                    <%= truncateString(song.title, 33) %>
+                    <%= truncateString(song.title, 28) %>
                   </h4>
                   <p class="artist">
-                    <%= song.artist %>
+                    <%= truncateString(song.artist, 25) %>
                   </p>
-                  <p class="footer">
-                    Listening now on <i class="fab fa-spotify" style="margin-left: 2px;"></i>
-                  </p>
-                </div>
-              </a>
+                </a>
+                <p class="footer" id="listen_on_spotify">
+                  Listening now on <i class="fab fa-spotify" style="margin-left: 2px;"></i>
+                </p>
+              </div>
             </div>
           <% } %>
         </div>
-      <% } else if(lastfm.wac && lastfm.wac.length > 1) { %>
-        <span class="label">Albums of the week</span>
-        <div class="albums-of-the-week">
+      <% } if(lastfm.wac && lastfm.wac.length > 1) { %>
+        <span class="label" id="aoftw_label" style="cursor: pointer;">Albums of the week</span>
+        <div class="albums-of-the-week" id="aoftw">
           <% lastfm.wac.slice(0, 5).forEach((album) => { %>
             <% let title = `#${album.rank} - ${album.name} - ${album.artist} | ${album.playcount} plays`; %>
-            <a href="<%= album.url %>" rel="noopener noreferrer">
+            <a href="<%= album.url %>" rel="noopener noreferrer" target="_blank">
               <div class="album">
-                <img src="<%= album.imageURL %>" alt="<%= title %>" title="<%= title %>">
+                <img src="<%= album.imageURL ? album.imageURL : 'https://cdn.dema.city/images/DemaCity.png' %>" alt="<%= title %>" title="<%= title %>">
               </div>
             </a>
           <% }); %>
@@ -97,19 +96,23 @@
           </a>
         </div>
       <% } %>
-      <p class="pronoun">
-        <span class="label">Pronoun</span><br>
-        <%= user.pronoun %>
-      </p>
+      <% if(user.pronoun.length > 1) { %>
+        <p class="pronoun">
+          <span class="label">Pronoun</span><br>
+          <%= user.pronoun %>
+        </p>
+      <% } %>
       <p class="location">
         <span class="label">Location</span><br>
           <% let weatherText = weather ? `${weatherIcon} ${weather.temperature}C°` : ''; %>
           <%= user.location %> <span class="right" id="weather"><%= weatherText ? weatherText : '' %></span>
       </p>
-      <p class="about" id="about">
-        <span class="label">About</span><br>
-        <%= truncateString(user.about, 330) %>
-      </p>
+      <% if(user.about?.length > 1) { %>
+        <p class="about" id="about">
+          <span class="label">About</span><br>
+          <%= truncateString(user.about, 330) %>
+        </p>
+      <% } %>
     </div>
   </div>
 
@@ -144,12 +147,12 @@
   copyToClipboard('user_username');
 
   //
-  let users = document.getElementById('data').dataset.avaliable_users.split(/,/g);
-  let about = document.getElementById('about').innerHTML;
+  let users = document.getElementById('data')?.dataset.avaliable_users.split(/,/g);
+  let about = document.getElementById('about')?.innerHTML;
   let reg = /@[A-Za-z]+/i;
   let hReg = /#[A-Za-z]+/i;
-  let found_users = about.match(reg);
-  let found_hashtags = about.match(hReg);
+  let found_users = about?.match(reg);
+  let found_hashtags = about?.match(hReg);
   
   if(found_users) {
     for(let u of found_users) {
@@ -165,7 +168,9 @@
     }
   }
 
-  document.getElementById('about').innerHTML = about;
+  if(about) {
+    document.getElementById('about').innerHTML = about;
+  }
 
   let user_icon = document.getElementById('user-icon');
   user_icon.addEventListener('click', async () => {
@@ -180,16 +185,38 @@
     }
   });
 
+  if(document.getElementById('np')) {
+    $('#aoftw').hide();
+    $('#aoftw_label').hide();
+  }
+
+  $('#np_label').on('click', () => {
+    $('#aoftw').show();
+    $('#aoftw_label').show();
+    $('#np').hide();
+    $('#np_label').hide();
+  });
+
+  if(document.getElementById('np')) {
+    $('#aoftw_label').on('click', () => {
+      $('#aoftw').hide();
+      $('#aoftw_label').hide();
+      $('#np').show();
+      $('#np_label').show();
+    });
+  }
+
+  //
   $('#clipboard-alert').hide();
   function copyToClipboard(id) {
     var copyText = document.getElementById(id);
     copyText.addEventListener('click', async () => {
-      navigator.clipboard.writeText(copyText.innerText);
-      $('#clipboard-alert').toggle({
+      navigator?.clipboard?.writeText(copyText.innerText);
+      $('#clipboard-alert')?.toggle({
         duration: 5000
       });
       setTimeout(() => {
-        $('#clipboard-alert').toggle();
+        $('#clipboard-alert')?.toggle();
       }, 2500)
     });
     return copyText;

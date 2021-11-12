@@ -1,0 +1,51 @@
+<%- include('header') %>
+
+<div class="container subject-body">
+  <div class="subject-head">
+    <h2 class="subject-name">
+      <%- subject.name %>
+    </h2>
+    <div class="details">
+      <span>
+        <% let n = DATA.projects.filter((project) => project.subject === subject.id)?.length; %>
+        <%- n %> <%- n > 1 && n < 1 ? 'projetos' : 'projeto' %>
+      </span>
+      <% if(subject.teacher && subject.teacher.length > 1) { %>
+        <span class="slash">|</span>
+        <span class="teacher-prefix">Professor(a)</span>
+        <%- subject.teacher %>
+      <% }; %>
+    </div>
+  </div>
+  <div class="projects">
+    <% DATA.projects.filter((project) => project.subject === subject.id).forEach((project) => { %>
+      <div class="project" onclick="location.href='/project/<%= project.id %>'">
+
+        <% if(project.banner) { %>
+          <img class="banner" src="<%= project.banner %>" alt="<%= project.name %> " title="<%= project.name %>">
+        <% } %>
+
+        <div class="info">
+          <h3 class="name">
+            <%- project.title %>
+          </h3>
+          <p class="description">
+            <%- project.description %>
+          </p>
+          <br>
+          <div class="students">
+            <% project.students.map((s) => DATA.students.find((stu) => stu.id === s || stu.username === s)).forEach((student) => { %>
+              <img src="<%=  student.avatar && student.avatar.length > 1 ? student.avatar : 'https://www.bluebridgewindowcleaning.co.uk/wp-content/uploads/2016/04/default-avatar.png' %>" alt="<%= student.name %>" title="<%= student.name %>" class="avatar">
+            <% }); %>
+          </div>
+          <span class="date">
+            <% let date = new Date(project.date); %>
+            <%- `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} às ${date.getHours()}:${date.getMinutes()}` %>
+          </span>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</div>
+
+<%- include('../Blocks/footer') %>

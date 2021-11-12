@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html translate="no">
+  <head>
+    <title>ESEQ - Schoolworks</title>
+
+    <meta charset="UTF-8">
+    <meta translate="no">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+    <link rel="shortcut icon" href="<%= data.cdn %>/images/favicon.ico">
+    <link rel="stylesheet" href="<%= data.cdn %>/styles/css/eseq.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/js/all.min.js" integrity="sha512-cyAbuGborsD25bhT/uz++wPqrh5cqPh1ULJz4NSpN9ktWcA6Hnh9g+CWKeNx2R0fgQt+ybRXdabSBgYXkQTTmA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <meta name="theme-color" content="#1c1c1c">
+    <meta property=”og:type” content=”website”/>
+    <meta property="og:title" content="ESEQ - 11ºM">
+    <meta property="og:url" content="https://eseq.dema.city">
+    <meta property="og:description" content="School homeworks and projects of class 11ºM">
+    <meta property="og:image" content="<%= data.cdn %>/images/DemaCity.png">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+
+    <script rel="preload" src="<%= data.cdn %>/scripts/dema.js" as="script"></script>
+    <script rel="preload" src="<%= data.cdn %>/scripts/markdown.js" as="script"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3N4GLN1Q2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H3N4GLN1Q2');
+    </script>
+  </head>
+
+  <div class="navbar">
+    <ul>
+      <li><a href="/"><span class="text">Início</span><span class="icon"><i class="fas fa-home"></i></span></a></li>
+      <li><a onclick="hightlight('subjects')" href="/#subjects"><span class="text">Matérias</span><span class="icon"><i class="fas fa-book"></i></span></a></li>
+      <li><a onclick="hightlight('students')" href="/#students"><span class="text">Estudantes</span><span class="icon"><i class="fas fa-graduation-cap"></i></span></a></li>
+    </ul>
+  </div>

@@ -1,0 +1,443 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --hightlight-color: #525eda;
+  --hightlight-secondary-color: #56dd81;
+  --primary-color: #292929;
+  --secondary-color: #f5f5f5;
+  --background-color: #1c1c1c;
+}
+
+.container {
+  width: 100%;
+  padding: 5px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container::before {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--secondary-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+a, ::before, ::after {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar {
+  font-size: 1.2rem;
+  margin-right: 12px;
+  text-align: center;
+}
+
+.navbar ul {
+  display: inline-block;
+}
+
+.navbar ul li {
+  float: left;
+  padding: 5px 20px;
+  list-style: none;
+  background: var(--primary-color);
+  margin-left: 5px;
+  border-radius: .5ch;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  cursor: pointer;
+}
+
+.navbar ul li:hover {
+  opacity: .75;
+  -webkit-transform: scale(1.003);
+          transform: scale(1.003);
+  background: var(--background-color);
+}
+
+.navbar ul li .icon {
+  display: none;
+  opacity: .85;
+}
+
+.homepage .header {
+  margin-top: 50px;
+}
+
+.homepage .header .about {
+  text-align: center;
+}
+
+.homepage .subjects {
+  margin-left: 10%;
+  width: 80%;
+  margin-top: 50px;
+  position: relative;
+  border-radius: .5ch;
+  border: 2px solid var(--background-color);
+  padding: 0px 10px 20px 10px;
+}
+
+.homepage .subjects .subjects-title {
+  opacity: .5;
+  font-weight: 400;
+}
+
+.homepage .subjects .subject {
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  border-radius: .5ch;
+  background: var(--primary-color);
+  position: relative;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.homepage .subjects .subject .title {
+  position: absolute;
+  top: 18%;
+  left: 20px;
+  padding: 5px 10px;
+}
+
+.homepage .subjects .subject .link {
+  position: absolute;
+  top: 23%;
+  right: 20px;
+  background: var(--background-color);
+  padding: 5px 10px;
+  border-radius: .5ch;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  font-size: 16px;
+}
+
+.homepage .subjects .subject .link:hover {
+  opacity: .75;
+}
+
+.homepage .subjects .subject:not(.first-child) {
+  margin-top: 10px;
+}
+
+.homepage .subjects .subject:hover {
+  -webkit-transform: scale(1.005);
+          transform: scale(1.005);
+}
+
+.homepage .students {
+  margin-left: 10%;
+  width: 80%;
+  margin-top: 20px;
+  position: relative;
+  border-radius: .5ch;
+  border: 2px solid var(--background-color);
+  padding: 0px 10px 20px 10px;
+}
+
+.homepage .students .students-title {
+  opacity: .5;
+  font-weight: 400;
+}
+
+.subject-body {
+  margin-top: 50px;
+}
+
+.subject-body .subject-name {
+  font-weight: 400;
+  opacity: .5;
+}
+
+.subject-body .details {
+  font-size: 1.2rem;
+  opacity: .85;
+  margin-top: -20px;
+  padding: 0px 5px;
+}
+
+.subject-body .slash, .subject-body .teacher-prefix {
+  opacity: .5;
+  padding: 0px 7.5px;
+}
+
+.subject-body .projects {
+  margin-top: 50px;
+  width: 70%;
+  border-radius: .5ch;
+}
+
+.subject-body .projects .project {
+  width: 100%;
+  background: var(--primary-color);
+  padding: 20px 20px 10px 20px;
+  border-radius: .5ch;
+  cursor: pointer;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.subject-body .projects .project:hover {
+  -webkit-transform: scale(1.005);
+          transform: scale(1.005);
+}
+
+.subject-body .projects .project img.banner {
+  width: 100%;
+  height: 250px;
+  border-radius: .5ch;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.subject-body .projects .project .info {
+  padding: 5px 2.5px 15px 2.5px;
+  position: relative;
+}
+
+.subject-body .projects .project .info .name {
+  text-transform: capitalize;
+  height: 20px;
+  margin-top: -5px;
+  opacity: .5;
+  font-weight: 400;
+}
+
+.subject-body .projects .project .info .description {
+  font-size: 1rem;
+  opacity: .85;
+}
+
+.subject-body .projects .project .info .date {
+  position: absolute;
+  bottom: 1px;
+  right: 5px;
+  opacity: .25;
+  font-size: 1rem;
+}
+
+.subject-body .projects .project .info .students {
+  position: absolute;
+  bottom: -5px;
+  left: 2px;
+  font-size: 1rem;
+}
+
+.subject-body .projects .project .info .students .avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+}
+
+.subject-body .projects .project .info .students .avatar:not(:first-child) {
+  margin-left: -10px;
+}
+
+.project-body {
+  margin-top: 50px;
+}
+
+.project-body .project-head .project-title {
+  font-weight: 400;
+  opacity: .5;
+}
+
+.project-body .project-head .project-description {
+  font-size: 1.1rem;
+  opacity: .75;
+  margin-top: -20px;
+}
+
+.project-body .project-head .details {
+  position: relative;
+  font-size: 1.2rem;
+  opacity: .85;
+  padding: 0px 5px 0px 0px;
+}
+
+.project-body .project-head .details .slash {
+  opacity: .5;
+  padding: 0px 7.5px;
+}
+
+.project-body .project-head .details .tag {
+  padding: 1px 2px 1px 7px;
+  background: #444;
+  opacity: .75;
+  border-radius: .5ch;
+  text-transform: capitalize;
+}
+
+.project-body .project-head .details .students {
+  position: absolute;
+}
+
+.project-body .project-head .details .students .avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+}
+
+.project-body .project-head .details .students .avatar:not(:first-child) {
+  margin-left: -10px;
+}
+
+.project-body .spacer {
+  width: 60%;
+  border-bottom: 2px solid var(--primary-color);
+  margin-top: 30px;
+}
+
+.project-body .project-content h1, .project-body .project-content h2, .project-body .project-content h3, .project-body .project-content h4, .project-body .project-content h5, .project-body .project-content h6 {
+  font-weight: 300;
+  opacity: .75;
+}
+
+.hightlight {
+  -webkit-animation: hightlight 2.5s 1;
+          animation: hightlight 2.5s 1;
+}
+
+@-webkit-keyframes hightlight {
+  0% {
+    border: 2px solid var(--background-color);
+  }
+  20% {
+    border: 2px solid var(--background-color);
+  }
+  40% {
+    border: 2px solid var(--hightlight-secondary-color);
+  }
+  50% {
+    border: 2px solid var(--hightlight-secondary-color);
+  }
+  60% {
+    border: 2px solid var(--hightlight-secondary-color);
+  }
+  80% {
+    border: 2px solid var(--background-color);
+  }
+  100% {
+    border: 2px solid var(--background-color);
+  }
+}
+
+@keyframes hightlight {
+  0% {
+    border: 2px solid var(--background-color);
+  }
+  20% {
+    border: 2px solid var(--background-color);
+  }
+  40% {
+    border: 2px solid var(--hightlight-secondary-color);
+  }
+  50% {
+    border: 2px solid var(--hightlight-secondary-color);
+  }
+  60% {
+    border: 2px solid var(--hightlight-secondary-color);
+  }
+  80% {
+    border: 2px solid var(--background-color);
+  }
+  100% {
+    border: 2px solid var(--background-color);
+  }
+}
+
+@media all and (max-width: 920px) {
+  .navbar .icon {
+    display: block !important;
+  }
+  .navbar .text {
+    display: none;
+  }
+  .homepage .subjects, .homepage .students {
+    margin-left: 0% !important;
+    width: 90% !important;
+  }
+  .subject-body .subject-name {
+    text-align: center;
+  }
+  .subject-body .details {
+    text-align: center;
+  }
+  .subject-body .details .slash {
+    opacity: 0;
+    padding: 0 100%;
+  }
+  .subject-body .projects {
+    text-align: center;
+    margin-left: 10%;
+  }
+  .subject-body .projects .project .description {
+    margin-top: 70px;
+  }
+  .project-body {
+    margin-left: 2%;
+  }
+  .project-body .project-title, .project-body .project-description {
+    width: 90%;
+  }
+  .project-body .slash {
+    padding: 0 100% !important;
+    opacity: 0;
+  }
+  .project-body .tag {
+    padding: 1px 5px !important;
+  }
+  .project-body .spacer {
+    opacity: 0;
+  }
+  .project-body .avatar {
+    width: 32px !important;
+    height: 32px !important;
+  }
+}

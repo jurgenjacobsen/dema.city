@@ -1,4 +1,8 @@
+import Collection from "@discordjs/collection";
 import axios from "axios";
+import stringSimilarity from 'string-similarity';
+
+const cache = new Collection<string, {data: any, last: Date}>();
 
 export function LastFMRequest(method: string, data: {user?: string, track?: string, limit?: string | number, album?: string}): Promise<any | undefined> {
   return new Promise(async (resolve) => {
@@ -34,9 +38,10 @@ export async function NowPlaying(username: string) {
   : undefined;
 }
 
-export async function WeeklyChart(username: string) {
-  let data = await LastFMRequest('user.getWeeklyAlbumChart', {user: username, limit: 9});
-  if(!data?.weeklyalbumchart?.album) return undefined;
+export async function WeeklyChart(username: string, options?: {
+  force?: boolean,
+  update?: boolean,
+}) {
   let albums: Array<{
     name: string,
     artist: string,
@@ -47,22 +52,37 @@ export async function WeeklyChart(username: string) {
     rank: number,
   }> = [];
 
-  await new Promise((resolve) => {
-    data.weeklyalbumchart.album.forEach(async (album: any, index: number, array: Array<any>) => {
-      let a = await AlbumSearch(album.name) as any;
-      if(a) albums.push({
-        name: a.name,
-        artist: a.artist,
-        url: a.url,
-        imageURL: a.image?.[3]?.['#text'],
-        mbid: a.mbid,
-        playcount: Number(album.playcount),
-        rank: Number(album['@attr'].rank),
+  let old = cache.get(username);
+  if(!old || options?.update) {
+    let data = await LastFMRequest('user.getWeeklyAlbumChart', {user: username, limit: 9});
+    if(!data?.weeklyalbumchart?.album) return undefined;
+    
+    await new Promise((resolve) => {
+      data.weeklyalbumchart.album.forEach(async (album: any, index: number, array: Array<any>) => {
+        let a = await AlbumSearch(album.name) as any;
+        if(a) albums.push({
+          name: a.name,
+          artist: a.artist,
+          url: a.url,
+          imageURL: a.image?.[3]?.['#text'],
+          mbid: a.mbid,
+          playcount: Number(album.playcount),
+          rank: Number(album['@attr'].rank),
+        });
+        await wait(50);
+        if(index === array.length-1) resolve(undefined);
       });
-      await wait(50);
-      if(index === array.length-1) resolve(undefined);
     });
-  });
+  } else {
+    albums = old.data;
+  }
+  
+  cache.set(username, {data: albums, last: new Date()});
+
+  setTimeout(() => {
+    cache.delete(username);
+  }, 3 * 60 * 1000);
+
   return albums.sort((a, b) => a.rank - b.rank);
 }
 
@@ -70,10 +90,20 @@ export async function TrackSearch(track: string) {
   
 }
 
-export async function AlbumSearch(album: string, limit = 1) {
-  let data = await LastFMRequest('album.search', {album: encodeURIComponent(album), limit: limit});
+export async function AlbumSearch(album: string, limit = 30) {
+  let data = await LastFMRequest('album.search', {album: encodeURIComponent(`${album}`), limit: limit});
   if(!data?.results?.albummatches?.album) return undefined;
-  return data?.results?.albummatches?.album[0];
+  let best: Array<{sim: number, data: any}> = [];
+
+  for(let a of data?.results?.albummatches?.album) {
+    best.push({
+      data: a,
+      sim: stringSimilarity.compareTwoStrings(album, a.name),
+    });
+    best = best.sort((a, b) => b.sim - a.sim);
+  }
+
+  return best[0].data;
 }
 
 async function wait(ms: number) {

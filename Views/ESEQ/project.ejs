@@ -1,0 +1,42 @@
+<%- include('header') %>
+
+<div class="container project-body">
+  <div class="project-head">
+    <h2 class="project-title">
+      <%- project.title %>
+    </h2>
+    <p class="project-description">
+      <%- project.description %>
+    </p>
+    <div class="details">
+      <span class="date">
+        <% let date = new Date(project.date); %>
+        <%- `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} às ${date.getHours()}:${date.getMinutes()}` %>
+      </span>
+      <% if(project.tags) { %>
+        <span class="slash">|</span>
+        <span class="tags" title="Palavras chave">
+          <% project.tags.forEach((t) => { %>
+            <span class="tag">
+              <%- t %>
+            </span>
+          <% }) %>
+        </span>
+      <% } %>
+      <% if(project.students && project.students.length >= 1) { %>
+        <span class="slash">|</span>
+        <span class="students">
+          <% project.students.map((s) => DATA.students.find((stu) => stu.id === s || stu.username === s)).forEach((student) => { %>
+            <img src="<%= student.avatar && student.avatar.length > 1 ? student.avatar : 'https://www.bluebridgewindowcleaning.co.uk/wp-content/uploads/2016/04/default-avatar.png' %>" alt="<%= student.name %>" title="<%= student.name %>" class="avatar">
+          <% }) %>
+        </span>
+      <% } %>
+    </div>
+  </div>
+  
+  <div class="spacer"></div>
+
+  <div class="project-content">
+    <%- include(`projects/${project.id}`) %>
+  </div>
+</div>

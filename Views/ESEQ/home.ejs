@@ -1,0 +1,48 @@
+<%- include('header') %>
+
+<body>
+  <div class="homepage">
+    <div class="container">
+      <div class="header">
+        <h1 class="title">
+          
+        </h1>
+        <p class="about">
+          Trabalhos escolares e projetos da turma 11ºM
+        </p>
+      </div>
+
+      <div class="subjects" id="subjects">
+        <h3 class="subjects-title">
+          Matérias
+        </h3>
+        <div style="margin-top: -20px;">
+          <% DATA.subjects.forEach((subject) => { %>
+            <div class="subject">
+              <span class="title">
+                <%= subject.name %>
+              </span>
+              <a href="/subject/<%= subject.id %>" class="link">
+                Ver mais
+              </a>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+      <div class="students" id="students">
+        <h3 class="students-title">
+          Estudantes
+        </h3>
+        <div style="margin-top: 20px;">
+          <% DATA.students.forEach((student) => { %>
+            <div class="student">
+
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<%- include('../Blocks/footer') %>
