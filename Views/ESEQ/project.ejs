@@ -2,6 +2,9 @@
 
 <div class="container project-body">
   <div class="project-head">
+    <% if(project.banner && project.banner.length > 1) { %>
+      <img class="banner" src="<%= project.banner %>">
+    <% } %>
     <h2 class="project-title">
       <%- project.title %>
     </h2>
@@ -14,8 +17,8 @@
         <%- `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} às ${date.getHours()}:${date.getMinutes()}` %>
       </span>
       <% if(project.tags) { %>
-        <span class="slash">|</span>
         <span class="tags" title="Palavras chave">
+          <span class="slash">|</span>
           <% project.tags.forEach((t) => { %>
             <span class="tag">
               <%- t %>

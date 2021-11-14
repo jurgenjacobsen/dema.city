@@ -45,8 +45,19 @@
   }
 }
 
+html,body{
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+@media only screen and (max-width: 768px) {
+  html, body {
+    width:100%;
+    overflow-x:hidden;
+  }
 }
 
 body {
@@ -58,7 +69,6 @@ body {
   background-color: var(--background-color);
   margin: 0;
   padding: 0;
-
   user-select: none;
 }
 
@@ -69,7 +79,6 @@ a, ::before, ::after {
 
 .navbar {
   font-size: 1.2rem;
-  margin-right: 12px;
   text-align: center;
 
   ul {
@@ -165,7 +174,7 @@ a, ::before, ::after {
   .students {
     margin-left: 10%;
     width: 80%;
-    margin-top: 20px;
+    margin-top: 40px;
     position: relative;
     border-radius: .5ch;
     border: 2px solid var(--background-color);
@@ -174,7 +183,78 @@ a, ::before, ::after {
     .students-title {
       opacity: .5;
       font-weight: 400;
-    }  
+    }
+
+    .students-description {
+      height: 10px;
+      margin-top: -25px;
+      font-weight: 400;
+      font-size: .9rem;
+      opacity: .9;
+    }
+
+    .student {
+      float: left;
+      width: 22%;
+      min-height: 200px;
+      text-align: center;
+      background: var(--primary-color);
+      border-radius: .5ch;
+
+      &:not(:first-child) {
+        margin-left: .5%;
+      }
+
+      .name {
+        opacity: .75;
+        font-size: 1.3rem;
+        display: block;
+        width: 100%;
+        height: 1.6rem;
+      }
+
+      .avatar {
+        margin-top: 35px;
+        border-radius: 50%;
+        width: 72px;
+        height: 72px;
+      }
+
+      .projects {
+        opacity: .25;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .students::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .about {
+    margin-left: 10%;
+    width: 80%;
+    position: relative;
+    border-radius: .5ch;
+    border: 2px solid var(--background-color);
+    padding: 0px 10px 20px 10px;
+    margin-top: 30px;
+
+    .about-title {
+      opacity: .5;
+      font-weight: 400;
+    }
+
+    .about-description {
+      height: 10px;
+      margin-top: -25px;
+      font-weight: 400;
+      font-size: .9rem;
+      opacity: .9;
+    }
   }
 }
 
@@ -273,6 +353,13 @@ a, ::before, ::after {
   margin-top: 50px;
 
   .project-head {
+    .banner {
+      width: 100%;
+      height: 250px;
+      border-radius: .5ch;
+      object-fit: cover;
+    }
+
     .project-title {
       font-weight: 400;
       opacity: .5;  
@@ -304,6 +391,10 @@ a, ::before, ::after {
         text-transform: capitalize;
       }
 
+      .date {
+        opacity: .25;
+      }
+
       .students {
         position: absolute;
         .avatar {
@@ -324,9 +415,12 @@ a, ::before, ::after {
     width: 60%;
     border-bottom: 2px solid var(--primary-color);
     margin-top: 30px;
+    opacity: .3;
   }
 
   .project-content {
+    margin-top: 30px;
+
     h1, h2, h3, h4, h5, h6 {
       font-weight: 300;
       opacity: .75;
@@ -364,6 +458,8 @@ a, ::before, ::after {
 
 @media all and (max-width: 920px) {
   .navbar {
+    margin-left: -10%;
+
     .icon {
       display: block !important;
     }
@@ -374,6 +470,18 @@ a, ::before, ::after {
 
   .homepage {
     .subjects, .students {
+      margin-left: 0% !important;
+      width: 90% !important;
+    }
+
+    .student {
+      width: 100%  !important;
+      &:not(:first-child) {
+        margin-top: 5px;
+      }
+    }
+
+    .about {
       margin-left: 0% !important;
       width: 90% !important;
     }
@@ -409,13 +517,21 @@ a, ::before, ::after {
   .project-body {
     margin-left: 2%;
 
+    .banner {
+      width: 90% !important;
+    }
+
     .project-title, .project-description {
       width: 90%;
     }
 
     .slash {
+      visibility: hidden;
       padding: 0 100% !important;
-      opacity: 0;
+    }
+
+    .tags {
+      display: none;
     }
 
     .tag {
@@ -429,6 +545,10 @@ a, ::before, ::after {
     .avatar {
       width: 32px !important;
       height: 32px !important; 
+    }
+    
+    .project-content {
+      width: 92% !important;
     }
   }
 }

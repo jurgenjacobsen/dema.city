@@ -45,8 +45,19 @@
   }
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+@media only screen and (max-width: 768px) {
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
 }
 
 body {
@@ -71,7 +82,6 @@ a, ::before, ::after {
 
 .navbar {
   font-size: 1.2rem;
-  margin-right: 12px;
   text-align: center;
 }
 
@@ -172,7 +182,7 @@ a, ::before, ::after {
 .homepage .students {
   margin-left: 10%;
   width: 80%;
-  margin-top: 20px;
+  margin-top: 40px;
   position: relative;
   border-radius: .5ch;
   border: 2px solid var(--background-color);
@@ -182,6 +192,77 @@ a, ::before, ::after {
 .homepage .students .students-title {
   opacity: .5;
   font-weight: 400;
+}
+
+.homepage .students .students-description {
+  height: 10px;
+  margin-top: -25px;
+  font-weight: 400;
+  font-size: .9rem;
+  opacity: .9;
+}
+
+.homepage .students .student {
+  float: left;
+  width: 22%;
+  min-height: 200px;
+  text-align: center;
+  background: var(--primary-color);
+  border-radius: .5ch;
+}
+
+.homepage .students .student:not(:first-child) {
+  margin-left: .5%;
+}
+
+.homepage .students .student .name {
+  opacity: .75;
+  font-size: 1.3rem;
+  display: block;
+  width: 100%;
+  height: 1.6rem;
+}
+
+.homepage .students .student .avatar {
+  margin-top: 35px;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+}
+
+.homepage .students .student .projects {
+  opacity: .25;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.homepage .students::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.homepage .about {
+  margin-left: 10%;
+  width: 80%;
+  position: relative;
+  border-radius: .5ch;
+  border: 2px solid var(--background-color);
+  padding: 0px 10px 20px 10px;
+  margin-top: 30px;
+}
+
+.homepage .about .about-title {
+  opacity: .5;
+  font-weight: 400;
+}
+
+.homepage .about .about-description {
+  height: 10px;
+  margin-top: -25px;
+  font-weight: 400;
+  font-size: .9rem;
+  opacity: .9;
 }
 
 .subject-body {
@@ -282,6 +363,14 @@ a, ::before, ::after {
   margin-top: 50px;
 }
 
+.project-body .project-head .banner {
+  width: 100%;
+  height: 250px;
+  border-radius: .5ch;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .project-body .project-head .project-title {
   font-weight: 400;
   opacity: .5;
@@ -313,6 +402,10 @@ a, ::before, ::after {
   text-transform: capitalize;
 }
 
+.project-body .project-head .details .date {
+  opacity: .25;
+}
+
 .project-body .project-head .details .students {
   position: absolute;
 }
@@ -331,6 +424,11 @@ a, ::before, ::after {
 .project-body .spacer {
   width: 60%;
   border-bottom: 2px solid var(--primary-color);
+  margin-top: 30px;
+  opacity: .3;
+}
+
+.project-body .project-content {
   margin-top: 30px;
 }
 
@@ -393,6 +491,9 @@ a, ::before, ::after {
 }
 
 @media all and (max-width: 920px) {
+  .navbar {
+    margin-left: -10%;
+  }
   .navbar .icon {
     display: block !important;
   }
@@ -400,6 +501,16 @@ a, ::before, ::after {
     display: none;
   }
   .homepage .subjects, .homepage .students {
+    margin-left: 0% !important;
+    width: 90% !important;
+  }
+  .homepage .student {
+    width: 100%  !important;
+  }
+  .homepage .student:not(:first-child) {
+    margin-top: 5px;
+  }
+  .homepage .about {
     margin-left: 0% !important;
     width: 90% !important;
   }
@@ -423,12 +534,18 @@ a, ::before, ::after {
   .project-body {
     margin-left: 2%;
   }
+  .project-body .banner {
+    width: 90% !important;
+  }
   .project-body .project-title, .project-body .project-description {
     width: 90%;
   }
   .project-body .slash {
+    visibility: hidden;
     padding: 0 100% !important;
-    opacity: 0;
+  }
+  .project-body .tags {
+    display: none;
   }
   .project-body .tag {
     padding: 1px 5px !important;
@@ -439,5 +556,8 @@ a, ::before, ::after {
   .project-body .avatar {
     width: 32px !important;
     height: 32px !important;
+  }
+  .project-body .project-content {
+    width: 92% !important;
   }
 }

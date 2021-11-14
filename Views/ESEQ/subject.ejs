@@ -8,7 +8,7 @@
     <div class="details">
       <span>
         <% let n = DATA.projects.filter((project) => project.subject === subject.id)?.length; %>
-        <%- n %> <%- n > 1 && n < 1 ? 'projetos' : 'projeto' %>
+        <%- n %> <%- n > 1 || n < 1 ? 'projetos' : 'projeto' %>
       </span>
       <% if(subject.teacher && subject.teacher.length > 1) { %>
         <span class="slash">|</span>
