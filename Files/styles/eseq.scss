@@ -5,7 +5,16 @@
   --hightlight-secondary-color: #56dd81;
   --primary-color: #292929;
   --secondary-color: #f5f5f5;
-  --background-color: #1c1c1c;
+  --background-color: #131313; /* #1c1c1c */
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hightlight-color);
+  border-radius: 5px;
 }
 
 .container {
@@ -60,6 +69,11 @@ html {
   }
 }
 
+button {
+  font-family: "Poppins", sans-serif;	
+  border: none;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
@@ -78,7 +92,7 @@ a, ::before, ::after {
 }
 
 .navbar {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   text-align: center;
 
   ul {
@@ -86,7 +100,7 @@ a, ::before, ::after {
 
     li {
       float: left;
-      padding: 5px 20px;
+      padding: 6px 22px;
       list-style: none;
       background: var(--primary-color);
       margin-left: 5px;
@@ -109,12 +123,6 @@ a, ::before, ::after {
 }
 
 .homepage {
-  .header {
-    margin-top: 50px;
-    .about {
-      text-align: center;
-    }
-  }
 
   .subjects {
     margin-left: 10%;
@@ -130,6 +138,14 @@ a, ::before, ::after {
       font-weight: 400;
     }
 
+    .subjects-description {
+      height: 30px;
+      margin-top: -25px;
+      font-weight: 400;
+      font-size: .9rem;
+      opacity: .9;
+    }
+
     .subject {
       width: 100%;
       height: 60px;
@@ -141,7 +157,7 @@ a, ::before, ::after {
 
       .title {
         position: absolute;
-        top: 18%;
+        top: 14%;
         left: 20px;
         padding: 5px 10px;
       }
@@ -249,11 +265,46 @@ a, ::before, ::after {
     }
 
     .about-description {
-      height: 10px;
       margin-top: -25px;
       font-weight: 400;
       font-size: .9rem;
       opacity: .9;
+      line-height: 1.6rem;
+
+      span {
+        color: var(--hightlight-color);
+        font-weight: 600;
+      }
+    }
+
+    .qr {
+      img {
+        display: none;
+        width: 128px;
+        height: 128px;
+        border-radius: .25ch;
+        margin-top: 5px;
+        opacity: .9;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      button {
+        padding: 7.5px 18px;
+        border-radius: .5ch;
+        background: var(--primary-color);
+        color: var(--secondary-color);
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+        font-weight: 500;
+
+        &:hover {
+          opacity: .75;
+        }
+      }
     }
   }
 }
@@ -293,6 +344,10 @@ a, ::before, ::after {
 
       &:hover {
         transform: scale(1.005);
+      }
+
+      &:not(:first-child) {
+        margin-top: 15px;
       }
 
       img.banner {
@@ -361,31 +416,32 @@ a, ::before, ::after {
     }
 
     .project-title {
+      margin-top: 0px;
       font-weight: 400;
-      opacity: .5;  
+      opacity: .75;  
     }
 
     .project-description {
-      font-size: 1.1rem;
-      opacity: .75;
-      margin-top: -20px;
+      font-size: 1rem;
+      opacity: .35;
+      margin-top: -30px;
     }
 
     .details {
       position: relative;
-      font-size: 1.2rem;
+      font-size: 1rem;
       opacity: .85;
       
       padding: 0px 5px 0px 0px;
 
       .slash {
         opacity: .5;
-        padding: 0px 7.5px;
+        padding: 0px 8px 0px 2px;
       }
 
       .tag {
-        padding: 1px 2px 1px 7px;
-        background: #444;
+        padding: 1px 1px 1px 6px;
+        background: rgba(26, 26, 26, 0.2);
         opacity: .75;
         border-radius: .5ch;
         text-transform: capitalize;
@@ -398,10 +454,10 @@ a, ::before, ::after {
       .students {
         position: absolute;
         .avatar {
-          width: 24px;
-          height: 24px;
+          width: 18px;
+          height: 18px;
           border-radius: 50%;
-          border: 2px solid var(--primary-color);
+          border: 2px solid var(--background-color);
 
           &:not(:first-child) {
             margin-left: -10px;
@@ -422,8 +478,91 @@ a, ::before, ::after {
     margin-top: 30px;
 
     h1, h2, h3, h4, h5, h6 {
-      font-weight: 300;
-      opacity: .75;
+      color: #c4c4c4;
+      font-weight: 400;
+    }
+
+    p {
+      font-size: 1rem;
+      opacity: .85;
+      text-indent: 10px;
+      line-height: 1.4rem;
+    }
+
+    .two {
+      margin-top: -30px;
+
+      &:not(:first-child) {
+        margin-top: 30px;
+      }
+
+      .column {
+        float: left;
+        width: 49%;
+
+        p {
+          padding: 10px;
+        }
+        
+        &:not(:last-child) {
+          margin-right: 1%;
+        }
+
+        .alt {
+          display: block;
+          font-size: .8rem;
+          height: 1rem;
+          margin-top: 0px;
+          font-weight: 500;
+          font-style: italic;
+        }
+      }
+
+      &::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+    
+    img {
+      margin-top: 25px;
+      border-radius: .5ch;
+      object-fit: cover;
+      width: 100%;
+      height: 300px;
+    }
+
+    .ref-bar {
+      font-size: 1rem;
+      margin-left: 0;
+
+      .ref-title {
+        display: block;
+        font-weight: 400;
+        width: 100%;
+        height: 1.6rem;
+        font-size: .8rem;
+        padding: 0 5px 0 5px;
+      }
+
+      .ref {
+        padding: 3px 12.5px;
+        background: #3845d3;
+        text-decoration: none;
+        border-radius: .3ch;
+        opacity: .5;
+        transition: all .3s ease-in-out;
+
+        &:not(:first-child) {
+          margin-left: 5px;
+        }
+
+        &:hover {
+          opacity: .75;
+        }
+      }
+
     }
   }
 }
@@ -469,6 +608,10 @@ a, ::before, ::after {
   }
 
   .homepage {
+    .subjects > .list {
+      margin-top: 30px !important;
+    }
+
     .subjects, .students {
       margin-left: 0% !important;
       width: 90% !important;
@@ -484,6 +627,10 @@ a, ::before, ::after {
     .about {
       margin-left: 0% !important;
       width: 90% !important;
+    }
+    
+    .qr {
+      display: none !important;
     }
   }
 
@@ -515,14 +662,15 @@ a, ::before, ::after {
   }
 
   .project-body {
+    margin-top: 0px;
     margin-left: 2%;
 
     .banner {
-      width: 90% !important;
+      width: 93% !important;
     }
 
     .project-title, .project-description {
-      width: 90%;
+      width: 92.5%;
     }
 
     .slash {
@@ -539,7 +687,8 @@ a, ::before, ::after {
     }
 
     .spacer {
-      opacity: 0;
+      margin-top: 50px !important;
+      height: 5px;
     }
 
     .avatar {
@@ -548,7 +697,12 @@ a, ::before, ::after {
     }
     
     .project-content {
-      width: 92% !important;
+      margin-top: 50px !important;
+      width: 94% !important;
+
+      .column {
+        width: 100% !important;
+      }
     }
   }
 }

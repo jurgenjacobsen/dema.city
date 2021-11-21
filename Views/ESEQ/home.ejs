@@ -3,20 +3,15 @@
 <body>
   <div class="homepage">
     <div class="container">
-      <div class="header">
-        <h1 class="title">
-          
-        </h1>
-        <p class="about">
-          Trabalhos escolares e projetos da turma 11ºM
-        </p>
-      </div>
 
       <div class="subjects" id="subjects">
         <h3 class="subjects-title">
           Matérias
         </h3>
-        <div style="margin-top: -20px;">
+        <p class="subjects-description">
+          Aqui você encontra os trabalhos e projetos da turma.
+        </p>
+        <div class="list">
           <% DATA.subjects.forEach((subject) => { %>
             <div class="subject">
               <span class="title">
@@ -56,11 +51,31 @@
           Sobre
         </h3>
         <p class="about-description">
-          Criado utilizando <span style="color: #5865F2;">Typescript</span>, <span style="color: #57F287;">Node.JS</span>, <span style="color: #ddc955;">EJS</span> e <span style="color: #EB459E;">SCSS</span>.
+          Criado utilizando <span>Typescript</span>, <span>Node.JS</span>, <span>EJS</span> e <span>SCSS</span>. Hospedado na <span>DigitalOcean</span> e acessado através do domínio <span>dema.city</span>.<br> O <span>Código fonte</span> está disponível aqui <a href="https://github.com/jurgenjacobsen/dema.city" target="_blank" rel="noopener noreferrer" style="font-size: 1.2rem; margin-left: 5px;"><i class="fab fa-github"></i></a>.
+          <br>
         </p>
+        <div class="qr">
+          <div class="btn"><button id="qr_button" style="display: none;">QR Code</button> <button id="youtube" style="display: none;">Demo</button></div>
+          <img src="<%= data.cdn %>/images/eseq-qr.png" alt="QR" title="QR" id="qr">
+        </div>
       </div>	
     </div>
   </div>
 </body>
+
+<script>
+  $(document).ready(function() {
+    $('#qr_button').show();
+    $('#youtube').show();
+
+    $('#qr_button').click(function() {
+      $('#qr').toggle();
+    });
+
+    $('#youtube').click(function() {
+      window.open('https://youtu.be/kJjgKW-PSrQ', '_blank');
+    });
+  });
+</script>
 
 <%- include('../Blocks/footer') %>

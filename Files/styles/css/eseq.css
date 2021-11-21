@@ -4,7 +4,17 @@
   --hightlight-secondary-color: #56dd81;
   --primary-color: #292929;
   --secondary-color: #f5f5f5;
-  --background-color: #1c1c1c;
+  --background-color: #131313;
+  /* #1c1c1c */
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hightlight-color);
+  border-radius: 5px;
 }
 
 .container {
@@ -60,6 +70,11 @@ html {
   }
 }
 
+button {
+  font-family: "Poppins", sans-serif;
+  border: none;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
@@ -81,7 +96,7 @@ a, ::before, ::after {
 }
 
 .navbar {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   text-align: center;
 }
 
@@ -91,7 +106,7 @@ a, ::before, ::after {
 
 .navbar ul li {
   float: left;
-  padding: 5px 20px;
+  padding: 6px 22px;
   list-style: none;
   background: var(--primary-color);
   margin-left: 5px;
@@ -113,14 +128,6 @@ a, ::before, ::after {
   opacity: .85;
 }
 
-.homepage .header {
-  margin-top: 50px;
-}
-
-.homepage .header .about {
-  text-align: center;
-}
-
 .homepage .subjects {
   margin-left: 10%;
   width: 80%;
@@ -136,6 +143,14 @@ a, ::before, ::after {
   font-weight: 400;
 }
 
+.homepage .subjects .subjects-description {
+  height: 30px;
+  margin-top: -25px;
+  font-weight: 400;
+  font-size: .9rem;
+  opacity: .9;
+}
+
 .homepage .subjects .subject {
   width: 100%;
   height: 60px;
@@ -149,7 +164,7 @@ a, ::before, ::after {
 
 .homepage .subjects .subject .title {
   position: absolute;
-  top: 18%;
+  top: 14%;
   left: 20px;
   padding: 5px 10px;
 }
@@ -258,11 +273,46 @@ a, ::before, ::after {
 }
 
 .homepage .about .about-description {
-  height: 10px;
   margin-top: -25px;
   font-weight: 400;
   font-size: .9rem;
   opacity: .9;
+  line-height: 1.6rem;
+}
+
+.homepage .about .about-description span {
+  color: var(--hightlight-color);
+  font-weight: 600;
+}
+
+.homepage .about .qr img {
+  display: none;
+  width: 128px;
+  height: 128px;
+  border-radius: .25ch;
+  margin-top: 5px;
+  opacity: .9;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+          box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.homepage .about .qr .btn {
+  width: 100%;
+}
+
+.homepage .about .qr button {
+  padding: 7.5px 18px;
+  border-radius: .5ch;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  cursor: pointer;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  font-weight: 500;
+}
+
+.homepage .about .qr button:hover {
+  opacity: .75;
 }
 
 .subject-body {
@@ -305,6 +355,10 @@ a, ::before, ::after {
 .subject-body .projects .project:hover {
   -webkit-transform: scale(1.005);
           transform: scale(1.005);
+}
+
+.subject-body .projects .project:not(:first-child) {
+  margin-top: 15px;
 }
 
 .subject-body .projects .project img.banner {
@@ -372,31 +426,32 @@ a, ::before, ::after {
 }
 
 .project-body .project-head .project-title {
+  margin-top: 0px;
   font-weight: 400;
-  opacity: .5;
+  opacity: .75;
 }
 
 .project-body .project-head .project-description {
-  font-size: 1.1rem;
-  opacity: .75;
-  margin-top: -20px;
+  font-size: 1rem;
+  opacity: .35;
+  margin-top: -30px;
 }
 
 .project-body .project-head .details {
   position: relative;
-  font-size: 1.2rem;
+  font-size: 1rem;
   opacity: .85;
   padding: 0px 5px 0px 0px;
 }
 
 .project-body .project-head .details .slash {
   opacity: .5;
-  padding: 0px 7.5px;
+  padding: 0px 8px 0px 2px;
 }
 
 .project-body .project-head .details .tag {
-  padding: 1px 2px 1px 7px;
-  background: #444;
+  padding: 1px 1px 1px 6px;
+  background: rgba(26, 26, 26, 0.2);
   opacity: .75;
   border-radius: .5ch;
   text-transform: capitalize;
@@ -411,10 +466,10 @@ a, ::before, ::after {
 }
 
 .project-body .project-head .details .students .avatar {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--background-color);
 }
 
 .project-body .project-head .details .students .avatar:not(:first-child) {
@@ -433,7 +488,91 @@ a, ::before, ::after {
 }
 
 .project-body .project-content h1, .project-body .project-content h2, .project-body .project-content h3, .project-body .project-content h4, .project-body .project-content h5, .project-body .project-content h6 {
-  font-weight: 300;
+  color: #c4c4c4;
+  font-weight: 400;
+}
+
+.project-body .project-content p {
+  font-size: 1rem;
+  opacity: .85;
+  text-indent: 10px;
+  line-height: 1.4rem;
+}
+
+.project-body .project-content .two {
+  margin-top: -30px;
+}
+
+.project-body .project-content .two:not(:first-child) {
+  margin-top: 30px;
+}
+
+.project-body .project-content .two .column {
+  float: left;
+  width: 49%;
+}
+
+.project-body .project-content .two .column p {
+  padding: 10px;
+}
+
+.project-body .project-content .two .column:not(:last-child) {
+  margin-right: 1%;
+}
+
+.project-body .project-content .two .column .alt {
+  display: block;
+  font-size: .8rem;
+  height: 1rem;
+  margin-top: 0px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.project-body .project-content .two::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.project-body .project-content img {
+  margin-top: 25px;
+  border-radius: .5ch;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 300px;
+}
+
+.project-body .project-content .ref-bar {
+  font-size: 1rem;
+  margin-left: 0;
+}
+
+.project-body .project-content .ref-bar .ref-title {
+  display: block;
+  font-weight: 400;
+  width: 100%;
+  height: 1.6rem;
+  font-size: .8rem;
+  padding: 0 5px 0 5px;
+}
+
+.project-body .project-content .ref-bar .ref {
+  padding: 3px 12.5px;
+  background: #3845d3;
+  text-decoration: none;
+  border-radius: .3ch;
+  opacity: .5;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.project-body .project-content .ref-bar .ref:not(:first-child) {
+  margin-left: 5px;
+}
+
+.project-body .project-content .ref-bar .ref:hover {
   opacity: .75;
 }
 
@@ -500,6 +639,9 @@ a, ::before, ::after {
   .navbar .text {
     display: none;
   }
+  .homepage .subjects > .list {
+    margin-top: 30px !important;
+  }
   .homepage .subjects, .homepage .students {
     margin-left: 0% !important;
     width: 90% !important;
@@ -513,6 +655,9 @@ a, ::before, ::after {
   .homepage .about {
     margin-left: 0% !important;
     width: 90% !important;
+  }
+  .homepage .qr {
+    display: none !important;
   }
   .subject-body .subject-name {
     text-align: center;
@@ -532,13 +677,14 @@ a, ::before, ::after {
     margin-top: 70px;
   }
   .project-body {
+    margin-top: 0px;
     margin-left: 2%;
   }
   .project-body .banner {
-    width: 90% !important;
+    width: 93% !important;
   }
   .project-body .project-title, .project-body .project-description {
-    width: 90%;
+    width: 92.5%;
   }
   .project-body .slash {
     visibility: hidden;
@@ -551,13 +697,18 @@ a, ::before, ::after {
     padding: 1px 5px !important;
   }
   .project-body .spacer {
-    opacity: 0;
+    margin-top: 50px !important;
+    height: 5px;
   }
   .project-body .avatar {
     width: 32px !important;
     height: 32px !important;
   }
   .project-body .project-content {
-    width: 92% !important;
+    margin-top: 50px !important;
+    width: 94% !important;
+  }
+  .project-body .project-content .column {
+    width: 100% !important;
   }
 }

@@ -3,5 +3,10 @@
     "name": "História",
     "id": "history",
     "teacher": "Pedro Babo"
+  },
+  {
+    "name": "Geografia",
+    "id": "geograph",
+    "teacher": "Helena Oliveira"
   }
 ]

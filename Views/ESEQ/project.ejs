@@ -12,23 +12,21 @@
       <%- project.description %>
     </p>
     <div class="details">
-      <span class="date">
+      <span class="date" title="Última edição">
         <% let date = new Date(project.date); %>
         <%- `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} às ${date.getHours()}:${date.getMinutes()}` %>
       </span>
-      <% if(project.tags) { %>
+      <% if(project.tag && project.tag.length > 1) { %>
         <span class="tags" title="Palavras chave">
           <span class="slash">|</span>
-          <% project.tags.forEach((t) => { %>
-            <span class="tag">
-              <%- t %>
-            </span>
-          <% }) %>
+          <span class="tag">
+            <%- project.tag %>
+          </span>
         </span>
       <% } %>
       <% if(project.students && project.students.length >= 1) { %>
-        <span class="slash">|</span>
-        <span class="students">
+        <span class="slash" style="margin-left: 5px;">|</span>
+        <span class="students" title="Integrantes">
           <% project.students.map((s) => DATA.students.find((stu) => stu.id === s || stu.username === s)).forEach((student) => { %>
             <img src="<%= student.avatar && student.avatar.length > 1 ? student.avatar : 'https://www.bluebridgewindowcleaning.co.uk/wp-content/uploads/2016/04/default-avatar.png' %>" alt="<%= student.name %>" title="<%= student.name %>" class="avatar">
           <% }) %>
