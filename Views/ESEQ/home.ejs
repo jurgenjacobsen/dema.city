@@ -3,13 +3,12 @@
 <body>
   <div class="homepage">
     <div class="container">
-
       <div class="subjects" id="subjects">
         <h3 class="subjects-title">
           Matérias
         </h3>
         <p class="subjects-description">
-          Aqui você encontra os trabalhos e projetos da turma.
+          Trabalhos e projetos da turma.
         </p>
         <div class="list">
           <% DATA.subjects.forEach((subject) => { %>
@@ -29,7 +28,7 @@
           Estudantes
         </h3>
         <p class="students-description">
-          Aqui estão os estudantes registrados em projetos da plataforma.
+          Estudantes registrados em projetos da plataforma.
         </p>
         <div style="margin-top: 45px;">
           <% DATA.students.forEach((student) => { %>
@@ -39,7 +38,7 @@
                 <%= student.name.length >= 1 ? student.name : student.username.length >= 1 ? student.username : student.id %>
               </span>
               <span class="projects">
-                <% let projects = DATA.projects.filter((project) => student.projects?.includes(project.id))?.length ?? 0; %>
+                <% let projects = DATA.projects.filter((project) => project.students?.includes(student.id) || project.students?.includes(student.username))?.length ?? 0; %>
                 <%= projects > 1 || projects < 1 ? `${projects} projetos` : `${projects} projeto` %>
               </span>
             </div>

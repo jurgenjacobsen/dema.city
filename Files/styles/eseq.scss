@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-  --hightlight-color: #525eda;
-  --hightlight-secondary-color: #56dd81;
+  --hightlight-color: #5952da;
+  --hightlight-secondary-color: #5952da;
   --primary-color: #292929;
   --secondary-color: #f5f5f5;
-  --background-color: #131313; /* #1c1c1c */
+  --background-color: #101010; /* #1c1c1c */
 }
 
 ::-webkit-scrollbar {
@@ -13,7 +13,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--hightlight-color);
+  background: rgba(55, 55, 55, 0.7);
   border-radius: 5px;
 }
 
@@ -91,6 +91,11 @@ a, ::before, ::after {
   color: inherit;
 }
 
+.sp {
+  width: 100%;
+  height: 16px;
+}
+
 .navbar {
   font-size: 1.15rem;
   text-align: center;
@@ -105,12 +110,12 @@ a, ::before, ::after {
       background: var(--primary-color);
       margin-left: 5px;
       border-radius: .5ch;
-      transition: all .5s ease-in-out;
+      transition: all .7s ease-in-out;
       cursor: pointer;
+      font-weight: 400;
 
       &:hover {
-        opacity: .75;
-        transform: scale(1.003);
+        opacity: .5;
         background: var(--background-color);
       }
 
@@ -157,9 +162,10 @@ a, ::before, ::after {
 
       .title {
         position: absolute;
-        top: 14%;
+        top: 15%;
         left: 20px;
         padding: 5px 10px;
+        font-size: 1.3rem;
       }
 
       .link {
@@ -171,6 +177,7 @@ a, ::before, ::after {
         border-radius: .5ch;
         transition: all .5s ease-in-out;
         font-size: 16px;
+        font-weight: 400;
 
         &:hover {
           opacity: .75;
@@ -237,7 +244,7 @@ a, ::before, ::after {
       }
 
       .projects {
-        opacity: .25;
+        opacity: .15;
         font-size: 1rem;
         font-weight: 400;
       }
@@ -310,6 +317,7 @@ a, ::before, ::after {
 }
 
 .subject-body {
+  padding: 0px 125px;
   margin-top: 50px;
 
   .subject-name {
@@ -318,20 +326,25 @@ a, ::before, ::after {
   }
 
   .details {
-    font-size: 1.2rem;
+    font-size: 1rem;
     opacity: .85;
-    margin-top: -20px;
+    margin-top: -30px;
     padding: 0px 5px;
   }
 
-  .slash, .teacher-prefix {
+  .slash {
     opacity: .5;
     padding: 0px 7.5px;
   }
 
+  .teacher-prefix {
+    opacity: .5;
+    padding: 0px 2.5px 0px 2px;
+  }
+
   .projects {
     margin-top: 50px;
-    width: 70%;
+    width: 100%;
     border-radius: .5ch;
 
     .project {
@@ -343,7 +356,9 @@ a, ::before, ::after {
       transition: all .3s ease-in-out;
 
       &:hover {
-        transform: scale(1.005);
+        img.banner {
+          height: 300px;
+        }
       }
 
       &:not(:first-child) {
@@ -355,6 +370,7 @@ a, ::before, ::after {
         height: 250px;
         border-radius: .5ch;
         object-fit: cover;
+        transition: all .5s ease;
       }
 
       .info {
@@ -365,21 +381,32 @@ a, ::before, ::after {
           text-transform: capitalize;
           height: 20px;
           margin-top: -5px;
-          opacity: .5;
+          opacity: 1;
           font-weight: 400;
         }
 
         .description {
           font-size: 1rem;
-          opacity: .85;
+          opacity: .5;
+          font-weight: 400;
+          margin-top: -5px;
+        }
+
+        .spacer {
+          height: 10px;
         }
 
         .date {
           position: absolute;
           bottom: 1px;
           right: 5px;
-          opacity: .25;
+          font-weight: 400;
           font-size: 1rem;
+          opacity: .1;
+
+          .icon {
+            margin-left: 2.5px;
+          }
         }
 
         .students {
@@ -413,6 +440,12 @@ a, ::before, ::after {
       height: 250px;
       border-radius: .5ch;
       object-fit: cover;
+      transition: all 1s ease;
+      cursor: zoom-in;
+
+      &:hover {
+        height: 400px;
+      }
     }
 
     .project-title {
