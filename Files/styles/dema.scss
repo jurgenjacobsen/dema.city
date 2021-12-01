@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-  --background: #1c1c1c;
-  --secondary-background: #292929;
+  --background: #101010;
+  --secondary-background: #161616;
   --thirdnary-background: #e3e3e3;
   --text-color: #ddd;
   --hightlight-color: #5b58f2;
@@ -125,6 +125,7 @@ img.emoji {
   }
 
   li {
+
     a {
       display: block;
       color: var(--text-color);
@@ -427,6 +428,7 @@ strong {
 
 .user-profile {
   color: var(--text-color);
+  position: relative;
 
   .label {
     opacity: 0.5;
@@ -483,6 +485,11 @@ strong {
     .icon {
       position: relative;
       width: 128px;
+      border-radius: 50%;
+
+      &:focus {
+        outline: 2px solid var(--hightlight-color);
+      }
 
       * {
         transition: all 0.2s ease-in-out;
@@ -494,6 +501,7 @@ strong {
         border-radius: 50%;
         width: 128px;
         height: 128px;
+        object-fit: cover;
       }
 
       .ic {
@@ -536,19 +544,36 @@ strong {
       a {
         font-size: 22px;
         opacity: 0.25;
-        transition: all 0.3s ease;
+        transition: opacity 0.3s ease;
+        border-radius: .5ch;
+        padding: 4px 8px 2px 8px;
       }
 
       a:hover {
         opacity: 0.75;
       }
 
-      a:first-child {
-        padding-right: 8px;
+      a:focus {
+        outline: 2px solid var(--hightlight-color);
       }
+    }
 
-      a:not(:first-child) {
-        padding: 8px;
+    .edit-box {
+      margin-top: 20px;
+      .edit {
+        opacity: .75;
+        background: #121212;
+        padding: 7px 50px;
+        border-radius: 0.5ch;
+        transition: opacity .3s ease-in-out;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        &:focus {
+          outline: 2px solid var(--hightlight-color);
+        }
       }
     }
 
@@ -586,12 +611,17 @@ strong {
     .nowplaying {
       height: 72;
       width: 360px;
+      margin-left: 5px;
       border-radius: .5ch;
       outline: none;
       margin-top: 5px;
 
       box-shadow: rgba(29, 185, 84, 0.4) 0px 2px 0px, rgba(0, 0, 0, 0.3) 0px 5px 7px -3px, rgba(29, 185, 84, 0.1) 0px -3px 0px inset;
       
+      &:focus {
+        outline: 2px solid var(--hightlight-color);
+      }
+
       .song-icon {
         display: inline-block;
         vertical-align: top;
@@ -608,6 +638,10 @@ strong {
         display: inline-block;
         margin-top: -25px;
         margin-left: 10px;
+
+        * {
+          outline: none;
+        }
 
         .title {
           padding: 0;
@@ -630,24 +664,34 @@ strong {
     }
 
     .albums-of-the-week {
-      width: 360px;
+      width: 400px;
       margin-top: 5px;
-      position: relative;
 
       .album {
+        margin-left: 5px;
         float: left;
-        width: 20%;
+        width: 72px;
+        border-radius: .5ch;
+        background: var(--background);
+
         img {
-          border: 2px solid var(--secondary-background);
+          display: block;
           border-radius: .5ch;
           width: 72px;
           height: 72px;
+          transition: all .3s ease-in-out;
+
+          &:hover {
+            opacity: .5;
+          }
         }
+      }
 
-        transition: all .3s ease-in-out;
+      a {
+        border-radius: .5ch;
 
-        &:hover {
-          opacity: .75;
+        &:focus {
+          outline: 2px solid var(--hightlight-color);
         }
       }
 
@@ -656,42 +700,128 @@ strong {
         display: table;
         clear: both;
       }
+    }
+  }
 
-      .extra {
-        margin-left: 2px;
-        width: 72px;
-        height: 72px;
-        font-size: 48px;
-        background: var(--background);
-        border-radius: .2ch;
-        border: 2px solid var(--secondary-background);
-        
-        position: absolute;
-        top: 50%;
-        right: -30%;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
+  .profile-body {
+    font-size: 16px;
 
-        text-align: center;
-        opacity: .5;
+    .feed {
+      margin-top: 1.5%;
+      float: left;
+      width: 73.5%;
 
-        * {
-          fill: rgba(79, 201, 118, 0.4);
-        }
+      .text-box {
+        position: relative;
 
-        .fa-plus {
+        button {
+          padding: 8px;
+          width: 100%;
+          border-radius: 0.5ch;
+          outline: none;
+          border: none;
+          background: #222222;
           margin-top: 10px;
-          opacity: .75;
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: 500;
+          transition: opacity .5s ease-in-out;
+
+          &:hover {
+            opacity: .75;
+          }
+
+          &:focus {
+            outline: 2px solid var(--hightlight-color);
+          }
         }
 
-        transition: all .3s ease-in-out;
+        .text {
+          width: 100%;
+          padding: 12px;
+          border: none;
+          border-radius: .5ch;
+          background: #121212;
+          font-weight: 500;
+          resize: vertical;
+          overflow: auto;
+          min-height: 50px;
+          height: 50px;
+          max-height: 150px;
+          font-size: 16px;
 
-        &:hover {
-          opacity: .35;
+          &[disabled] {
+            cursor: not-allowed;
+            user-select: none;
+            opacity: .5;
+            resize: none;
+            font-weight: 400;
+          }
+
+          &:focus {
+            outline: 2px solid var(--hightlight-color);
+          }
         }
-        
+
+        .location {
+          padding: 6px 12px;
+          margin-top: 10px;
+          width: 50%;
+          border: none;
+          border-radius: .5ch;
+          background: #121212;
+          font-weight: 500;
+          resize: none;
+          min-height: 40px;
+          height: 40px;
+          max-height: 40px;
+          font-size: 16px;
+          color: rgba(221, 221, 221, 0.5);
+
+          &:focus {
+            outline: 2px solid var(--hightlight-color);
+          }
+        }
       }
 
+      
+
+      .profile-posts {
+        width: 100%;
+        margin-top: 20px;
+
+        .post {
+          width: 100%;
+          border-radius: .5ch;
+          background: #121212;
+          padding: 1px 12px;
+
+          .text {
+            margin-top: -4px;
+            font-weight: 500;
+          }
+
+          .details {
+            font-size: 14px;
+            margin-top: 5px;
+            opacity: .5;
+            padding: 0px 0px 12px 0px;
+
+            .location {
+              margin-left: 10px;
+            }
+          }
+
+          &:focus {
+            outline: 2px solid var(--hightlight-color);
+          }
+        }
+      }
+    }
+
+    .rightcolumn {
+      float: right;
+      width: 25%;
     }
   }
 

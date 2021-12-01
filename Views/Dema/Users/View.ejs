@@ -26,11 +26,6 @@
       <div class="icon" id="user-icon">
         <div class="ic"><img src="<%= user.iconUrl %>" alt="<%= user.name %>"></div>
         <i class="fas fa-retweet"></i>
-        <% if(auth) { %>
-          <a href="/user/<%= user.username %>/edit?pass=<%= data.req.query?.pass %>">
-            <i class="fas fa-pen"></i>
-          </a>
-        <% } %>
       </div>
 
       <h1 class="name">
@@ -51,6 +46,13 @@
           <a target="_blank" rel="noopener noreferrer" href="https://tiktok.com/@<%= user.socials?.tiktok %>"><i class="fab fa-tiktok"></i></a>
         <% } %>
       </div>
+      <% if(auth) { %>
+        <div class="edit-box">
+          <a class="edit" href="/user/<%= user.username %>/edit?pass=<%= data.req.query?.pass %>">
+            Edit
+          </a>
+        </div>
+      <% } %>
     </div>
     <div class="column-profile-header">
       <% if(user.fmusername && lastfm.np) { %>
@@ -63,7 +65,7 @@
                 <img src="<%= song.imageURL %>" alt="<%= song.album %>" title="<%= song.album %>">
               </div>
               <div class="info">
-                <a href="<%= song.url %>" target="_blank" rel="noopener noreferrer">
+                <a href="<%= song.url %>" target="_blank" rel="noopener noreferrer" tabindex="-1">
                   <h4 class="title">
                     <%= truncateString(song.title, 28) %>
                   </h4>
@@ -89,11 +91,6 @@
               </div>
             </a>
           <% }); %>
-          <a href="https://www.last.fm/user/<%= user.fmusername %>/library/albums?date_preset=LAST_7_DAYS" target="_blank" rel="noopener noreferrer">
-            <div class="extra">
-              <i class="fas fa-plus"></i>
-            </div>
-          </a>
         </div>
       <% } %>
       <% if(user.pronoun.length > 1) { %>
@@ -116,8 +113,43 @@
     </div>
   </div>
 
-  <% if(!user.portfolio.private && user.portfolio.photos.length > 0) { %>
-    <div class="portfolio box" style="padding: 1px 25px; padding-bottom: 25px;">
+  <div class="profile-body">
+    <div class="feed box">
+      <div class="text-box">
+        <% if(auth) { %>
+          <textarea class="text" name="post-content" id="post-content" placeholder="Write here what you're thinking about" maxlength="256"></textarea>
+          <textarea class="location" name="post-location" id="post-location" placeholder="Location" maxlength="20"></textarea>
+          <button id="post-button">Post</button>
+        <% } else { %>
+          <textarea type="text" disabled id="logged-warning-feed">You have to be logged in to post</textarea>
+        <% } %>
+      </div>
+      <div class="profile-posts">
+        <div class="post" tabindex=0>
+          <div class="text">
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, facilis hic voluptate officia aperiam maxime!
+            </p>
+          </div>
+          <div class="details">
+            <span class="date">
+              30/11/2021 at 12:00
+            </span>
+
+            <span class="location">
+              <i class="fas fa-map-marker-alt"></i> London, UK
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rightcolumn box">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod, quis. Ullam, ipsa culpa. Cumque quia magnam dolorem nam recusandae debitis ab consequatur quaerat eos ex, labore reprehenderit voluptates voluptatem at.</p>
+    </div>
+  </div>
+
+  <!-- <% if(!user.portfolio.private && user.portfolio.photos.length > 0) { %>
+    <div class="portfolio box" style="padding: 1px 25px; padding-bottom: 25px; display: none;">
       <h2 style="margin-left: 1%;">
         Portfolio <span class="label">/ Photos</span>
       </h2>
@@ -134,7 +166,7 @@
         <% }) %>
       </div>
     </div>
-  <% } %>
+  <% } %> -->
 </div>
 
 <%- include('../../Blocks/footer'); %>
@@ -205,6 +237,29 @@
       $('#np_label').show();
     });
   }
+
+  $(document).on('click', (target) => {
+    if(target.target.id === 'logged-warning-feed') {
+      $('.profile-posts').css('margin-top', '0px');
+      target.target.remove();
+    }
+  });
+
+  $('#post-location')?.hide();
+
+  document.getElementById('post-content').onfocus = () => {
+    $('#post-location')?.show();
+  };
+
+  document.getElementById('post-content').onblur = foni;
+  document.getElementById('post-location').onblur = foni;
+
+  function foni() {
+    setTimeout(() => {
+      if(document.querySelector('#post-location') == document.activeElement || document.querySelector('#post-content') == document.activeElement) return;
+      $('#post-location')?.hide('slow');
+    }, 5);
+  };
 
   //
   $('#clipboard-alert').hide();
