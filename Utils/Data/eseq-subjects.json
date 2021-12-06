@@ -8,5 +8,10 @@
     "name": "Geografia",
     "id": "geograph",
     "teacher": "Helena Oliveira"
+  },
+  {
+    "name": "Português",
+    "id": "portuguese",
+    "teacher": "Filomena Pacheco"
   }
 ]

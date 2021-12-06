@@ -63,6 +63,13 @@ html {
   scroll-behavior: smooth;
 }
 
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
 @media only screen and (max-width: 768px) {
   html, body {
     width: 100%;
@@ -223,20 +230,35 @@ a, ::before, ::after {
   opacity: .9;
 }
 
-.homepage .students .student {
+.homepage .students .students-show-hide {
+  padding: 7.5px 18px;
+  border-radius: .5ch;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  cursor: pointer;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  font-weight: 500;
+}
+
+.homepage .students .students-show-hide:hover {
+  opacity: .75;
+}
+
+.homepage .students #students-list .student {
   float: left;
-  width: 22%;
+  width: 24%;
   min-height: 200px;
   text-align: center;
-  background: var(--primary-color);
+  background: rgba(41, 41, 41, 0.25);
   border-radius: .5ch;
 }
 
-.homepage .students .student:not(:first-child) {
+.homepage .students #students-list .student:not(:first-child) {
   margin-left: .5%;
 }
 
-.homepage .students .student .name {
+.homepage .students #students-list .student .name {
   opacity: .75;
   font-size: 1.3rem;
   display: block;
@@ -244,14 +266,14 @@ a, ::before, ::after {
   height: 1.6rem;
 }
 
-.homepage .students .student .avatar {
+.homepage .students #students-list .student .avatar {
   margin-top: 35px;
   border-radius: 50%;
   width: 72px;
   height: 72px;
 }
 
-.homepage .students .student .projects {
+.homepage .students #students-list .student .projects {
   opacity: .15;
   font-size: 1rem;
   font-weight: 400;
@@ -322,7 +344,6 @@ a, ::before, ::after {
 }
 
 .subject-body {
-  padding: 0px 125px;
   margin-top: 50px;
 }
 
@@ -350,7 +371,7 @@ a, ::before, ::after {
 
 .subject-body .projects {
   margin-top: 50px;
-  width: 100%;
+  padding: 0px 5px;
   border-radius: .5ch;
 }
 
@@ -519,6 +540,10 @@ a, ::before, ::after {
   margin-top: 30px;
 }
 
+.project-body .project-content *, .project-body .project-content ::after, .project-body .project-content ::before {
+  overflow: hidden;
+}
+
 .project-body .project-content h1, .project-body .project-content h2, .project-body .project-content h3, .project-body .project-content h4, .project-body .project-content h5, .project-body .project-content h6 {
   color: #c4c4c4;
   font-weight: 400;
@@ -531,8 +556,21 @@ a, ::before, ::after {
   line-height: 1.4rem;
 }
 
+.project-body .project-content img {
+  margin-top: 10px;
+  border-radius: .5ch;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 200px;
+}
+
 .project-body .project-content .two {
   margin-top: -30px;
+}
+
+.project-body .project-content .two img {
+  margin-top: 25px;
 }
 
 .project-body .project-content .two:not(:first-child) {
@@ -567,45 +605,104 @@ a, ::before, ::after {
   clear: both;
 }
 
-.project-body .project-content img {
-  margin-top: 25px;
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.project-body .project-content .slide {
+  -webkit-animation: show 1.5s ease-in-out 1;
+          animation: show 1.5s ease-in-out 1;
+  background: rgba(34, 34, 34, 0.4);
+  padding: 10px 30px;
   border-radius: .5ch;
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 300px;
+  min-height: 60vh;
+  border: 2px solid transparent;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
-.project-body .project-content .ref-bar {
-  font-size: 1rem;
-  margin-left: 0;
+.project-body .project-content .slide:not(:first-child) {
+  margin-top: 200px;
+  opacity: .3;
 }
 
-.project-body .project-content .ref-bar .ref-title {
+.project-body .project-content .slide h1, .project-body .project-content .slide h2, .project-body .project-content .slide h3, .project-body .project-content .slide h4, .project-body .project-content .slide h5, .project-body .project-content .slide h6, .project-body .project-content .slide p {
+  margin-top: 0px;
+}
+
+.project-body .project-content .slide p a {
+  color: #c9c9c9;
+}
+
+.project-body .project-content .slide img {
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.project-body .project-content .slide:focus {
+  border-top-left-radius: .5ch;
+  border-bottom-left-radius: .5ch;
+  outline: none;
+  border-left: 2px solid var(--hightlight-color);
+  opacity: 1;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.project-body .project-content .slide:focus img {
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  height: 400px;
+}
+
+.project-controls {
+  position: absolute;
+  top: 75%;
+  left: 10%;
+  -webkit-transform: translate(-75%, -15%);
+          transform: translate(-75%, -15%);
+  -ms-transform: translate(-75%, -15%);
+}
+
+.project-controls .btn {
+  width: 42px;
+  height: 42px;
   display: block;
-  font-weight: 400;
-  width: 100%;
-  height: 1.6rem;
-  font-size: .8rem;
-  padding: 0 5px 0 5px;
-}
-
-.project-body .project-content .ref-bar .ref {
-  padding: 3px 12.5px;
-  background: #3845d3;
-  text-decoration: none;
-  border-radius: .3ch;
-  opacity: .5;
+  font-size: 16px;
+  border-radius: .5ch;
+  background: var(--primary-color);
+  color: var(--text-color);
+  cursor: pointer;
+  text-align: center;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
 }
 
-.project-body .project-content .ref-bar .ref:not(:first-child) {
-  margin-left: 5px;
+.project-controls .btn:hover {
+  opacity: .75;
 }
 
-.project-body .project-content .ref-bar .ref:hover {
-  opacity: .75;
+.project-controls .btn:not(:first-child) {
+  margin-top: 5px;
+}
+
+.project-controls .btn[disabled] {
+  opacity: .5;
+  cursor: not-allowed;
 }
 
 .hightlight {
@@ -662,14 +759,17 @@ a, ::before, ::after {
 }
 
 @media all and (max-width: 920px) {
+  .students {
+    display: none !important;
+  }
   .navbar {
-    margin-left: -10%;
+    margin-left: -10% !important;
   }
   .navbar .icon {
     display: block !important;
   }
   .navbar .text {
-    display: none;
+    display: none !important;
   }
   .homepage .subjects > .list {
     margin-top: 30px !important;
@@ -691,22 +791,32 @@ a, ::before, ::after {
   .homepage .qr {
     display: none !important;
   }
+  .subject-body {
+    width: 80% !important;
+  }
+  .subject-body .subject-head {
+    width: 100% !important;
+    margin-left: 10% !important;
+  }
   .subject-body .subject-name {
-    text-align: center;
+    text-align: center !important;
   }
   .subject-body .details {
-    text-align: center;
+    text-align: center !important;
   }
   .subject-body .details .slash {
-    opacity: 0;
-    padding: 0 100%;
+    opacity: 0 !important;
+    padding: 0 100% !important;
   }
   .subject-body .projects {
-    text-align: center;
-    margin-left: 10%;
+    text-align: center !important;
+    margin-left: 10% !important;
+  }
+  .subject-body .projects .project {
+    width: 100% !important;
   }
   .subject-body .projects .project .description {
-    margin-top: 70px;
+    margin-top: 120px !important;
   }
   .project-body {
     margin-top: 0px;
@@ -742,5 +852,17 @@ a, ::before, ::after {
   }
   .project-body .project-content .column {
     width: 100% !important;
+  }
+  .slide {
+    opacity: 1 !important;
+  }
+}
+
+@media all and (max-width: 1366px) {
+  .project-controls {
+    display: none !important;
+  }
+  .slide {
+    opacity: 1 !important;
   }
 }

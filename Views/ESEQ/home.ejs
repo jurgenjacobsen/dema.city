@@ -23,14 +23,17 @@
           <% }); %>
         </div>
       </div>
-      <div class="students" id="students">
+      <div class="students" id="students" style="display: none;">
         <h3 class="students-title">
           Estudantes
         </h3>
         <p class="students-description">
           Estudantes registrados em projetos da plataforma.
         </p>
-        <div style="margin-top: 45px;">
+
+        <button class="students-show-hide" id="students-show-hide">Ver</button>
+
+        <div style="margin-top: 45px;" id="students-list">
           <% DATA.students.forEach((student) => { %>
             <div class="student">
               <img class="avatar" src="<%= student.avatar && student.avatar.length > 1 ? student.avatar : 'https://www.bluebridgewindowcleaning.co.uk/wp-content/uploads/2016/04/default-avatar.png' %>" alt="<%= student.name ?? student.id %>" title="<%= student.name ?? student.id %>">
@@ -63,9 +66,17 @@
 </body>
 
 <script>
+
   $(document).ready(function() {
     $('#qr_button').show();
     $('#youtube').show();
+    $('#students').show();
+    $('#students-list').hide();
+
+    $('#students').on('click', '#students-show-hide', function() {
+      $('#students-list').toggle();
+      $('#students-show-hide').text($('#students-list').is(':visible') ? 'Ocultar' : 'Ver');
+    });
 
     $('#qr_button').click(function() {
       $('#qr').toggle();

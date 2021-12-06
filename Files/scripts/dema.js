@@ -13,6 +13,7 @@ window.onload = () => {
 function hightlight(id) {
   const element = document.getElementById(id);
   if(!element) return;
+  element.ariaValueMax
   element?.classList.add('hightlight');
   setTimeout(() => {
     element?.classList.remove('hightlight');

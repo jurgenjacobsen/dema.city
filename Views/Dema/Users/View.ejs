@@ -147,26 +147,6 @@
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod, quis. Ullam, ipsa culpa. Cumque quia magnam dolorem nam recusandae debitis ab consequatur quaerat eos ex, labore reprehenderit voluptates voluptatem at.</p>
     </div>
   </div>
-
-  <!-- <% if(!user.portfolio.private && user.portfolio.photos.length > 0) { %>
-    <div class="portfolio box" style="padding: 1px 25px; padding-bottom: 25px; display: none;">
-      <h2 style="margin-left: 1%;">
-        Portfolio <span class="label">/ Photos</span>
-      </h2>
-  
-      <div class="photos">
-        <% user.portfolio.photos.forEach((photo) => { %>
-          <%
-            let reg = /^(https?:)?\/\/(\w+\.)?imgur\.com\/(\S*)(\.[a-zA-Z]{3})$/;
-            let redirect_photo = photo.match(reg)?.[3];
-          %>
-          <a href="https://imgur.com/<%= redirect_photo %>" target="_blank" rel="noopener noreferrer">
-            <img class="photo" src="<%= photo %>"/>
-          </a>
-        <% }) %>
-      </div>
-    </div>
-  <% } %> -->
 </div>
 
 <%- include('../../Blocks/footer'); %>

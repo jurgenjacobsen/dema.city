@@ -1,7 +1,7 @@
 <%- include('header') %>
 
 <div class="container project-body">
-  <div class="project-head">
+  <div class="project-head" id="head">
     <% if(project.banner && project.banner.length > 1) { %>
       <img class="banner" src="<%= project.banner %>">
     <% } %>
@@ -41,3 +41,128 @@
     <%- include(`projects/${project.id}`) %>
   </div>
 </div>
+
+<div class="project-controls" id="project-controls">
+  <button class="btn" id="head-btn"><i class="fas fa-home"></i></button>
+  <button class="btn" id="prev-btn"><i class="fas fa-arrow-up"></i></button>
+  <button class="btn" id="next-btn"><i class="fas fa-arrow-down"></i></button>
+</div>
+
+<div style="width: 100%; height: 300px;"></div>
+
+<%- include('../Blocks/footer') %>
+
+<script>
+
+  let projectControls = document.getElementById('project-controls');
+  let nextSlideButton = document.getElementById('next-btn');
+  let prevSlideButton = document.getElementById('prev-btn');
+  let headButton = document.getElementById('head-btn');
+
+  let slides = document.querySelectorAll('.slide');
+  let slideNumber = window.location.href.split('#')?.[1] && !isNaN(window.location.href.split('#')?.[1]) ? Number(window.location.href.split('#')?.[1]) : undefined;
+
+
+  if(slides.length === 0) {
+    projectControls.style.display = 'none';
+  }
+
+  function positionControllers() {
+    let height = document.body.scrollTop > 0 ? document.body.scrollTop : document.documentElement.scrollTop;
+    let windowWidth = window.innerWidth;
+
+    projectControls.style.left = (windowWidth + projectControls.offsetWidth) / 10 + 'px';
+    projectControls.style.top = `${height + (window.innerHeight / 1.5)}px`;
+  };
+
+  positionControllers();
+  updateControllers();
+
+  window.onscroll = positionControllers;
+  window.onresize = positionControllers;
+  
+  setTimeout(updateControllers, 1000);
+
+  for(let i = 0; i < slides.length; i++) {
+    slides[i].setAttribute('tabindex', 0);
+    slides[i].setAttribute('id', i + 1);
+    slides[i].setAttribute('onmousedown', '');
+  }
+
+  document.getElementById(`${slideNumber ?? 'head'}`).focus();
+  
+  function updateControllers() {
+    if(!slideNumber || slideNumber <= 0) {
+      headButton.setAttribute('disabled', 'disabled');
+      prevSlideButton.setAttribute('disabled', 'disabled');
+      nextSlideButton.removeAttribute('disabled');
+    } else if(slideNumber === 1) {
+      prevSlideButton.setAttribute('disabled', 'disabled');
+      headButton.removeAttribute('disabled');""
+    } else if(slideNumber >= slides.length) {
+      headButton.removeAttribute('disabled');
+      prevSlideButton.removeAttribute('disabled');
+      nextSlideButton.setAttribute('disabled', 'disabled');
+    } else {
+      headButton.removeAttribute('disabled');
+      prevSlideButton.removeAttribute('disabled');
+      nextSlideButton.removeAttribute('disabled');
+    }
+  }
+
+  nextSlideButton.addEventListener('click', () => {
+    if(isNaN(slideNumber)) slideNumber = 0;
+    if(slideNumber >= slides.length) {
+      slideNumber = 1;
+    } else {
+      slideNumber++;
+    }
+    window.location.href = `#${slideNumber}`;
+    window.scrollTo(0, slidePosition(slideNumber));
+    setTimeout(() => window.scrollTo(0, slidePosition(slideNumber)), 100);
+    updateControllers();
+  });
+
+  prevSlideButton.addEventListener('click', () => {
+    if(isNaN(slideNumber)) slideNumber = 0;
+    if(slideNumber <= 1) {
+      slideNumber = slides.length;
+    } else {
+      slideNumber--;
+    }
+    window.location.href = `#${slideNumber}`;
+    window.scrollTo(0, slidePosition(slideNumber));
+    setTimeout(() => window.scrollTo(0, slidePosition(slideNumber)), 100);
+    updateControllers();
+  });
+
+  headButton.addEventListener('click', () => {
+    slideNumber = 0;
+    window.location.href = `#head`; 
+    document.getElementById('head').focus();
+    window.scrollTo(0, document.getElementById('head').offsetTop - 500);
+    updateControllers();
+  });
+
+  function slidePosition(slide) {
+    return document.getElementById(slide).offsetTop - 50;
+  }
+
+  document.onkeydown = (e) => {
+    if(e.keyCode === 38) {
+      prevSlideButton.click();
+      e.preventDefault();
+    } else if(e.keyCode === 40) {
+      nextSlideButton.click();
+      e.preventDefault();
+    } else if(e.keyCode === 36) {
+      headButton.click();
+      e.preventDefault();
+    } else if(e.keyCode === 32) {
+      e.preventDefault();
+    }
+  };
+
+
+
+</script>
